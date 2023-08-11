@@ -1,7 +1,6 @@
-module Admin
-  class DashboardController < ApplicationController
-    # GET /admin
-    def index
-    end
+
+class Admin::DashboardController < Admin::ApplicationController
+  # GET /admin
+  def index
   end
 end

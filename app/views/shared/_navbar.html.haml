@@ -1,0 +1,53 @@
+/ Navbar
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  / Container wrapper
+  .container-fluid
+    / Toggle button
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-mdb-target" => "#navbarSupportedContent", "data-mdb-toggle" => "collapse", type: "button"}
+      %i.fas.fa-bars
+    / Collapsible wrapper
+    #navbarSupportedContent.collapse.navbar-collapse
+      / Navbar brand
+      %a.navbar-brand.mt-2.mt-lg-0{href: "#"}
+        %img{alt: "MDB Logo", height: "15", loading: "lazy", src: "https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"}/
+      / Left links
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        %li.nav-item
+          %a.nav-link{href: "#"} Dashboard
+        %li.nav-item
+          %a.nav-link{href: "#"} Team
+        %li.nav-item
+          %a.nav-link{href: "#"} Projects
+      / Left links
+    / Collapsible wrapper
+    / Right elements
+    .d-flex.align-items-center
+      / Icon
+      %a.text-reset.me-3{href: "#"}
+        %i.fas.fa-shopping-cart
+      / Notifications
+      .dropdown
+        %a#navbarDropdownMenuLink.text-reset.me-3.dropdown-toggle.hidden-arrow{"aria-expanded" => "false", "data-mdb-toggle" => "dropdown", href: "#", role: "button"}
+          %i.fas.fa-bell
+          %span.badge.rounded-pill.badge-notification.bg-danger 1
+        %ul.dropdown-menu.dropdown-menu-end{"aria-labelledby" => "navbarDropdownMenuLink"}
+          %li
+            %a.dropdown-item{href: "#"} Some news
+          %li
+            %a.dropdown-item{href: "#"} Another news
+          %li
+            %a.dropdown-item{href: "#"} Something else here
+      / Avatar
+      .dropdown
+        %a#navbarDropdownMenuAvatar.dropdown-toggle.d-flex.align-items-center.hidden-arrow{"aria-expanded" => "false", "data-mdb-toggle" => "dropdown", href: "#", role: "button"}
+          %img.rounded-circle{alt: "Black and White Portrait of a Man", height: "25", loading: "lazy", src: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"}/
+        %ul.dropdown-menu.dropdown-menu-end{"aria-labelledby" => "navbarDropdownMenuAvatar"}
+          %li
+            %a.dropdown-item{href: "#"} My profile
+          %li
+            %a.dropdown-item{href: "#"} Settings
+          %li
+            %a.dropdown-item{href: "#"} Logout
+    / Right elements
+  / Container wrapper
+/ Navbar
