@@ -1,0 +1,56 @@
+.roadmap {
+  // text-align: center;
+
+  // &__tree {
+  //   width: fit-content;
+  //   margin: auto;
+
+  //   ul {
+  //     list-style-type: none;
+  //   }
+  // }
+
+  // &__subtree {
+  //   padding: 10px;
+  //   margin-bottom: 20px;
+  //   border: 2px solid #000;
+  // }
+
+  // &__root {
+  //   padding: 30px;
+  //   border: 2px solid #000;
+  //   margin-bottom: 20px;
+  // }
+
+  &__leaf {
+    background-color: rgb(255,255,0);
+    border: 2px solid #000;
+    position: relative;
+  }
+
+  .node-foreign-object-div {
+    display: flex;
+  }
+}
+
+.drawflow .drawflow-node {
+  display: block;
+}
+
+.drawflow .drawflow-node .inputs, .drawflow .drawflow-node .outputs {
+  display: flex;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drawflow .drawflow-node .input {
+  top: -10px;
+  left: 0px;
+}
+
+.drawflow .drawflow-node .output {
+  top: 10px;
+  right: 0px;
+}

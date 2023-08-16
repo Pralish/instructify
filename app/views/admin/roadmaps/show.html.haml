@@ -1,0 +1,7 @@
+- content_for :head do
+  = stylesheet_link_tag 'roadmap'
+
+%main.roadmap{data: {controller: "roadmap-connector"}}
+  %section.roadmap__tree.tree
+    %h1.roadmap__title--lg= @roadmap.title
+    #drawflow{style: 'height: 800px;'}

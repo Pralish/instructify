@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :members
+    resources :roadmaps do
+      resources :steps, except: %i[index show]
+    end 
   end
 
   namespace :student do

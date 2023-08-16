@@ -1,8 +1,8 @@
 %main.roadmap
   %h1.roadmap__title--lg= @roadmap.title
-  - @roadmap.phases.each do |phase|
-    .roadmap__phase
-      %h2.roadmap__title--md= phase.title
+  - @roadmap.steps.each do |step|
+    .roadmap__step
+      %h2.roadmap__title--md= step.title
       %ul
-        - phase.tasks.each do |task|
+        - step.tasks.each do |task|
           %li.roadmap__task= task.title

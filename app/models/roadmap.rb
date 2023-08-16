@@ -1,5 +1,5 @@
 class Roadmap < ApplicationRecord
   multi_tenant :organization
 
-  has_many :phases
+  has_many :steps
 end

@@ -1,8 +1,11 @@
+- content_for :head do
+  = stylesheet_link_tag 'roadmap'
+
 %main.roadmap
   %h1.roadmap__title--lg= @roadmap.title
-  - @roadmap.phases.each do |phase|
-    .roadmap__phase
-      %h2.roadmap__title--md= phase.title
+  - @roadmap.steps.each do |step|
+    .roadmap__step
+      %h2.roadmap__title--md= step.title
       %ul
-        - phase.tasks.each do |task|
-          %li.roadmap__task= task.title
+        - step.tasks.each do |task|
+          %li.roadmap__task{id: task.id }= task.title

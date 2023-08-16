@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_171656) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_15_142958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,42 +31,39 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_171656) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "phases", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.bigint "roadmap_id", null: false
-    t.bigint "organization_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["organization_id"], name: "index_phases_on_organization_id"
-    t.index ["roadmap_id"], name: "index_phases_on_roadmap_id"
-  end
-
   create_table "roadmaps", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.bigint "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roadmaps_on_organization_id"
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "steps", force: :cascade do |t|
     t.string "title"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.bigint "phase_id", null: false
+    t.text "description"
+    t.bigint "roadmap_id", null: false
     t.bigint "organization_id", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_steps_on_ancestry"
+    t.index ["organization_id"], name: "index_steps_on_organization_id"
+    t.index ["roadmap_id"], name: "index_steps_on_roadmap_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "step_id", null: false
+    t.bigint "organization_id", null: false
     t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_tasks_on_ancestry"
     t.index ["organization_id"], name: "index_tasks_on_organization_id"
-    t.index ["phase_id"], name: "index_tasks_on_phase_id"
+    t.index ["step_id"], name: "index_tasks_on_step_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,9 +83,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_171656) do
 
   add_foreign_key "members", "organizations"
   add_foreign_key "members", "users"
-  add_foreign_key "phases", "organizations"
-  add_foreign_key "phases", "roadmaps"
   add_foreign_key "roadmaps", "organizations"
+  add_foreign_key "steps", "organizations"
+  add_foreign_key "steps", "roadmaps"
   add_foreign_key "tasks", "organizations"
-  add_foreign_key "tasks", "phases"
+  add_foreign_key "tasks", "steps"
 end
