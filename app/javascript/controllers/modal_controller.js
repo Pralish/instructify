@@ -8,12 +8,15 @@ export default class extends Controller {
   }
 
   hideBeforeRender(event) {
-    console.log('test 1')
     if (this.isOpen()) {
       event.preventDefault()
       this.element.addEventListener('hidden.bs.modal', event.detail.resume)
       this.modal.hide()
     }
+  }
+
+  hideModal() {
+    this.modal.hide();
   }
 
   isOpen() {

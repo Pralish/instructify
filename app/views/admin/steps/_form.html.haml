@@ -1,6 +1,6 @@
 - method = step.persisted? ? :patch : :post
 - url = step.persisted? ? admin_roadmap_step_path(roadmap_id: step.roadmap.id) : admin_roadmap_steps_path(roadmap_id: step.roadmap.id)
-= form_with(model: step, url: url, method: method) do |form|
+= form_with model: step, url: url, method: method, html: { data: { controller: 'roadmap', roadmap_modal_outlet: '#remote-modal', action: "submit->roadmap#createNode" } } do |form|
   = form.hidden_field :parent_id
   .mb-3
     = form.label :title, style: "display: block", class: "form-label"

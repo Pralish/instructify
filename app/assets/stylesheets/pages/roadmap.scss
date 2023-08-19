@@ -22,12 +22,6 @@
   //   margin-bottom: 20px;
   // }
 
-  &__leaf {
-    background-color: rgb(255,255,0);
-    border: 2px solid #000;
-    position: relative;
-  }
-
   .node-foreign-object-div {
     display: flex;
   }
@@ -53,4 +47,24 @@
 .drawflow .drawflow-node .output {
   top: 10px;
   right: 0px;
+}
+
+.drawflow {
+  .inputs,
+  .outputs {
+    height: 0;
+  }
+
+
+}
+
+[data-theme=dark] {
+
+  .drawflow {
+    .drawflow-node {
+      background: rgb(43, 44, 62);
+      border-color: #475872;
+      color: rgb(220, 229, 231);
+    }
+  }
 }

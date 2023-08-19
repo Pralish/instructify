@@ -17,8 +17,9 @@ class Admin::StepsController < Admin::ApplicationController
   
     respond_to do |format|
       if @step.save
-        format.html { redirect_back fallback_location: roadmap_path(@roadmap), notice: "#{@step.type} was successfully created." }
-        format.json { render :show, status: :created, location: @step }
+        format.html { redirect_back fallback_location: roadmap_path(@roadmap), notice: "Step was successfully created." }
+        format.json { render :show, status: :created }
+        format.turbo_stream { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @step.errors, status: :unprocessable_entity }
@@ -30,7 +31,7 @@ class Admin::StepsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if  @step.update(step_params)
-        format.html { redirect_back fallback_location: roadmap_path(@roadmap), notice: "#{@step.type} was successfully created." }
+        format.html { redirect_back fallback_location: roadmap_path(@roadmap), notice: "@step was successfully created." }
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,6 +64,10 @@ class Admin::StepsController < Admin::ApplicationController
   end
 
   def step_params
-    params.fetch(:step, {}).permit(:title, :description, :parent_id)
+    params.fetch(:step, {}).permit(
+      :title,
+      :description,
+      :parent_id,
+      node_attributes: [:pos_x, :pos_y, :class_name])
   end
 end

@@ -137,3 +137,14 @@
   --bs-gray-900-rgb: 144,146,148;
   --bs-border-color: #383838
 }
+
+
+::-moz-selection {
+  background-color: rgba(0,186,199,.75);
+  color: #fff
+}
+
+::selection {
+  background-color: rgba(0,186,199,.75);
+  color: #fff
+}

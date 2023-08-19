@@ -7,5 +7,5 @@ import { application } from "./application"
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
-import RoadmapConnectorController from "./roadmap_connector_controller"
-application.register("roadmap-connector", RoadmapConnectorController)
+import RoadmapController from "./roadmap_controller"
+application.register("roadmap", RoadmapController)

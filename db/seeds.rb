@@ -5,12 +5,84 @@ organization = Organization.find_or_create_by!(name: 'Instructify', subdomain: '
 
 user = User.first_or_create!(email: 'john@instructify.com', first_name: 'John', last_name: 'Doe', password: 'changeme')
 
-MultiTenant.with(organization) do
-  Member.find_or_create_by!(user: user)
+MultiTenant.with(Organization.first) do
 
   roadmap = Roadmap.find_or_create_by!(title: 'Frontend Developer')
-  step_1 = roadmap.steps.find_or_create_by!(title: 'Html')
-  step_2 = step_1.children.find_or_create_by!(title: 'CSS')
-  step_3 = step_2.children.find_or_create_by!(title: 'JavaScript')
+
+  data = {
+    "1": {
+        "id": "1",
+        "data": { "content_type": "Step", "title": "Html" },
+        "class": "",
+        "name": "Html",
+        "typenode": false,
+        "inputs": {},
+        "outputs": {
+            "output_1": {
+                "connections": [
+                    {
+                        "node": "2",
+                        "output": "input_1"
+                    }
+                ]
+            }
+        },
+        "pos_x": 0,
+        "pos_y": 0
+    },
+    "2": {
+        "id": "2",
+        "data": { "content_type": "Step", "title": "Css" },
+        "class": "",
+        "name": "CSS",
+        "typenode": false,
+        "inputs": {
+            "input_1": {
+                "connections": [
+                    {
+                        "node": "1",
+                        "input": "output_1"
+                    }
+                ]
+            }
+        },
+        "outputs": {
+            "output_1": {
+                "connections": [
+                    {
+                        "node": "4",
+                        "output": "input_1"
+                    }
+                ]
+            }
+        },
+        "pos_x": 0,
+        "pos_y": 100
+    },
+    "4": {
+        "id": "4",
+        "data": { "content_type": "Step", "title": "Javascript" },
+        "class": "",
+        "name": "JS",
+        "typenode": false,
+        "inputs": {
+            "input_1": {
+                "connections": [
+                    {
+                        "node": "2",
+                        "input": "output_1"
+                    }
+                ]
+            }
+        },
+        "outputs": {},
+        "pos_x": 0,
+        "pos_y": 200
+    }
+  }
+
+  RoadmapNodeBuilder.new(roadmap, data).call
 end
+
+
 

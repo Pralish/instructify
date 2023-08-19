@@ -470,3 +470,18 @@
 .h-1000px {
   height: 1000px!important
 }
+
+@media (min-width: 768px){
+  .mw-md-300px {
+    max-width: 300px!important;
+  }
+}
+
+.h4 {
+  font-size: .875rem;
+}
+
+.text-muted {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-body-color-rgb),.3525)!important;
+}

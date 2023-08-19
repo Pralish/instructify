@@ -1,5 +1,4 @@
 %nav#mainNavbar.navbar.navbar-vertical.navbar-expand-lg.scrollbar.bg-dark.navbar-dark
-  / Theme configuration (navbar)
   :javascript
     let navigationColor = localStorage.getItem('navigationColor'),
         navbar = document.getElementById('mainNavbar');
@@ -14,80 +13,33 @@
         }
     }
   .container-fluid
-    / Brand
     %a.navbar-brand{:href => "./index.html"}
-      %img.navbar-brand-img.logo-light.logo-small{:alt => "...", :height => "25", :src => "https://d33wubrfki0l68.cloudfront.net/33193ecc0db7caa7d7efee3dca8af1b145fa2135/16978/assets/images/logo-small.svg", :width => "19"}/
-      %img.navbar-brand-img.logo-light.logo-large{:alt => "...", :height => "25", :src => "https://d33wubrfki0l68.cloudfront.net/ba6b91b7d508187d153e48318c22d0773a9cedfc/36afa/assets/images/logo.svg", :width => "125"}/
-      %img.navbar-brand-img.logo-dark.logo-small{:alt => "...", :height => "25", :src => "https://d33wubrfki0l68.cloudfront.net/8b6c92837e3b7aa8c9017d33298ead6b9b859d79/fa79b/assets/images/logo-dark-small.svg", :width => "19"}/
-      %img.navbar-brand-img.logo-dark.logo-large{:alt => "...", :height => "25", :src => "https://d33wubrfki0l68.cloudfront.net/55307694d1a6b107d2d87c838a1aaede85cd3d84/66f18/assets/images/logo-dark.svg", :width => "125"}/
-    / Navbar toggler
+      %h2 instructify
     %a.navbar-toggler{"aria-controls" => "sidenavCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#sidenavCollapse", "data-bs-toggle" => "collapse", :href => "javascript: void(0);"}
       %span.navbar-toggler-icon
-    / Collapse
     #sidenavCollapse.collapse.navbar-collapse
-      / Navigation
       %ul.navbar-nav.mb-lg-7
         %li.nav-item.dropdown
-          %a.nav-link{:href => "./calendar.html"}
-            %svg.nav-link-icon{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
-              %path{:d => "M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-              %path{:d => "M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+          = link_to admin_path, class: 'nav-link' do
+            %i.bi.bi-house.nav-link-icon.fs-6
             %span Dashboards
         %li.nav-item
-          %a.nav-link{:href => "./calendar.html"}
-            %svg.nav-link-icon{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
-              %defs
-                :css
-                  .a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}
-              %title calendar
-              %rect.a{:height => "19.5", :rx => "1.5", :ry => "1.5", :width => "22.5", :x => "0.752", :y => "3.75"}
-              %line.a{:x1 => "0.752", :x2 => "23.252", :y1 => "9.75", :y2 => "9.75"}
-              %line.a{:x1 => "6.752", :x2 => "6.752", :y1 => "6", :y2 => "0.75"}
-              %line.a{:x1 => "17.252", :x2 => "17.252", :y1 => "6", :y2 => "0.75"}
+          = link_to admin_roadmaps_path, class: 'nav-link' do
+            %i.bi.bi-bar-chart-steps.nav-link-icon.fs-6
             %span Roadmaps
         %li.nav-item.dropdown
-          %a.nav-link.active{"aria-controls" => "dashboardsCollapse", "aria-expanded" => "true", "data-bs-toggle" => "collapse", :href => "#dashboardsCollapse", :role => "button"}
-            %svg.nav-link-icon{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
-              %path{:d => "M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-              %path{:d => "M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
+          %a.nav-link{"aria-controls" => "dashboardsCollapse", "aria-expanded" => "false", "data-bs-toggle" => "collapse", :href => "#dashboardsCollapse", :role => "button"}
+            %i.bi.bi-people.nav-link-icon.fs-6
             %span Users
-          #dashboardsCollapse.collapse.show
+          #dashboardsCollapse.collapse
             %ul.nav.flex-column
               %li.nav-item
-                %a.nav-link.active{:href => "./index.html"}
+                = link_to admin_members_path(role: 'admin'), class: 'nav-link' do
+                  %span Admins
+              %li.nav-item
+                = link_to admin_members_path(role: 'teacher'), class: 'nav-link' do
                   %span Teachers
               %li.nav-item
-                %a.nav-link{:href => "./dashboard-ecommerce.html"}
+                = link_to admin_members_path(role: 'student'), class: 'nav-link' do
                   %span Students
-              %li.nav-item
-                %a.nav-link{:href => "./dashboard-crm.html"}
-                  %span Admins
-                  %span.badge.text-bg-success.rounded-pill.ms-auto New
-        %li.nav-item.w-100
-          %hr/
-        %li.nav-item
-          %a.nav-link{:href => "./docs/index.html"}
-            %svg.nav-link-icon{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
-              %path{:d => "M22.627 14.87 15 22.5l-3.75.75.75-3.75 7.631-7.63a2.113 2.113 0 0 1 2.991 0l.009.008a2.116 2.116 0 0 1-.004 2.992zM8.246 20.25h-6a1.5 1.5 0 0 1-1.5-1.5V2.25a1.5 1.5 0 0 1 1.5-1.5h15a1.5 1.5 0 0 1 1.5 1.5V9m-10.5-3.75h6m-9 4.5h9m-9 4.5h7.5", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-            %span Documentation
-            %span.badge.text-bg-primary.rounded-pill.ms-auto v1.5
-        %li.nav-item
-          %a.nav-link{:href => "./docs/accordion.html"}
-            %svg.nav-link-icon{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
-              %path{:d => "M22.91,6.953,12.7,1.672a1.543,1.543,0,0,0-1.416,0L1.076,6.953a.615.615,0,0,0,0,1.094l10.209,5.281a1.543,1.543,0,0,0,1.416,0L22.91,8.047a.616.616,0,0,0,0-1.094Z", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-              %path{:d => "M.758,12.75l10.527,5.078a1.543,1.543,0,0,0,1.416,0L23.258,12.75", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-              %path{:d => "M.758,17.25l10.527,5.078a1.543,1.543,0,0,0,1.416,0L23.258,17.25", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-            %span Components
-      / End of Navigation
-      / Info box
-      .help-box.rounded-3.py-5.px-4.text-center.mt-auto
-        %img.img-fluid.mb-4{:alt => "...", :height => "160", :src => "https://d33wubrfki0l68.cloudfront.net/562db41ab1c8390d2de557ae8ebd99c6add4f80b/2053e/assets/images/illustrations/upgrade-illustration.svg", :width => "160"}/
-        %h6
-          Upgrade to explore
-          %br/
-          %span.emphasize premium
-          features
-        / Button
-        %a.btn.w-100.btn-sm.btn-primary{:href => "javascript: void(0);"} Upgrade to Business
-    / End of Collapse
-
+  
