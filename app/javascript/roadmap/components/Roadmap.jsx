@@ -1,0 +1,182 @@
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import ReactFlow, {
+  Controls,
+  Background,
+  BackgroundVariant,
+  useNodesState,
+  useEdgesState,
+  useReactFlow,
+  addEdge,
+  ReactFlowProvider,
+  Panel
+} from 'reactflow';
+import StepNode from './StepNode.jsx';
+import { formDataToJson, formatedPayload } from '../../utils.js';
+import TaskNode from './TaskNode.jsx';
+
+const nodeTypes = { Step: StepNode, Task: TaskNode };
+
+const Roadmap = () => {
+  const [rfInstance, setRfInstance] = useState(null);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  const reactFlowWrapper = useRef(null);
+  const connectingNodeId = useRef({});
+
+  const { project } = useReactFlow();
+  const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
+
+  const onConnectStart = useCallback((_, { nodeId, handleId }) => {
+    connectingNodeId.current = { nodeId, handleId };
+  }, []);
+
+
+  const onConnectEnd = useCallback(
+    (event) => {
+      const targetIsPane = event.target.classList.contains('react-flow__pane');
+
+      if (targetIsPane) {
+        // we need to remove the wrapper bounds, in order to get the correct position
+        const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+        const position = project({ x: event.clientX - left - 75, y: event.clientY - top });
+        
+        const payload = {
+          task: {
+            type: 'Task',
+            title: 'New Task',
+            parent_id: connectingNodeId.current.nodeId,
+            position: position,
+            incoming_edges_attributes: [{
+              source_id: connectingNodeId.current.nodeId,
+              source_handle: connectingNodeId.current.handleId,
+              target_handle: connectingNodeId.current.handleId.includes('left') ? 'right-target' : 'left-target',
+            }]
+          }
+        }
+        buildNode('/admin/roadmaps/1/nodes.json', payload, 'POST');
+      }
+    },
+    [project]
+  );
+
+  useEffect(() => {
+    renderRoadmap();
+  }, []);
+
+  useEffect(() => {
+    const handleModalFormSubmitted = (event) => {
+      const formData = formDataToJson(new FormData(event.detail.event.srcElement))
+      buildNode(`${event.detail.event.srcElement.action}.json`, formData, formData._method.toUpperCase())
+      event.detail.modalOutlet.hideModal();
+    };
+
+    document.addEventListener('modalFormSubmitted', handleModalFormSubmitted);
+
+    return () => {
+      document.removeEventListener('modalFormSubmitted', handleModalFormSubmitted);
+    };
+  }, []);
+
+  const buildNode = async (url, body, method) => {
+    await fetch(url, {
+      method: method,
+      body: JSON.stringify(body),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.head.querySelector(`meta[name="csrf-token"]`).getAttribute('content')
+        }
+      })
+      .then(response => response.json())
+      .then(response => {
+
+      // setNodes((nds) => nds.concat(response.data.node))
+      // setEdges((nds) => nds.concat(response.data.edge))
+      // TODO: only add new node from response instead of fetching all nodes
+      // TODO: update parent node so that, add icon is not shown
+      renderRoadmap();
+    })
+  }
+
+  const onSave = useCallback(() => {
+    if (rfInstance) {
+      fetch('/admin/roadmaps/1.json', {
+        method: 'PATCH',
+        body: JSON.stringify(formatedPayload(rfInstance.toObject())),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.head.querySelector(`meta[name="csrf-token"]`).getAttribute('content')
+      }})
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+  }, [rfInstance]);
+
+  const renderRoadmap = () => {
+    fetch('/admin/roadmaps/1.json', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }})
+    .then(response => response.json())
+    .then(data => {
+        const nodes = data.data.attributes.nodes
+        const edges = data.data.attributes.edges
+        setNodes(nodes);
+        setEdges(edges);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }
+
+  const deleteNode = () => {
+    fetch('/admin/roadmaps/1.json', {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }})
+    .then(response => response.json())
+    .then(data => {
+
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }
+
+  return (
+    <div className="wrapper" ref={reactFlowWrapper} style={{ width: '100vw', height: '80vh' }}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        onConnectStart={onConnectStart}
+        onConnectEnd={onConnectEnd}
+        onInit={setRfInstance}
+        nodeTypes={nodeTypes}
+        preventScrolling={false}
+        zoomOnScroll="false"
+      >
+        <Panel position="top-left">
+          <button onClick={onSave}>save</button>
+        </Panel>
+        <Controls />
+        <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
+        <Background id="2" gap={100} offset={1} color="#ccc" variant={BackgroundVariant.Lines} />
+      </ReactFlow>
+    </div>
+  );
+};
+
+export default () => (
+  <ReactFlowProvider>
+    <Roadmap />
+  </ReactFlowProvider>
+);
+

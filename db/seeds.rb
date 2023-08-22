@@ -6,82 +6,32 @@ organization = Organization.find_or_create_by!(name: 'Instructify', subdomain: '
 user = User.first_or_create!(email: 'john@instructify.com', first_name: 'John', last_name: 'Doe', password: 'changeme')
 
 MultiTenant.with(Organization.first) do
-
   roadmap = Roadmap.find_or_create_by!(title: 'Frontend Developer')
 
-  data = {
-    "1": {
-        "id": "1",
-        "data": { "content_type": "Step", "title": "Html" },
-        "class": "",
-        "name": "Html",
-        "typenode": false,
-        "inputs": {},
-        "outputs": {
-            "output_1": {
-                "connections": [
-                    {
-                        "node": "2",
-                        "output": "input_1"
-                    }
-                ]
-            }
-        },
-        "pos_x": 0,
-        "pos_y": 0
-    },
-    "2": {
-        "id": "2",
-        "data": { "content_type": "Step", "title": "Css" },
-        "class": "",
-        "name": "CSS",
-        "typenode": false,
-        "inputs": {
-            "input_1": {
-                "connections": [
-                    {
-                        "node": "1",
-                        "input": "output_1"
-                    }
-                ]
-            }
-        },
-        "outputs": {
-            "output_1": {
-                "connections": [
-                    {
-                        "node": "4",
-                        "output": "input_1"
-                    }
-                ]
-            }
-        },
-        "pos_x": 0,
-        "pos_y": 100
-    },
-    "4": {
-        "id": "4",
-        "data": { "content_type": "Step", "title": "Javascript" },
-        "class": "",
-        "name": "JS",
-        "typenode": false,
-        "inputs": {
-            "input_1": {
-                "connections": [
-                    {
-                        "node": "2",
-                        "input": "output_1"
-                    }
-                ]
-            }
-        },
-        "outputs": {},
-        "pos_x": 0,
-        "pos_y": 200
-    }
-  }
+  step_1 = roadmap.nodes.create(type: 'Step', title: 'Html')
+  step_2 = roadmap.nodes.create(type: 'Step', title: 'Css', parent: step_1)
+  step_3 = roadmap.nodes.create(type: 'Step', title: 'javascript', parent: step_2)
 
-  RoadmapNodeBuilder.new(roadmap, data).call
+  Task.create!(
+    title: 'Learn the Basics',
+    roadmap: roadmap,
+    parent_id: step_1.id,
+    incoming_edges_attributes: [{
+      source_handle: 'right',
+      target_handle: 'left-target',
+      source: step_1,
+      type: ''
+    }])
+
+  Task.create!(
+    title: 'Writing Semantic HTML',
+    roadmap: roadmap,
+    parent_id: step_1.id,
+    incoming_edges_attributes: [{
+      source_handle: 'right',
+      target_handle: 'left-target',
+      source: step_1
+    }])
 end
 
 

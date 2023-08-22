@@ -1,10 +1,11 @@
 
 class RoadmapNodeBuilder
-  attr_accessor :roadmap, :draw_flow_export
+  attr_accessor :roadmap, :nodes, edges
 
-  def initialize(roadmap, draw_flow_export)
+  def initialize(roadmap, nodes, edges)
     @roadmap = roadmap
-    @draw_flow_export = draw_flow_export.with_indifferent_access
+    @nodes = nodes
+    @edges = edges
   end
 
   def call
@@ -15,6 +16,30 @@ class RoadmapNodeBuilder
   private
 
   def build_nodes
+    # ids of nodes and 
+    edges = edges.map do |edge|
+              edge[:source_id] = nodes.select { |node| node[:id] == edge[:source] }[:data][:id]
+              edge[:target_id] = nodes.select { |node| node[:id] == edge[:target] }[:data][:id]
+              edge 
+            end
+
+    nodes = nodes.map do |node|
+              node[:id] = node[:data][:id]
+            end
+
+    nodes.each do |node_data|
+      node = Node.find_by_id(node_data[:data][:id]).update(node_data[:data])
+      
+      incoming_edge = edges.select { |edge| edge[:source] == node_data[:id] }
+      node.incoming_edges.update
+      outgoing_edge = edges.select { |edge| edge[:target] == node_data[:id] }
+
+    end
+
+    edges.each do |edge|
+      nodes.select {|node| node.id == edge.source }
+    end
+
     draw_flow_export.transform_values! do |node_data|
       content = node_data[:data][:content_type].constantize.where(id: node_data[:data][:content_id]).first_or_initialize
       content.update!(

@@ -14,6 +14,7 @@ class Admin::RoadmapsController < Admin::ApplicationController
   end
 
   def update
+    @roadmap.update!(roadmap_params)
   end
 
   def build_nodes
@@ -26,15 +27,24 @@ class Admin::RoadmapsController < Admin::ApplicationController
     @roadmap = Roadmap.find(params[:id])
   end
 
-  def roadmap_nodes_params
-    params.require(:nodes).permit(
+  def roadmap_params
+    params.require(:roadmap).permit(
       :id,
-      :pos_x,
-      :pos_y,
-      :class,
-      data: [:content_type, :content_id, :title],
-      inputs: [connections: [:input, :node]],
-      outputs: [connections: [:output, :node]]
+      :title,
+      nodes_attributes: [
+        :id,
+        :title,
+        :description,
+        :type,
+        :parent_id,
+        position: [:x, :y],
+        incoming_edges_attributes: [
+          :id,
+          :source_id,
+          :target_id,
+          :label
+        ]
+      ]
     )
   end
 end

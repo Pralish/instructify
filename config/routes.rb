@@ -7,10 +7,7 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
     resources :members
     resources :roadmaps do
-      member do
-        patch :build_nodes
-      end
-      resources :steps, except: %i[index show]
+      resources :nodes
     end 
   end
 

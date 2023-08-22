@@ -1,34 +1,8 @@
-.roadmap {
-  // text-align: center;
-
-  // &__tree {
-  //   width: fit-content;
-  //   margin: auto;
-
-  //   ul {
-  //     list-style-type: none;
-  //   }
-  // }
-
-  // &__subtree {
-  //   padding: 10px;
-  //   margin-bottom: 20px;
-  //   border: 2px solid #000;
-  // }
-
-  // &__root {
-  //   padding: 30px;
-  //   border: 2px solid #000;
-  //   margin-bottom: 20px;
-  // }
-
-  .node-foreign-object-div {
-    display: flex;
-  }
-}
+@import 'reactflow/dist/style';
 
 .drawflow .drawflow-node {
   display: block;
+  padding: 0;
 }
 
 .drawflow .drawflow-node .inputs, .drawflow .drawflow-node .outputs {
@@ -40,12 +14,12 @@
 }
 
 .drawflow .drawflow-node .input {
-  top: -10px;
+  top: 0px;
   left: 0px;
 }
 
 .drawflow .drawflow-node .output {
-  top: 10px;
+  top: 0px;
   right: 0px;
 }
 
@@ -54,12 +28,9 @@
   .outputs {
     height: 0;
   }
-
-
 }
 
 [data-theme=dark] {
-
   .drawflow {
     .drawflow-node {
       background: rgb(43, 44, 62);

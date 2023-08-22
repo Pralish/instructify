@@ -1,0 +1,24 @@
+- method = node.new_record? ? 'POST' : 'PATCH'
+- url = node.persisted? ? admin_roadmap_node_path(roadmap_id: node.roadmap.id) : admin_roadmap_nodes_path(roadmap_id: node.roadmap.id)
+= form_with model: node, url: url, method: method, html: { data: { controller: 'roadmap', roadmap_modal_outlet: '#remote-modal', action: "submit->roadmap#createNode" } } do |form|
+  = form.hidden_field :parent_id
+  = form.hidden_field :type
+  .mb-3
+    = form.label :title, style: "display: block", class: "form-label"
+    = form.text_field :title, class: "form-control"
+    %div{:style => "color: red"}
+      - if node.errors.include?(:title)
+        - node.errors.full_messages_for(:title).each do |error_message|
+          = error_message
+          \.
+  .mb-3
+    = form.label :description, style: "display: block", class: "form-label"
+    = form.text_area :description, class: "form-control"
+    %div{:style => "color: red"}
+      - if node.errors.include?(:description)
+        - node.errors.full_messages_for(:description).each do |error_message|
+          = error_message
+          \.
+  .mb-3
+    = form.submit "Save", class: "btn btn-success btn-block"
+

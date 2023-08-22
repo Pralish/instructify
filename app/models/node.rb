@@ -1,34 +1,39 @@
 class Node < ApplicationRecord
   multi_tenant :organization
 
+  has_ancestry
+
   belongs_to :roadmap
-  belongs_to :content, polymorphic: true
 
-  has_many :input_connections,  class_name: 'Connection', foreign_key: 'to_node_id',   dependent: :destroy
-  has_many :output_connections, class_name: 'Connection', foreign_key: 'from_node_id', dependent: :destroy
+  has_many :incoming_edges,  class_name: 'Edge', foreign_key: 'target_id',   dependent: :destroy, inverse_of: :target
+  has_many :outgoing_edges, class_name: 'Edge', foreign_key: 'source_id', dependent: :destroy
 
-  after_create :create_connections, if: -> { input_connections.empty? }
+  after_create :create_edge, if: -> { incoming_edges.empty? && parent.present? }
 
   after_initialize :set_roadmap_id, if: -> { new_record? && roadmap_id.nil? }
 
-  after_initialize :set_position,   if: -> { new_record? && pos_x.nil? && pos_y.nil? }
+  after_initialize :set_position,   if: -> { new_record? && position.blank? }
 
-  def parent
-    content.parent&.node
+  accepts_nested_attributes_for :incoming_edges
+
+  def edges
+    incoming_edges.or(outgoing_edges)
   end
 
   private
   
   def set_roadmap_id
-    self.roadmap_id = content&.roadmap_id
+    self.roadmap_id = parent&.roadmap_id
   end
 
-  def create_connections
-    input_connections.create!(from_node: parent, from_output: 'output_1', to_input: 'input_1' ) if parent.present?
+  def create_edge
+    Edge.create!(source: parent, target: self)
   end
 
   def set_position
-    self.pos_x = parent.pos_x.to_f
-    self.pos_y = parent.pos_y.to_f + 100
+    self.position = {
+      x: parent.present? ? parent.position["x"].to_f : 0,
+      y: parent.present? ? parent.position["y"].to_f + 150 : 0
+    } 
   end
 end
