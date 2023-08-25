@@ -1,41 +1,59 @@
 @import 'reactflow/dist/style';
 
-.drawflow .drawflow-node {
-  display: block;
-  padding: 0;
-}
-
-.drawflow .drawflow-node .inputs, .drawflow .drawflow-node .outputs {
+.roadmap__node {
   display: flex;
-  width: auto;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c4cbd1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  font-family: 'JetBrains Mono', monospace;
   align-items: center;
-}
+  justify-content: center;
 
-.drawflow .drawflow-node .input {
-  top: 0px;
-  left: 0px;
-}
-
-.drawflow .drawflow-node .output {
-  top: 0px;
-  right: 0px;
-}
-
-.drawflow {
-  .inputs,
-  .outputs {
-    height: 0;
+  &-step {
+    width: 150px;
+    padding: 20px;
   }
-}
 
-[data-theme=dark] {
-  .drawflow {
-    .drawflow-node {
-      background: rgb(43, 44, 62);
-      border-color: #475872;
-      color: rgb(220, 229, 231);
+  &-task{
+    padding: 15px;
+    font-size: 10px;
+  }
+
+  .actions {
+    top: 3px;
+    right: 5px;
+  }
+
+  .add-new {
+    bottom: -80px;
+    font-size: 24px;
+    background: #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      border-left: 1px solid #c4cbd1;
+      height: 44px;
+      top: -40px;
     }
   }
+}
+
+
+
+[data-theme=dark] {
+  .roadmap__node {
+    background-color: var( --bs-surface-bg);
+    border: none;
+  }
+}
+
+
+.react-flow__handle:not(.connectable) {
+  visibility: hidden;
 }

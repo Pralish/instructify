@@ -1,0 +1,12 @@
+- content_for :head do
+  = stylesheet_link_tag 'roadmap'
+
+%main
+  .d-flex.align-items-baseline.justify-content-between
+    %h1.h2.d-flex.align-items-center.justify-content-between
+      %span
+        = @roadmap.title
+        %button#btnAddTask.btn.btn-sm.btn-primary.ms-4{"data-bs-target" => "#taskModal", "data-bs-toggle" => "modal", :type => "button"} Add New Task
+    = link_to admin_roadmap_path(@roadmap, view: 'list'), class: "d-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm mx-1 mx-lg-2 w-40px h-40px link-secondary" do
+      %i.bi.bi-list-nested.fs-5
+  %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }}

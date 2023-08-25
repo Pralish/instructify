@@ -16,10 +16,12 @@ import TaskNode from './TaskNode.jsx';
 
 const nodeTypes = { Step: StepNode, Task: TaskNode };
 
-const Roadmap = () => {
+const RoadmapEditor = ({ roadmapId }) => {
+  const isLocked = false;
   const [rfInstance, setRfInstance] = useState(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [graphHeight, setGraphHeight] = useState(500);
 
   const reactFlowWrapper = useRef(null);
   const connectingNodeId = useRef({});
@@ -54,7 +56,7 @@ const Roadmap = () => {
             }]
           }
         }
-        buildNode('/admin/roadmaps/1/nodes.json', payload, 'POST');
+        buildNode(`/admin/roadmaps/${roadmapId}/nodes.json`, payload, 'POST');
       }
     },
     [project]
@@ -101,7 +103,7 @@ const Roadmap = () => {
 
   const onSave = useCallback(() => {
     if (rfInstance) {
-      fetch('/admin/roadmaps/1.json', {
+      fetch(`/admin/roadmaps/${roadmapId}.json`, {
         method: 'PATCH',
         body: JSON.stringify(formatedPayload(rfInstance.toObject())),
         headers: {
@@ -118,7 +120,7 @@ const Roadmap = () => {
   }, [rfInstance]);
 
   const renderRoadmap = () => {
-    fetch('/admin/roadmaps/1.json', {
+    fetch(`/admin/roadmaps/${roadmapId}.json`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -148,8 +150,13 @@ const Roadmap = () => {
       .catch(error => console.error('Error fetching data:', error));
   }
 
+  useEffect(() => {
+    const totalHeight = nodes.reduce((maxY, node) => Math.max(maxY, node.position.y), 0);
+    setGraphHeight(totalHeight + 100); // Adding some extra space for padding
+  }, [nodes]);
+
   return (
-    <div className="wrapper" ref={reactFlowWrapper} style={{ width: '100vw', height: '80vh' }}>
+    <div className='wrapper' ref={reactFlowWrapper} style={{ width: '100vw', height: `${graphHeight}px` }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -162,6 +169,12 @@ const Roadmap = () => {
         nodeTypes={nodeTypes}
         preventScrolling={false}
         zoomOnScroll="false"
+        edgesUpdatable={!isLocked}
+        edgesFocusable={!isLocked}
+        nodesDraggable={!isLocked}
+        nodesConnectable={!isLocked}
+        nodesFocusable={!isLocked}
+        elementsSelectable={!isLocked}
       >
         <Panel position="top-left">
           <button onClick={onSave}>save</button>
@@ -174,9 +187,9 @@ const Roadmap = () => {
   );
 };
 
-export default () => (
+export default ({roadmapId}) => (
   <ReactFlowProvider>
-    <Roadmap />
+    <RoadmapEditor roadmapId={roadmapId}/>
   </ReactFlowProvider>
 );
 

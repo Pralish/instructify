@@ -5,13 +5,13 @@
     "data-action" =>
     "turbo:before-render@document->modal#hideBeforeRender",
     "data-controller" => "modal",
-    :tabindex => "-1"
+    :tabindex => "-1",
+    style: "display: block; padding-left: 0px;"
   }
     .modal-dialog.modal-dialog-centered{:role => "document"}
       #modal_content.modal-content
         .modal-header
-          %h4#newItemRemoteModalLabel.modal-title= title
+
           %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
         #remote_modal_body.modal-body.remote_modal_body
           = yield
-

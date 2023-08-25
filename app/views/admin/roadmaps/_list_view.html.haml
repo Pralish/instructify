@@ -1,0 +1,89 @@
+%main
+  .d-flex.align-items-baseline.justify-content-between.mb-3
+    %h1.h2.d-flex.align-items-center.justify-content-between
+      %span
+        = @roadmap.title
+        %button#btnAddTask.btn.btn-sm.btn-primary.ms-4{"data-bs-target" => "#taskModal", "data-bs-toggle" => "modal", :type => "button"} Add New Task
+    = link_to admin_roadmap_path(@roadmap, view: 'graph'), class: "d-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm mx-1 mx-lg-2 w-40px h-40px link-secondary" do
+      %i.bi.bi-diagram-2.fs-5
+  %section
+    .row
+      .col.d-flex
+        .accordion.w-100
+          - @roadmap.steps.each do |step|
+            .accordion-item.mb-4.border-0.rounded
+              .accordion-header.border-0.rounded
+                .accordion-button.collapsed
+                  .d-flex.w-100.justify-content-between
+                    .title{"aria-controls": "collapse_#{step.id}", "data-bs-target": "#collapse_#{step.id}", "data-bs-toggle": "collapse", type: "button"}
+                      = step.title
+                    .actions.d-flex
+                      = link_to edit_admin_roadmap_node_path(step, roadmap_id: step.roadmap_id, step: { parent_id: step.id }), data: { turbo_frame: "modal" }, class: 'btn btn-link' do
+                        .bi.bi-pencil-square
+                      = link_to admin_roadmap_node_path(step, roadmap_id: step.roadmap.id, step: { parent_id: step.id }), method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-link text-danger' do
+                        .bi.bi-trash
+              .accordion-collapse.collapse{ id: "collapse_#{step.id}"}
+                .accordion-body.border-0
+                  - step.children.each do |task|
+                    .d-flex.w-100.justify-content-between.py-2
+                      .title.ps-4
+                        = task.title
+                      .actions.d-flex
+                        = link_to edit_admin_roadmap_node_path(step, roadmap_id: step.roadmap_id, step: { parent_id: step.id }), data: { turbo_frame: "modal" }, class: 'btn btn-link' do
+                          .bi.bi-pencil-square
+                        = link_to admin_roadmap_node_path(step, roadmap_id: step.roadmap.id, step: { parent_id: step.id }), method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-link text-danger' do
+                          .bi.bi-trash
+          
+      .col-lg-4.col-xxl-3
+        / Card
+        .card.border-0
+          .card-body
+            .row.mb-3
+              .col-4.text-muted.d-flex.align-items-center.text-truncate
+                Assignee
+              .col.d-flex.align-items-center
+                .avatar.avatar-circle.avatar-xs.me-2
+                  %img.avatar-img{:alt => "...", :height => "30", :src => "https://d33wubrfki0l68.cloudfront.net/9e7ac59225f733be5944b3e91271b33adb30cae7/56230/assets/images/profiles/profile-14.jpeg", :width => "30"}/
+                %span.fw-semibold Hakeem Chan
+            / / .row
+            .row.mb-4.d-flex.align-items-center
+              .col-4.text-muted.d-flex.align-items-center
+                Reporter
+              .col.d-flex.align-items-center
+                .avatar.avatar-circle.avatar-xs.me-2
+                  %img.avatar-img{:alt => "...", :height => "30", :src => "https://d33wubrfki0l68.cloudfront.net/a89e14c54d2e722c7f0b5d959aec047a47ed3e6d/b6689/assets/images/profiles/profile-01.jpeg", :width => "30"}/
+                %span.fw-semibold Alex Williams
+            / / .row
+            .row.mb-4
+              .col-4.text-muted.text-truncate
+                Fix versions
+              .col
+                2.0
+            / / .row
+            .row.mb-4
+              .col-4.text-muted.text-truncate
+                Labels
+              .col
+                None
+            / / .row
+            .row.mb-4
+              .col-4.text-muted.text-truncate
+                Priority
+              .col
+                %svg.me-1.text-danger{:height => "18", :viewbox => "0 0 24 24", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M23.42,11.76,13.77.8A2.67,2.67,0,0,0,12,0a2.67,2.67,0,0,0-1.77.8l-9.65,11A1.41,1.41,0,1,0,2.7,13.63l7.45-8.46a.25.25,0,0,1,.28-.07.25.25,0,0,1,.16.23V22.59a1.41,1.41,0,1,0,2.82,0V5.33a.25.25,0,0,1,.16-.23.25.25,0,0,1,.28.07l7.45,8.46a1.41,1.41,0,1,0,2.12-1.87Z", :style => "fill: currentColor"}
+                High
+            / / .row
+            .row.mb-4
+              .col-4.text-muted.text-truncate
+                Created
+              .col
+                46 minutes ago
+            / / .row
+            .row
+              .col-4.text-muted.text-truncate
+                Updated
+              .col
+                9 minutes ago
+            / / .row
+

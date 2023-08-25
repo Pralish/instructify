@@ -1,6 +1,12 @@
 class Admin::NodesController < Admin::ApplicationController
   before_action :set_roadmap
-  before_action :set_node, only: %i[edit update destroy]
+  before_action :set_node, only: %i[edit update destroy show]
+
+  # GET /admin/roadmaps/:roadmap_id/nodes
+  def index
+    @nodes = @roadmap.nodes
+    @edges = @roadmap.edges
+  end
 
   def new
     @node = @roadmap.nodes.new(type: 'Step', parent_id: params[:parent_id])
@@ -8,6 +14,9 @@ class Admin::NodesController < Admin::ApplicationController
 
   def edit
     render :new
+  end
+
+  def show
   end
 
   def create
@@ -24,12 +33,6 @@ class Admin::NodesController < Admin::ApplicationController
         format.turbo_stream { render :form_update, status: :unprocessable_entity }
       end
     end
-  end
-
-  # GET /admin/roadmaps/:roadmap_id/nodes
-  def index
-    @nodes = @roadmap.nodes
-    @edges = @roadmap.edges
   end
 
   def update

@@ -20,7 +20,7 @@
     "styled-components": "^6.0.7"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets --loader:.js=jsx",
     "build:css:compile:application": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:compile:pages": "sass ./app/assets/stylesheets/pages/:./app/assets/builds/ --no-source-map --load-path=node_modules",
     "build:css:compile": "yarn build:css:compile:application && yarn build:css:compile:pages",

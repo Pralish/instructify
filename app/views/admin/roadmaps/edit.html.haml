@@ -1,0 +1,6 @@
+- content_for :head do
+  = stylesheet_link_tag 'roadmap'
+
+%main
+  %h1.h2.roadmap__title--lg= @roadmap.title
+  %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }}

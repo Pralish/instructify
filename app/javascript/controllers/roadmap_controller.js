@@ -1,12 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
+import React from "react";
+import ReactDOM from "react-dom/client";
 
+import { RoadmapViewer } from "../roadmap/components/RoadmapViewer";
+import RoadmapEditor from "../roadmap/components/RoadmapEditor";
+
+// Connects to data-controller="roadmap-renderer"
 export default class extends Controller {
-  static outlets = [ "modal" ]
+  initialize() {
+    this.roadmapId = this.element.dataset.roadmapId
+    this.action = this.element.dataset.action
+  }
 
-  createNode(event) {
-    // roadmap component will handle the submission of form as json
-    event.preventDefault();
-    const customEvent = new CustomEvent('modalFormSubmitted', { detail: { event: event, modalOutlet: this.modalOutlet} });
-    document.dispatchEvent(customEvent);
+  connect() {
+    const root = ReactDOM.createRoot(this.element);
+    if (this.action == 'edit') {
+      root.render(<RoadmapEditor roadmapId={ this.roadmapId } />)
+    } else {
+      root.render(<RoadmapViewer roadmapId={ this.roadmapId } />)
+    }
   }
 }

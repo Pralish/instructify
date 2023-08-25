@@ -28,6 +28,35 @@
   position: relative
 }
 
+[data-theme=dark] .card {
+  --bs-card-bg: var(--bs-surface-bg);
+}
+
+.card {
+  box-shadow: var(--bs-card-box-shadow);
+  margin-bottom: 1.875rem
+}
+
+.card-header-space-between {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.card-header-space-between>:first-child {
+  flex-grow: 1
+}
+
+.card-header-title {
+  margin-bottom: 0
+}
+
+.card-h-100 {
+  height: calc(100% - 1.875rem)
+}
+
+
 .card>hr {
   margin-left: 0;
   margin-right: 0

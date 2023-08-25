@@ -9,8 +9,9 @@
 @import 'table';
 @import 'card';
 @import 'form';
-@import 'model';
+@import 'modal';
 @import 'pagination';
+@import 'accordion';
 
 .gu-mirror {
   margin: 0!important;
@@ -274,34 +275,6 @@
 
 .dropstart .dropdown-toggle-split:before {
   padding-right: 0
-}
-
-.card {
-  box-shadow: var(--bs-card-box-shadow);
-  margin-bottom: 1.875rem
-}
-
-.card-header-space-between {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between
-}
-
-.card-header-space-between>:first-child {
-  flex-grow: 1
-}
-
-.card-header-title {
-  margin-bottom: 0
-}
-
-[data-theme=dark] .card {
-  --bs-card-bg: #2d2d2d
-}
-
-.card-h-100 {
-  height: calc(100% - 1.875rem)
 }
 
 .typing:after,.typing:before {
@@ -701,10 +674,6 @@
   text-align: center
 }
 
-main {
-  --bs-main-content-bg: var(--bs-light-green)
-}
-
 .navbar-vertical~main {
   display: flex;
   flex-direction: column;
@@ -838,7 +807,7 @@ main {
 }
 
 [data-theme=dark] main {
-  --bs-main-content-bg: #1f1f1f
+  --bs-main-content-bg: #121212
 }
 
 .legend-circle {

@@ -9,3 +9,6 @@ application.register("modal", ModalController)
 
 import RoadmapController from "./roadmap_controller"
 application.register("roadmap", RoadmapController)
+
+import RoadmapFormController from "./roadmap_form_controller"
+application.register("roadmap-form", RoadmapFormController)

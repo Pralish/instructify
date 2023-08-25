@@ -6,6 +6,10 @@ class Roadmap < ApplicationRecord
 
   accepts_nested_attributes_for :nodes
 
+  def steps
+    nodes.where(type: 'Step')
+  end
+
   def edges
     Edge.joins([:source, :target]).where(nodes: {roadmap_id: id})
   end
