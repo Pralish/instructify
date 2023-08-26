@@ -18,7 +18,7 @@ MultiTenant.with(Organization.first) do
     parent_id: step_1.id,
     incoming_edges_attributes: [{
       source_handle: 'right',
-      target_handle: 'left-target',
+      target_handle: 'left',
       source: step_1,
       type: ''
     }])
@@ -29,7 +29,7 @@ MultiTenant.with(Organization.first) do
     parent_id: step_1.id,
     incoming_edges_attributes: [{
       source_handle: 'right',
-      target_handle: 'left-target',
+      target_handle: 'left',
       source: step_1
     }])
 end

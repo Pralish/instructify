@@ -7,7 +7,6 @@ export default function StepNode({ data, isConnectable }) {
   console.log({isConnectable})
   return (
     <div className='roadmap__node roadmap__node-step'>
-      <Handle type="target" position={Position.Top} isConnectable={isConnectable}/>
       <div className="roadmap__title--md text-center">{data.title}</div>
       {isConnectable &&
         <div className="d-flex actions position-absolute gap-2">
@@ -24,10 +23,15 @@ export default function StepNode({ data, isConnectable }) {
             <i className="bi bi-plus-square" cursorshover="true"></i>
           </a>
         }
-    
-      <Handle type="source" position={Position.Bottom} isConnectable={isConnectable}/>
+      <Handle type="source" position={Position.Top} id="top" isConnectable={isConnectable}/>
+      <Handle type="source" position={Position.Bottom} id="bottom" isConnectable={isConnectable}/>
       <Handle type="source" position={Position.Left} id="left" isConnectable={isConnectable}/>
       <Handle type="source" position={Position.Right} id="right" isConnectable={isConnectable}/>
+
+      <Handle type="target" position={Position.Top} id="top" isConnectable={isConnectable}/>
+      <Handle type="target" position={Position.Bottom} id="bottom" isConnectable={isConnectable}/>
+      <Handle type="target" position={Position.Left} id="left" isConnectable={isConnectable}/>
+      <Handle type="target" position={Position.Right} id="right" isConnectable={isConnectable}/>
     </div>
   );
 }

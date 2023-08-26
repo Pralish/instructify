@@ -13,6 +13,7 @@
   font-family: 'JetBrains Mono', monospace;
   align-items: center;
   justify-content: center;
+  background-color: var( --bs-white);
 
   &-step {
     width: 150px;
@@ -50,6 +51,16 @@
   .roadmap__node {
     background-color: var( --bs-surface-bg);
     border: none;
+  }
+
+  .react-flow__background {
+    &-small path {
+      stroke: #232323;
+    }
+
+    &-large path {
+      stroke: #2a2a2a;
+    }
   }
 }
 

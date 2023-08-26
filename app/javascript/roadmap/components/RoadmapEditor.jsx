@@ -8,13 +8,15 @@ import ReactFlow, {
   useReactFlow,
   addEdge,
   ReactFlowProvider,
-  Panel
+  Panel,
 } from 'reactflow';
-import StepNode from './StepNode.jsx';
+import StepNode from './nodes/StepNode.jsx';
 import { formDataToJson, formatedPayload } from '../../utils.js';
-import TaskNode from './TaskNode.jsx';
+import TaskNode from './nodes/TaskNode.jsx';
+import FloatingEdge from './edges/FloatingEdge.jsx';
 
 const nodeTypes = { Step: StepNode, Task: TaskNode };
+const edgeTypes = { floating: FloatingEdge };
 
 const RoadmapEditor = ({ roadmapId }) => {
   const isLocked = false;
@@ -27,6 +29,7 @@ const RoadmapEditor = ({ roadmapId }) => {
   const connectingNodeId = useRef({});
 
   const { project } = useReactFlow();
+
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), []);
 
   const onConnectStart = useCallback((_, { nodeId, handleId }) => {
@@ -52,7 +55,7 @@ const RoadmapEditor = ({ roadmapId }) => {
             incoming_edges_attributes: [{
               source_id: connectingNodeId.current.nodeId,
               source_handle: connectingNodeId.current.handleId,
-              target_handle: connectingNodeId.current.handleId.includes('left') ? 'right-target' : 'left-target',
+              target_handle: connectingNodeId.current.handleId.includes('left') ? 'right' : 'left',
             }]
           }
         }
@@ -167,21 +170,16 @@ const RoadmapEditor = ({ roadmapId }) => {
         onConnectEnd={onConnectEnd}
         onInit={setRfInstance}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         preventScrolling={false}
         zoomOnScroll="false"
-        edgesUpdatable={!isLocked}
-        edgesFocusable={!isLocked}
-        nodesDraggable={!isLocked}
-        nodesConnectable={!isLocked}
-        nodesFocusable={!isLocked}
-        elementsSelectable={!isLocked}
       >
         <Panel position="top-left">
           <button onClick={onSave}>save</button>
         </Panel>
         <Controls />
-        <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
-        <Background id="2" gap={100} offset={1} color="#ccc" variant={BackgroundVariant.Lines} />
+        <Background id="grid-small" className="react-flow__background-small" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
+        <Background id="grid-large" className="react-flow__background-large" gap={100} offset={1} color="#ccc" variant={BackgroundVariant.Lines} />
       </ReactFlow>
     </div>
   );

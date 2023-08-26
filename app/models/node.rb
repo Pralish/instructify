@@ -27,7 +27,7 @@ class Node < ApplicationRecord
   end
 
   def create_edge
-    Edge.create!(source: parent, target: self)
+    Edge.create!(source: parent, target: self, source_handle: 'bottom', target_handle: 'top')
   end
 
   def set_position
