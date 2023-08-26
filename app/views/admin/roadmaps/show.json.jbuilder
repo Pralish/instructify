@@ -24,7 +24,7 @@ json.data do
       json.target edge.target_id.to_s
       json.sourceHandle edge.source_handle
       json.targetHandle edge.target_handle
-      json.type edge.target.type == 'Task' ? 'default' : 'smoothstep'
+      json.type edge.target.type == 'Task' ? 'floating' : 'smoothstep'
     end
   end
 end

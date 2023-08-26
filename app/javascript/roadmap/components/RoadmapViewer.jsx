@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactFlow from 'reactflow';
-import StepNode from './StepNode.jsx';
-import TaskNode from './TaskNode.jsx';
+import StepNode from './nodes/StepNode.jsx';
+import TaskNode from './nodes/TaskNode.jsx';
 
 const nodeTypes = { Step: StepNode, Task: TaskNode };
 
