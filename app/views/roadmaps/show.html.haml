@@ -1,8 +1,7 @@
+- content_for :head do
+  = stylesheet_link_tag 'roadmap'
 %main.roadmap
-  %h1.roadmap__title--lg= @roadmap.title
-  - @roadmap.steps.each do |step|
-    .roadmap__step
-      %h2.roadmap__title--md= step.title
-      %ul
-        - step.tasks.each do |task|
-          %li.roadmap__task= task.title
+  .container
+    %h1.h2.roadmap__title--lg= @roadmap.title
+    %p= @roadmap.description
+    %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style:"height: #{@roadmap.height}px;"}

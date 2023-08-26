@@ -4,10 +4,9 @@
     #keysTable.card.border-0.flex-fill.w-100
       .card-header.border-0
         .d-flex.flex-column.flex-md-row.align-items-md-center.justify-content-end
-          %h4.card-header-title.h4.text-uppercase API Keys
-          %input.form-control.list-fuzzy-search.mw-md-300px.ms-md-auto.mt-5.mt-md-0.mb-3.mb-md-0{:placeholder => "Search", :type => "search"}/
-          %button.btn.btn-primary.ms-md-4{"data-bs-target" => "#createKeyModal", "data-bs-toggle" => "modal", :type => "button"}
-            Create key
+          %h4.card-header-title.h4.text-uppercase Roadmaps
+          %input.form-control.list-fuzzy-search.mw-md-300px.ms-md-auto.mt-5.mt-md-0.mb-3.mb-md-0.me-3{:placeholder => "Search", :type => "search"}
+          = link_to 'Create Roadmap', new_admin_roadmap_path, data: { turbo_frame: "modal" }, class: 'btn btn-primary'
       .table-responsive
         %table.table.align-middle.table-hover.table-nowrap.mb-0
           %thead.thead-light
@@ -33,11 +32,11 @@
                       %li
                         = link_to 'Preview', admin_roadmap_path(roadmap), class: 'dropdown-item' 
                       %li
-                        = link_to 'Edit', admin_roadmap_path(roadmap), class: 'dropdown-item' 
+                        = link_to 'Edit', edit_admin_roadmap_path(roadmap), class: 'dropdown-item' 
                       %li
                         %hr.dropdown-divider/
                       %li
-                        = link_to 'Delete', admin_roadmap_path(roadmap), class: 'dropdown-item text-danger' 
+                        = link_to 'Delete', admin_roadmap_path(roadmap), method: :delete,  data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" }, class: 'dropdown-item text-danger' 
     
       / / .table-responsive
       .card-footer

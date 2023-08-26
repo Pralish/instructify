@@ -3,4 +3,4 @@
 
 %main
   %h1.h2.roadmap__title--lg= @roadmap.title
-  %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }}
+  %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style: "height: #{@roadmap.height}px; min-height: 800px;"}

@@ -29,15 +29,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_153901) do
     t.index ["target_id"], name: "index_edges_on_target_id"
   end
 
-  create_table "editors", force: :cascade do |t|
+  create_table "maintainers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "organization_id", null: false
     t.bigint "roadmap_id", null: false
+    t.boolean "is_creator", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["organization_id"], name: "index_editors_on_organization_id"
-    t.index ["roadmap_id"], name: "index_editors_on_roadmap_id"
-    t.index ["user_id"], name: "index_editors_on_user_id"
+    t.index ["organization_id"], name: "index_maintainers_on_organization_id"
+    t.index ["roadmap_id"], name: "index_maintainers_on_roadmap_id"
+    t.index ["user_id"], name: "index_maintainers_on_user_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -75,9 +76,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_153901) do
     t.string "title"
     t.text "description"
     t.bigint "organization_id", null: false
+    t.string "slug", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_roadmaps_on_organization_id"
+    t.index ["slug"], name: "index_roadmaps_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,9 +101,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_153901) do
   add_foreign_key "edges", "nodes", column: "source_id"
   add_foreign_key "edges", "nodes", column: "target_id"
   add_foreign_key "edges", "organizations"
-  add_foreign_key "editors", "organizations"
-  add_foreign_key "editors", "roadmaps"
-  add_foreign_key "editors", "users"
+  add_foreign_key "maintainers", "organizations"
+  add_foreign_key "maintainers", "roadmaps"
+  add_foreign_key "maintainers", "users"
   add_foreign_key "members", "organizations"
   add_foreign_key "members", "users"
   add_foreign_key "nodes", "organizations"

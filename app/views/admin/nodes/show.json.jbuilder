@@ -10,9 +10,11 @@ json.data do
   end
 
   json.edge do
-    json.id @node.incoming_edges.last&.id
-    json.source @node.incoming_edges.last.source_id.to_s
-    json.target @node.incoming_edges.last.target_id.to_s
-    json.type 'step'
+    if @node.incoming_edges.present?
+      json.id @node.incoming_edges.last&.id
+      json.source @node.incoming_edges.last.source_id.to_s
+      json.target @node.incoming_edges.last.target_id.to_s
+      json.type 'step'
+    end
   end
 end

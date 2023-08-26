@@ -4,7 +4,6 @@ import { Handle, Position } from 'reactflow';
 export default function StepNode({ data, isConnectable }) {
   const baseUrl = `/admin/roadmaps/${data.roadmap_id}/nodes`
 
-  console.log({isConnectable})
   return (
     <div className='roadmap__node roadmap__node-step'>
       <div className="roadmap__title--md text-center">{data.title}</div>

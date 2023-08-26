@@ -1,0 +1,45 @@
+%nav#mainNavbar.navbar.navbar-vertical.navbar-expand-lg.scrollbar.bg-dark.navbar-dark
+  :javascript
+    let navigationColor = localStorage.getItem('navigationColor'),
+        navbar = document.getElementById('mainNavbar');
+                
+    if(navigationColor != null && navbar != null) {
+        if(navigationColor == 'inverted') {
+            navbar.classList.add('bg-dark', 'navbar-dark');
+            navbar.classList.remove('bg-white', 'navbar-light');
+        } else {
+            navbar.classList.add('bg-white', 'navbar-light');
+            navbar.classList.remove('bg-dark', 'navbar-dark');
+        }
+    }
+  .container-fluid
+    %a.navbar-brand{:href => "./index.html"}
+      %h2 instructify
+    %a.navbar-toggler{"aria-controls" => "sidenavCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#sidenavCollapse", "data-bs-toggle" => "collapse", :href => "javascript: void(0);"}
+      %span.navbar-toggler-icon
+    #sidenavCollapse.collapse.navbar-collapse
+      %ul.navbar-nav.mb-lg-7
+        %li.nav-item.dropdown
+          = link_to admin_path, class: 'nav-link' do
+            %i.bi.bi-house.nav-link-icon.fs-6
+            %span Dashboards
+        %li.nav-item
+          = link_to admin_roadmaps_path, class: 'nav-link' do
+            %i.bi.bi-bar-chart-steps.nav-link-icon.fs-6
+            %span Roadmaps
+        %li.nav-item.dropdown
+          %a.nav-link{"aria-controls" => "dashboardsCollapse", "aria-expanded" => "false", "data-bs-toggle" => "collapse", :href => "#dashboardsCollapse", :role => "button"}
+            %i.bi.bi-people.nav-link-icon.fs-6
+            %span Users
+          #dashboardsCollapse.collapse
+            %ul.nav.flex-column
+              %li.nav-item
+                = link_to admin_members_path(role: 'admin'), class: 'nav-link' do
+                  %span Admins
+              %li.nav-item
+                = link_to admin_members_path(role: 'teacher'), class: 'nav-link' do
+                  %span Teachers
+              %li.nav-item
+                = link_to admin_members_path(role: 'student'), class: 'nav-link' do
+                  %span Students
+  

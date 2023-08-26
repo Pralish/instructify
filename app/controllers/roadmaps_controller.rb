@@ -8,6 +8,6 @@ class RoadmapsController < ApplicationController
   private
 
   def set_roadmap
-    @roadmap = Roadmap.find(params[:id])
+    @roadmap = Roadmap.friendly.find(params[:id])
   end
 end

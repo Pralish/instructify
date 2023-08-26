@@ -19,7 +19,6 @@ const nodeTypes = { Step: StepNode, Task: TaskNode };
 const edgeTypes = { floating: FloatingEdge };
 
 const RoadmapEditor = ({ roadmapId }) => {
-  const isLocked = false;
   const [rfInstance, setRfInstance] = useState(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -71,8 +70,10 @@ const RoadmapEditor = ({ roadmapId }) => {
 
   useEffect(() => {
     const handleModalFormSubmitted = (event) => {
+      console.log(event)
       const formData = formDataToJson(new FormData(event.detail.event.srcElement))
-      buildNode(`${event.detail.event.srcElement.action}.json`, formData, formData._method.toUpperCase())
+      console.log(formData)
+      buildNode(`${event.detail.event.srcElement.action}.json`, formData, formData._method?.toUpperCase() || 'POST')
       event.detail.modalOutlet.hideModal();
     };
 
@@ -159,7 +160,7 @@ const RoadmapEditor = ({ roadmapId }) => {
   }, [nodes]);
 
   return (
-    <div className='wrapper' ref={reactFlowWrapper} style={{ width: '100vw', height: `${graphHeight}px` }}>
+    <div className='wrapper' ref={reactFlowWrapper} style={{ height: '100%' }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

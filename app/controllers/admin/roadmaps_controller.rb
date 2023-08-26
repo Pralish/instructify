@@ -21,10 +21,9 @@ class Admin::RoadmapsController < Admin::ApplicationController
     @roadmap = Roadmap.new(roadmap_params)
     respond_to do |format|
       if @roadmap.save
-        @roadmap.editors.create(user: current_user)
-        format.html { redirect_back fallback_location: roadmap_path(@roadmap), notice: "Step was successfully created." }
+        @roadmap.maintainers.create(user: current_user, is_creator: true)
+        format.html { redirect_to edit_admin_roadmap_path(@roadmap), notice: "Roadmap was successfully created." }
         format.json { render :show, status: :created }
-        format.turbo_stream { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @roadmap.errors, status: :unprocessable_entity }
@@ -38,18 +37,28 @@ class Admin::RoadmapsController < Admin::ApplicationController
   end
 
   def destroy
+    respond_to do |format|
+      if @roadmap.destroy
+        format.html { redirect_to admin_roadmaps_path, notice: 'Roadmap deleted successfully' }
+        format.json { render json: '', status: 204 }
+      else
+        format.html { redirect_back fallback_location: admin_roadmaps_path, alert: @roadmap.errors.full_messages}
+        format.json { render json: @roadmap.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
 
   def set_roadmap
-    @roadmap = Roadmap.find(params[:id])
+    @roadmap = Roadmap.friendly.find(params[:id])
   end
 
   def roadmap_params
     params.require(:roadmap).permit(
       :id,
       :title,
+      :description,
       nodes_attributes: [
         :id,
         :title,
