@@ -11,28 +11,9 @@
           %svg{:height => "16", :viewbox => "0 0 24 24", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
             %path{:d => "M0.750 9.812 A9.063 9.063 0 1 0 18.876 9.812 A9.063 9.063 0 1 0 0.750 9.812 Z", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5", :transform => "translate(-3.056 4.62) rotate(-23.025)"}
             %path{:d => "M16.221 16.22L23.25 23.25", :fill => "none", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5"}
-  / Top buttons
   .d-flex.align-items-center.ms-auto.me-n1.me-lg-n2
-    / Dropdown
-    #themeSwitcher.dropdown
-      %a.dropdown-toggle.no-arrow.d-flex.align-items-center.justify-content-center.bg-white.rounded-circle.shadow-sm.mx-1.mx-lg-2.w-40px.h-40px.link-secondary{"aria-expanded" => "false", "aria-haspopup" => "true", "data-bs-offset" => "0,0", "data-bs-toggle" => "dropdown", :href => "javascript: void(0);", :role => "button"}
-        %i.bi.bi-brightness-high.fs-5
-      %ul.dropdown-menu.dropdown-menu-end
-        %li
-          %button.dropdown-item{"data-theme-value" => "light", :type => "button"}
-            %i.bi.bi-brightness-high.fs-6.me-3
-            Light mode
-        %li
-          %button.dropdown-item.active{"data-theme-value" => "dark", :type => "button"}
-            %i.bi.bi-moon-stars.fs-6.me-3
-            Dark mode
-        %li
-          %button.dropdown-item{"data-theme-value" => "auto", :type => "button"}
-            %i.bi.bi-cloud-sun.fs-6.me-3
-            Auto
-    / Separator
+    = render partial: 'shared/theme_switch'
     .vr.bg-gray-700.mx-2.mx-lg-3
-    / Dropdown
     .dropdown
       %a.dropdown-toggle.no-arrow.d-flex.align-items-center.justify-content-center.bg-white.rounded-circle.shadow-sm.mx-1.mx-lg-2.w-40px.h-40px{"aria-expanded" => "false", "aria-haspopup" => "true", "data-bs-offset" => "0,0", "data-bs-toggle" => "dropdown", :href => "javascript: void(0);", :role => "button"}
         %span.avatar.avatar-circle.avatar-xxs

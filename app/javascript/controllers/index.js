@@ -12,3 +12,6 @@ application.register("roadmap", RoadmapController)
 
 import RoadmapFormController from "./roadmap_form_controller"
 application.register("roadmap-form", RoadmapFormController)
+
+import ThemesController from "./themes_controller"
+application.register("themes", ThemesController)
