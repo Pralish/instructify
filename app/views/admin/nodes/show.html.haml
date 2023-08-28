@@ -1,0 +1,38 @@
+.container
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    %button.navbar-toggler{type: "button", "data-toggle": "collapse", "data-target": "#navbarNav", "aria-controls": "navbarNav", "aria-expanded": "false", "aria-label": "Toggle navigation"}
+      %span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item
+          -# = link_to "Home", root_path, class: "nav-link"
+          Home
+        %li.nav-item
+          -#= link_to "Blog", blog_index_path, class: "nav-link"
+          Blog
+        %li.nav-item
+          -#= link_to "Blog", blog_index_path, class: "nav-link"
+          More
+  %div.blog-body
+    %img{ src: 'sample.png', alt: 'A beautiful landscape' }
+    %h1.blog-title welcome to the roadmap blog
+    %p.blog-description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    %div.related-posts
+      %div.post-col
+        %img{ src: 'sample.png', alt: 'A beautiful landscape' }
+        %h1.blog-title welcome to the roadmap blog
+        %p.blog-description Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        %div.view-more
+          -#= link_to "Blog", blog_index_path, class: "nav-link"
+          More
+  %footer
+    %ul.navbar-nav.ml-auto
+      %li.nav-item
+        -# = link_to "Home", root_path, class: "nav-link"
+        Home
+      %li.nav-item
+        -#= link_to "Blog", blog_index_path, class: "nav-link"
+        Blog
+      %li.nav-item
+        -#= link_to "Blog", blog_index_path, class: "nav-link"
+        More
