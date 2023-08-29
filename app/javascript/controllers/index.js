@@ -7,6 +7,9 @@ import { application } from "./application"
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import OffcanvasController from "./offcanvas_controller"
+application.register("offcanvas", OffcanvasController)
+
 import RoadmapController from "./roadmap_controller"
 application.register("roadmap", RoadmapController)
 

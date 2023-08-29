@@ -15,14 +15,16 @@
   justify-content: center;
   background-color: var( --bs-white);
 
-  &-step {
-    width: 150px;
-    padding: 20px;
-  }
-
-  &-task{
-    padding: 15px;
-    font-size: 10px;
+  &__content {
+    &-step {
+      width: 150px;
+      padding: 20px;
+    }
+  
+    &-task{
+      padding: 15px;
+      font-size: 10px;
+    }
   }
 
   .actions {

@@ -62,6 +62,8 @@ gem 'pagy', '~> 6.0'
 
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'tinymce-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
