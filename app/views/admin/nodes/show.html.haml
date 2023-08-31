@@ -1,36 +1,19 @@
 .container
-  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    %button.navbar-toggler{type: "button", "data-toggle": "collapse", "data-target": "#navbarNav", "aria-controls": "navbarNav", "aria-expanded": "false", "aria-label": "Toggle navigation"}
-      %span.navbar-toggler-icon
-    #navbarNav.collapse.navbar-collapse
-      %ul.navbar-nav.ml-auto
-        %li.nav-item
-          -# = link_to "Home", root_path, class: "nav-link"
-          Home
-        %li.nav-item
-          -#= link_to "Blog", blog_index_path, class: "nav-link"
-          Blog
-        %li.nav-item
-          -#= link_to "Blog", blog_index_path, class: "nav-link"
-          More
   %div.blog-body
-    %h1.blog-title= @node_detail.title
+    = image_tag @node_detail.blog_image
+    %h1.blog-title.fw-bold= @node_detail.title
     %p.blog-description= @node_detail.description
+  %hr
     %div.related-posts
-      %div.post-col
-        %h3.blog-title welcome to the roadmap blog
-        %p.blog-description Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        %div.view-more
-          -#= link_to "Blog", blog_index_path, class: "nav-link"
-          More
-  %footer
-    %ul.navbar-nav.ml-auto
-      %li.nav-item
-        -# = link_to "Home", root_path, class: "nav-link"
-        Home
-      %li.nav-item
-        -#= link_to "Blog", blog_index_path, class: "nav-link"
-        Blog
-      %li.nav-item
-        -#= link_to "Blog", blog_index_path, class: "nav-link"
-        More
+      %h2 Related posts
+      %div.row.d-flex
+        - @roadmap.nodes.limit(3).each do |node|
+          %div.col-4
+            %div.border.p-4
+              %img{ src: "/images/#{@node_detail.blog_image}", alt: "image" }
+              %h4.blog-title= node.title
+              %p.blog-description= truncate(node.description, length: 100)
+              %div.view-more
+                = link_to "More", admin_roadmap_node_path(@roadmap, node), class: "nav-link"
+    
+      

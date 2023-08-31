@@ -64,7 +64,7 @@ class Admin::NodesController < Admin::ApplicationController
   private
 
   def set_roadmap
-    @roadmap = Roadmap.find(params[:roadmap_id])
+    @roadmap = Roadmap.friendly.find(params[:roadmap_id])
   end
 
   def set_node
@@ -80,6 +80,7 @@ class Admin::NodesController < Admin::ApplicationController
       :description,
       :type,
       :parent_id,
+      :blog_image,
       position: [:x, :y],
       incoming_edges_attributes: [
         :id,
