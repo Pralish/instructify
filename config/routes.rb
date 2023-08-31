@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :roadmaps, only: :show
+  resources :roadmaps, only: :show do
+    resources :nodes, only: :show
+  end
 
   namespace :admin do
     get '/', to: 'dashboard#index'
