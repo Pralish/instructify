@@ -1,17 +1,19 @@
 import React from 'react';
 import { Handle, Position } from 'reactflow';
 
+// TODO: Refactor
+// TODO: Merge Stepnode and Tasknode into simple component. Most of the things are similar, so we do not need two separate components
 export default function StepNode({ data, isConnectable }) {
   const baseUrl = isConnectable ? `/admin/roadmaps/${data.roadmap_id}/nodes` : `/roadmaps/${data.roadmap_id}/nodes`
 
   return (
     <div className='roadmap__node'>
-      <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}`} className='roadmap__node__content-step text-decoration-none link-secondary'>
+      <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}${isConnectable ? '/edit' : ''}`} className='roadmap__node__content-step text-decoration-none link-secondary'>
         <div className="roadmap__title--md text-center">{data.title}</div>
       </a>
       {isConnectable &&
         <div className="d-flex actions position-absolute gap-2">
-          <a data-turbo-frame="modal" href={`${baseUrl}/${data.id}/edit`}>
+          <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}/edit`}>
             <i className="bi bi-pencil-square" cursorshover="true"></i>
           </a>
           <a data-turbo-method="delete" data-turbo-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`${baseUrl}/${data.id}`}>
@@ -20,7 +22,7 @@ export default function StepNode({ data, isConnectable }) {
         </div>
         }
         {!data.has_children && isConnectable &&
-          <a data-turbo-frame="modal" className='add-new position-absolute d-flex justify-content-center' href={`${baseUrl}/new?parent_id=${data.id}`}>
+          <a data-turbo-frame="offcanvas" className='add-new position-absolute d-flex justify-content-center' href={`${baseUrl}/new?parent_id=${data.id}`}>
             <i className="bi bi-plus-square" cursorshover="true"></i>
           </a>
         }
