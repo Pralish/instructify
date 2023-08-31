@@ -17,7 +17,6 @@ class Admin::NodesController < Admin::ApplicationController
   end
 
   def show
-    @node_detail = @roadmap.nodes.find(params[:id])
   end
 
   def create
