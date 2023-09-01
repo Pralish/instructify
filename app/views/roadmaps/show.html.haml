@@ -3,5 +3,6 @@
 %main.roadmap
   .container
     %h1.h2.roadmap__title--lg= @roadmap.title
-    %p= @roadmap.description
+    %section.roadmap__content
+      = @roadmap.description.html_safe
     %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style:"height: #{@roadmap.height}px;"}
