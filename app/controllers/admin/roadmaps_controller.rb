@@ -59,13 +59,13 @@ class Admin::RoadmapsController < Admin::ApplicationController
       :id,
       :title,
       :description,
+      :blog_image,
       nodes_attributes: [
         :id,
         :title,
         :description,
         :type,
         :parent_id,
-        :blog_image,
         position: [:x, :y],
         incoming_edges_attributes: [
           :id,

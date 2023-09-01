@@ -79,7 +79,6 @@ class Admin::NodesController < Admin::ApplicationController
       :description,
       :type,
       :parent_id,
-      :blog_image,
       position: [:x, :y],
       incoming_edges_attributes: [
         :id,
