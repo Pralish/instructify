@@ -105,5 +105,14 @@
   color:#000 !important;
   font-size: 18px;
   font-weight: 600;
-  
 }
+
+@media (max-width: 576px){
+  .roadmap{
+    width: 100% !important;
+  }
+  .social-links{
+    left:0;
+  }
+}
+  
