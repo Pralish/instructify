@@ -78,5 +78,32 @@
   border-radius: 50%;
 }
 .roadmap__description {
-  margin: 0 auto;
+  margin: 10px auto 50px;
+  text-align: justify !important;
+}
+.social-links{
+  left: 395px;
+  top: 335px;
+  background-color: #313C59;
+}
+.roadmap__title{
+  color: #313C59;
+  padding-top: 50px !important;
+}
+.nav__bg{
+  background-color: #f7f7f9;
+}
+.footer__bg{
+  background-color: #313C59;
+}
+
+.roadmap__background{
+  background-color: #eef7ff;
+}
+.roadmap__node{
+  background-color: #ffd02f;
+  color:#000 !important;
+  font-size: 18px;
+  font-weight: 600;
+  
 }

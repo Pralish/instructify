@@ -1,4 +1,4 @@
-%header.navbar.navbar-expand-lg.bg-info
+%header.navbar.navbar-expand-lg.nav__bg.nav__bg--color
   .container
     %a.navbar-brand{href: "./index.html"}
       %img.navbar-brand-img.logo-light.logo-large{alt: "...", height: "25", src: "https://d33wubrfki0l68.cloudfront.net/ba6b91b7d508187d153e48318c22d0773a9cedfc/36afa/assets/images/logo.svg", width: "125"}/
@@ -8,12 +8,12 @@
     #menuCollapse.collapse.navbar-collapse
       %ul.navbar-nav.mx-auto.py-5.py-lg-0
         %li.nav-item
-          %a.text-white.fw-bold.nav-link{href: "./docs/index.html"}
-            Roadmap
+          %a.text-dark.fw-bold.nav-link{href: "./docs/index.html"}
+            Roadmaps
         %li.nav-item
-          %a.text-white.fw-bold.nav-link{href: "mailto:support@dashly-theme.com"} Support
+          %a.text-dark.fw-bold.nav-link{href: "mailto:support@dashly-theme.com"} Support
         %li.nav-item
-          %a.text-white.fw-bold.nav-link{href: "https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/", target: "_blank"} Pricing
+          %a.text-dark.fw-bold.nav-link{href: "https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/", target: "_blank"} Pricing
       .d-flex
         = render partial: 'shared/theme_switch'
         .vr.bg-gray-700.mx-1.mx-md-2.mx-lg-3
