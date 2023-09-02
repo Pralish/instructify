@@ -1,0 +1,4 @@
+%div{data: {controller: 'themes'}}
+  %input#theme.d-none{type: "checkbox", data: { action: 'input->themes#switchTheme', themes_target: "input" }}
+  %label.btn.btn-link.link-secondary.d-flex.align-items-center.justify-content-center.bg-white.rounded-circle.shadow-sm.mx-1.mx-lg-2.w-30px.h-30px{for: "theme"}
+    %i.bi.fs-5{data: { themes_target: 'icon' }}

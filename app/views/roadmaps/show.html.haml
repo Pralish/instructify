@@ -1,17 +1,22 @@
 - content_for :head do
   = stylesheet_link_tag 'roadmap'
-%main.roadmap
-  .container.w-50
-    %h1.h2.fw-bold.fs-1.roadmap__title--lg.text-center= @roadmap.title
+%main.roadmap.d-block.w-50.m-auto.pt-10
+  .container
+    %h1.pt-10.fw-bold.fs-1.roadmap__title--lg.text-center= @roadmap.title
     %div.blog-data.d-flex.justify-content-center.align-items-center
       %img.avatar{ src: "https://img.freepik.com/premium-photo/man-with-orange-shirt-is-circle-with-man-orange_745528-3525.jpg?w=2000", alt: "avatar" }
-      %div.blog-meta-data.d-block
+      %div.blog-meta-data.d-flex
         %h6.text-bold.mb-0.roadmap__creator= find_creator
+        %i.bi.bi-calendar-check.ms-4.me-2
         %h6.text-bold.mb-0.roadmap_created_date= format_date
     %hr
-    %p.text-center.roadmap__description= @roadmap.description
+    .social-links.position-fixed.translate-middle
+      %div.bi.bi-facebook
+      %div.bi.bi-instagram
+      %div.bi.bi-linkedin
+    %p.text-center.fs-6.d-block.text-justify.roadmap__description= @roadmap.description
     %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style:"height: #{@roadmap.height}px;"}
-    %p.text-center.roadmap__description= @roadmap.description
+   
 
     
       
