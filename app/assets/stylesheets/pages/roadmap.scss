@@ -13,7 +13,9 @@
   font-family: 'JetBrains Mono', monospace;
   align-items: center;
   justify-content: center;
-  background-color: var( --bs-white);
+  background-color: #E02962;
+  font-size: 18px;
+  font-weight: 600;
 
   &__content {
     &-step {
@@ -71,25 +73,24 @@
   visibility: hidden;
 }
 
-.img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
+.roadmap{
+
+  &__title{
+    color: #313C59;
+    padding-top: 50px;
+  }
+  &__description{
+    margin: 10px auto 50px;
+    text-align: justify;
+  }
 }
-.roadmap__description {
-  margin: 10px auto 50px;
-  text-align: justify !important;
-}
+
 .social-links{
-  left: 395px;
-  top: 335px;
+  left: 21%;
+  top: 58%;
   background-color: #313C59;
 }
-.roadmap__title{
-  color: #313C59;
-  padding-top: 50px !important;
-}
+
 .nav__bg{
   background-color: #f7f7f9;
 }
@@ -97,22 +98,17 @@
   background-color: #313C59;
 }
 
-.roadmap__background{
-  background-color: #eef7ff;
-}
-.roadmap__node{
-  background-color: #ffd02f;
-  color:#000 !important;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-@media (max-width: 576px){
+@media (max-width: 768px){
   .roadmap{
     width: 100% !important;
   }
   .social-links{
     left:0;
+    padding: 7px 7px !important;
+
+    .bi{
+      font-size: 18px !important;
+    }
   }
 }
   
