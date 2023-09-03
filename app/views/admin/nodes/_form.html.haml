@@ -1,6 +1,6 @@
 - method = node.new_record? ? 'POST' : 'PATCH'
 - url = node.persisted? ? admin_roadmap_node_path(roadmap_id: node.roadmap.id) : admin_roadmap_nodes_path(roadmap_id: node.roadmap.id)
-= form_with model: node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_modal_outlet: '#remote-modal',data-roadmap-form-target="modal", action: "submit->roadmap-form#createNode" } } do |form|
+= form_with model: node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_modal_outlet: '#remote-modal', action: "submit->roadmap-form#createNode" } } do |form|
   = form.hidden_field :parent_id
   = form.hidden_field :type
   .mb-3
