@@ -9,7 +9,7 @@ export default function StepNode({ data, isConnectable }) {
   return (
     <div className='roadmap__node'>
       <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}${isConnectable ? '/edit' : ''}`} className='roadmap__node__content-step text-decoration-none link-secondary'>
-        <div className="roadmap__title--md text-center text-dark fs-6">{data.title}</div>
+        <div className="roadmap__title--md text-center text-white fs-6">{data.title}</div>
       </a>
       {isConnectable &&
         <div className="d-flex actions position-absolute gap-2">
