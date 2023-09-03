@@ -66,6 +66,25 @@
       stroke: #2a2a2a;
     }
   }
+
+  .nav__bg{
+    background-color: #121212;
+  }
+
+  .roadmap{
+
+    &__title{
+      color: #ffffff;
+    }
+  }
+
+  .social-links{
+    background-color: #121212;
+  
+    .bi{
+      color: #ffffff;
+    }
+  }
 }
 
 
