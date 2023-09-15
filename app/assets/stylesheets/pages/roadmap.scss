@@ -47,6 +47,10 @@
       top: -40px;
     }
   }
+
+  .react-flow{
+    overflow: auto !important;
+  }
 }
 
 
@@ -79,10 +83,16 @@
   }
 
   .social-links{
-    background-color: #121212;
+    background-color: #ffffff;
   
     .bi{
-      color: #ffffff;
+      color: #121212 !important;
+    }
+  }
+
+  footer {
+    p{
+      color: #ffffff !important;
     }
   }
 }
@@ -123,7 +133,6 @@
   }
   .social-links{
     left:0;
-    padding: 7px 7px !important;
 
     .bi{
       font-size: 18px !important;
