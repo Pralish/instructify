@@ -3,8 +3,8 @@
 module ApplicationHelper
   include Pagy::Frontend
 
-  def creator
-    creator_id = @roadmap.maintainers.select(&:is_creator?).pluck(:user_id)
+  def show_creator
+    creator_id = @roadmap.creator.pluck(:user_id)
     User.find(creator_id).map(&:first_name).join(' | ')
   end
 

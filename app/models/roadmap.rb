@@ -30,4 +30,8 @@ class Roadmap < ApplicationRecord
   def create_first_node
     nodes.create(type: 'Step', title: 'Step 1')
   end
+
+  def creator
+    maintainers.where(is_creator: true)
+  end
 end
