@@ -14,9 +14,10 @@ import StepNode from './nodes/StepNode.jsx';
 import { formDataToJson, formatedPayload } from '../../utils.js';
 import TaskNode from './nodes/TaskNode.jsx';
 import FloatingEdge from './edges/FloatingEdge.jsx';
+import ButtonEdge from './edges/ButtonEdge.jsx';
 
 const nodeTypes = { Step: StepNode, Task: TaskNode };
-const edgeTypes = { floating: FloatingEdge };
+const edgeTypes = { floating: FloatingEdge, button: ButtonEdge };
 
 const RoadmapEditor = ({ roadmapId }) => {
   const [rfInstance, setRfInstance] = useState(null);
@@ -74,7 +75,7 @@ const RoadmapEditor = ({ roadmapId }) => {
       const formData = formDataToJson(new FormData(event.detail.event.srcElement))
       console.log(formData)
       buildNode(`${event.detail.event.srcElement.action}.json`, formData, formData._method?.toUpperCase() || 'POST')
-      event.detail.modalOutlet.hideModal();
+      event.detail.offcanvasOutlet.hideOffcanvas();
     };
 
     document.addEventListener('modalFormSubmitted', handleModalFormSubmitted);

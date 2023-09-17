@@ -9,7 +9,7 @@ class Admin::NodesController < Admin::ApplicationController
   end
 
   def new
-    @node = @roadmap.nodes.new(type: 'Step', parent_id: params[:parent_id])
+    @node = @roadmap.nodes.new(type: 'Step', parent_id: params[:parent_id], child_id: params[:child_id])
   end
 
   def edit
@@ -79,6 +79,7 @@ class Admin::NodesController < Admin::ApplicationController
       :description,
       :type,
       :parent_id,
+      :child_id,
       position: [:x, :y],
       incoming_edges_attributes: [
         :id,
