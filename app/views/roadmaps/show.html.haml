@@ -6,9 +6,11 @@
     %div.blog-data.d-flex.justify-content-center.align-items-center
       %img.avatar{ src: "https://img.freepik.com/premium-photo/man-with-orange-shirt-is-circle-with-man-orange_745528-3525.jpg?w=2000", alt: "avatar" }
       %div.blog-meta-data.d-flex
-        %h6.text-bold.mb-0.roadmap__creator= show_creator
+        %h6.text-bold.mb-0
+          = @roadmap.creator&.first_name
         %i.bi.bi-calendar-check.ms-4.me-2
-        %h6.text-bold.mb-0.roadmap_created_date= format_date
+        %h6.text-bold.mb-0
+          = @roadmap.created_at.strftime('%B %d, %Y')
     %hr
     .social-links.position-fixed.rounded-3
       .fs-5.text-white.mb-2.border-bottom.p-2.bi.bi-facebook
