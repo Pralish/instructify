@@ -1,11 +1,11 @@
 = turbo_frame_tag "offcanvas" do
-  #offcanvasRight.offcanvas.offcanvas-end{
-    "aria-labelledby" => "offcanvasRightLabel",
+  #remote-offcanvas.offcanvas.offcanvas-end{
+    "aria-labelledby" => "remote-offcanvasLabel",
     tabindex: "-1",
     "data-controller" => "offcanvas"
   }
     .offcanvas-header
-      %h5#offcanvasRightLabel.offcanvas-title Offcanvas right
+      %h5#remote-offcanvasLabel.offcanvas-title Offcanvas right
       %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "offcanvas", type: "button"}
     .offcanvas-body
       = yield

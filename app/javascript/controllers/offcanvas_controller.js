@@ -7,4 +7,8 @@ export default class extends Controller {
     this.offcanvas = new Offcanvas(this.element)
     this.offcanvas.show()
   }
+
+  hideOffcanvas() {
+    this.offcanvas.hide();
+  }
 }

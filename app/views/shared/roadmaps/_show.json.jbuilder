@@ -24,7 +24,12 @@ json.data do
       json.target edge.target_id.to_s
       json.sourceHandle edge.source_handle
       json.targetHandle edge.target_handle
-      json.type edge.target.type == 'Task' ? 'floating' : 'smoothstep'
+      json.type edge.target.type == 'Task' ? 'floating' : 'button'
+      json.data do
+        json.roadmap_id roadmap.id
+        json.source_id edge.source_id
+        json.target_id edge.target_id
+      end
     end
   end
 end
