@@ -13,7 +13,7 @@
   font-family: 'JetBrains Mono', monospace;
   align-items: center;
   justify-content: center;
-  background-color: #E02962;
+  background-color: var(--bs-node);
   font-size: 18px;
   font-weight: 600;
 
@@ -61,6 +61,16 @@
     border: none;
   }
 
+  .roadmap__node__content{
+    &-step{
+      background-color: var(--bs-node);
+    }
+
+    &-task{
+      background-color: var(--bs-node);
+    }
+  }
+
   .react-flow__background {
     &-small path {
       stroke: #232323;
@@ -72,7 +82,7 @@
   }
 
   .nav__bg{
-    background-color: #121212;
+    background-color: var(--bs-nav);
   }
 
   .roadmap{
@@ -86,7 +96,7 @@
     background-color: #ffffff;
   
     .bi{
-      color: #121212 !important;
+      color: var(--bs-nav);
     }
   }
 
@@ -100,6 +110,11 @@
 
 .react-flow__handle:not(.connectable) {
   visibility: hidden;
+}
+.avatar{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 .roadmap{
@@ -135,7 +150,7 @@
     left:0;
 
     .bi{
-      font-size: 18px !important;
+      font-size: 18px;
     }
   }
 }
