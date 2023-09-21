@@ -37,7 +37,7 @@
   .add-new {
     bottom: -80px;
     font-size: 24px;
-    background: var(--bs-white-text);
+    background: var(--bs-white);
 
     &::before {
       content: '';
@@ -88,12 +88,12 @@
   .roadmap{
 
     &__title{
-      color: var(--bs-white-text);
+      color: var(--bs-white);
     }
   }
 
   .social-links{
-    background-color: var(--bs-white-text);
+    background-color: var(--bs-white);
   
     .bi{
       color: var(--bs-nav);
@@ -102,7 +102,7 @@
 
   footer {
     p{
-      color: var(--bs-white-text) !important;
+      color: var(--bs-white) !important;
     }
   }
 }
