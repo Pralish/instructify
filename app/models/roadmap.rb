@@ -5,7 +5,8 @@ class Roadmap < ApplicationRecord
   friendly_id :title, use: :slugged
 
   has_many :maintainers, dependent: :destroy
-  has_many :nodes, dependent: :destroy
+  has_many :nodes,       dependent: :destroy
+  has_one  :creator, -> { where(is_creator: true) }, class_name: 'Maintainer'
 
   accepts_nested_attributes_for :nodes
 

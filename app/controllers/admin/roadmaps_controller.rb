@@ -59,6 +59,7 @@ class Admin::RoadmapsController < Admin::ApplicationController
       :id,
       :title,
       :description,
+      :blog_image,
       nodes_attributes: [
         :id,
         :title,

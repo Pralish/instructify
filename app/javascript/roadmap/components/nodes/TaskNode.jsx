@@ -7,7 +7,7 @@ export default function TaskNode({ data, isConnectable }) {
   return (
     <div className='roadmap__node'>
       <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}${isConnectable ? '/edit' : ''}`} className='roadmap__node__content-task text-decoration-none link-secondary'>
-        <div className="roadmap__title--md text-center">{data.title}</div>
+        <div className="roadmap__title--md text-center text-white fs-6">{data.title}</div>
       </a>
   
       {isConnectable &&

@@ -6,14 +6,16 @@
   height: 100%;
   border-width: 1px;
   border-style: solid;
-  border-color: #c4cbd1;
+  border-color: var(--bs-border);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   font-family: 'JetBrains Mono', monospace;
   align-items: center;
   justify-content: center;
-  background-color: var( --bs-white);
+  background-color: var(--bs-node);
+  font-size: 18px;
+  font-weight: 600;
 
   &__content {
     &-step {
@@ -35,15 +37,19 @@
   .add-new {
     bottom: -80px;
     font-size: 24px;
-    background: #fff;
+    background: var(--bs-white);
 
     &::before {
       content: '';
       position: absolute;
-      border-left: 1px solid #c4cbd1;
+      border-left: 1px solid var(--bs-border);
       height: 44px;
       top: -40px;
     }
+  }
+
+  .react-flow{
+    overflow: auto !important;
   }
 }
 
@@ -55,13 +61,48 @@
     border: none;
   }
 
+  .roadmap__node__content{
+    &-step{
+      background-color: var(--bs-node);
+    }
+
+    &-task{
+      background-color: var(--bs-node);
+    }
+  }
+
   .react-flow__background {
     &-small path {
-      stroke: #232323;
+      stroke: var(--bs-dark-bg);
     }
 
     &-large path {
-      stroke: #2a2a2a;
+      stroke: var(--bs-dark-bg);
+    }
+  }
+
+  .nav__bg{
+    background-color: var(--bs-nav);
+  }
+
+  .roadmap{
+
+    &__title{
+      color: var(--bs-white);
+    }
+  }
+
+  .social-links{
+    background-color: var(--bs-white);
+  
+    .bi{
+      color: var(--bs-nav);
+    }
+  }
+
+  footer {
+    p{
+      color: var(--bs-white) !important;
     }
   }
 }
@@ -70,3 +111,47 @@
 .react-flow__handle:not(.connectable) {
   visibility: hidden;
 }
+.avatar{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.roadmap{
+
+  &__title{
+    color: var(--bs-dark-text);
+    padding-top: 50px;
+  }
+  &__description{
+    margin: 10px auto 50px;
+    text-align: justify;
+  }
+}
+
+.social-links{
+  left: 21%;
+  top: 58%;
+  background-color: var(--bs-dark-text);
+}
+
+.nav__bg{
+  background-color: var(--bs-nav);
+}
+.footer__bg{
+  background-color: var(--bs-dark-text);
+}
+
+@media (max-width: 768px){
+  .roadmap{
+    width: 100% !important;
+  }
+  .social-links{
+    left:0;
+
+    .bi{
+      font-size: 18px;
+    }
+  }
+}
+  
