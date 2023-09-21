@@ -8,7 +8,6 @@ import ReactFlow, {
   useReactFlow,
   addEdge,
   ReactFlowProvider,
-  Panel,
 } from 'reactflow';
 import StepNode from './nodes/StepNode.jsx';
 import { formDataToJson, formatedPayload } from '../../utils.js';
@@ -174,11 +173,9 @@ const RoadmapEditor = ({ roadmapId }) => {
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
         preventScrolling={false}
+        onNodeDragStop={onSave}
         zoomOnScroll="false"
       >
-        <Panel position="top-left">
-          <button onClick={onSave}>save</button>
-        </Panel>
         <Controls />
         <Background id="grid-small" className="react-flow__background-small" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
         <Background id="grid-large" className="react-flow__background-large" gap={100} offset={1} color="#ccc" variant={BackgroundVariant.Lines} />
