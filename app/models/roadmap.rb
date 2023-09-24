@@ -7,6 +7,8 @@ class Roadmap < ApplicationRecord
   has_many :maintainers, dependent: :destroy
   has_many :nodes, dependent: :destroy
 
+  validates :title, :description, presence: true
+
   accepts_nested_attributes_for :nodes
 
   after_create :create_first_node, if: -> { nodes.empty? }
