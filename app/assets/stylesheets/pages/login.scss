@@ -1,0 +1,32 @@
+.login-section{
+  background-color: #f1f5f7;
+  padding-top: 203px;
+  padding-bottom: 203px;
+
+  .row{
+    width: 350px;
+    margin: 0 auto;
+    
+    .field
+    {
+      input{
+        outline-width: 1px;
+      }
+    }
+    .sign-up{
+      color: var(--bs-dark-text);
+    }
+
+    .forget-password{
+      color: var(--bs-dark-text)
+    }
+
+    .actions{
+
+      input{
+        background-color: var(--bs-dark-text);
+      }
+    }
+  }
+
+}
