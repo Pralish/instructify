@@ -1,5 +1,7 @@
 - if controller_name != 'sessions'
-  = link_to "Log in", new_session_path(resource_name)
+  .d-flex.justify-content-center.mt-2
+    %p.me-2 Already registered? 
+    = link_to "Log in", new_session_path(resource_name), class: 'sign-up text-decoration-none text-center fw-bold'
   %br/
 - if devise_mapping.registerable? && controller_name != 'registrations'
   .d-flex.justify-content-center.mt-2

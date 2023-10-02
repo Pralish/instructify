@@ -1,0 +1,25 @@
+.registration-section
+  .container
+    .row
+      %h2.text-center Sign up
+      %p.text-center.mb-4 Register to access to your account
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field.mb-3
+          = f.label :Email_Address, class: 'fw-bold'
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'w-100 rounded border-0 p-2 mt-1'
+        .field.mb-3
+          = f.label :password, class: 'fw-bold'
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: 'w-100 rounded border-0 p-2 mt-1'
+        .field.mb-3
+          = f.label :password_confirmation, class: 'fw-bold'
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'w-100 rounded border-0 p-2 mt-1'
+        .actions
+          = f.submit "Get started", class: 'w-100 rounded-pill border-0 text-white fw-bold p-2 mt-3'
+      = render "devise/shared/links"
