@@ -1,0 +1,9 @@
+- if resource.errors.any?
+  #error_explanation{"data-turbo-cache" => "false"}
+    %h2.fs-4.text-danger
+      = I18n.t("errors.messages.not_saved",                 |
+        count: resource.errors.count,                       |
+        resource: resource.class.model_name.human.downcase) |
+    %ul.list-unstyled
+      - resource.errors.full_messages.each do |message|
+        %li.text-danger= message
