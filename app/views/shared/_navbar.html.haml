@@ -13,10 +13,15 @@
         %li.nav-item
           %a.text-dark.fw-bold.nav-link{href: "mailto:support@dashly-theme.com"} Support
         %li.nav-item
-          %a.text-dark.fw-bold.nav-link{href: "https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/", target: "_blank"} Pricing
+        %a.text-dark.fw-bold.nav-link{href: "https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/", target: "_blank"} Pricing
+        
       .d-flex
         = render partial: 'shared/theme_switch'
         .vr.bg-gray-700.mx-1.mx-md-2.mx-lg-3
         / Link
+      
+        %a.text-dark.fw-bold.nav-link{href: "../users/sign_in"}
+          Login
         %a.btn.btn-dark.mx-1.mx-lg-2.px-4.px-lg-5{href: "../index.html"}
           Preview Demo
+        

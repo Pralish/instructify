@@ -1,7 +1,7 @@
 .forget-password-section
   .container
     .row
-      %h2.text-center.fs-3 Forgot your password?
+      %h2.text-center.fs-3.mb-3 Forgot your password?
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
