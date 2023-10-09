@@ -13,7 +13,7 @@ class Admin::NodesController < Admin::ApplicationController
   end
 
   def edit
-    render :new
+  render :new
   end
 
   def show
@@ -76,7 +76,7 @@ class Admin::NodesController < Admin::ApplicationController
     params.require(required_param).permit(
       :id,
       :title,
-      :description,
+      :content,
       :type,
       :parent_id,
       :child_id,

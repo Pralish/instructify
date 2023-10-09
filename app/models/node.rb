@@ -7,6 +7,8 @@ class Node < ApplicationRecord
 
   has_one_attached :blog_image
 
+  has_rich_text :content
+
   belongs_to  :roadmap
   has_many    :incoming_edges,  class_name: 'Edge', foreign_key: 'target_id', dependent: :destroy, inverse_of: :target
   has_many    :outgoing_edges,  class_name: 'Edge', foreign_key: 'source_id', dependent: :destroy

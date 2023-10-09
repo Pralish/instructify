@@ -12,7 +12,7 @@ json.data do
       json.id node.id.to_s
       json.type node.type
       json.data do
-        json.extract! node, :id, :title, :description, :parent_id, :roadmap_id
+        json.extract! node, :id, :title, :parent_id, :roadmap_id
         json.has_children node.children.where(type: 'Step').present?
       end
       json.position node.position

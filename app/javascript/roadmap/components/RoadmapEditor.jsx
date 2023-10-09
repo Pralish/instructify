@@ -105,6 +105,7 @@ const RoadmapEditor = ({ roadmapId }) => {
     })
   }
 
+  // TODO: onSave getting triggered even when links are clicked on nodes 
   const onSave = useCallback(() => {
     if (rfInstance) {
       fetch(`/admin/roadmaps/${roadmapId}.json`, {
@@ -118,8 +119,8 @@ const RoadmapEditor = ({ roadmapId }) => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        })
-        .catch(error => console.error('Error fetching data:', error));
+      })
+      .catch(error => console.error('Error fetching data:', error));
     }
   }, [rfInstance]);
 
@@ -140,19 +141,19 @@ const RoadmapEditor = ({ roadmapId }) => {
       .catch(error => console.error('Error fetching data:', error));
   }
 
-  const deleteNode = () => {
-    fetch('/admin/roadmaps/1.json', {
-      method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }})
-    .then(response => response.json())
-    .then(data => {
+  // const deleteNode = () => {
+  //   fetch('/admin/roadmaps/1.json', {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //   }})
+  //   .then(response => response.json())
+  //   .then(data => {
 
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }
+  //     })
+  //     .catch(error => console.error('Error fetching data:', error));
+  // }
 
   useEffect(() => {
     const totalHeight = nodes.reduce((maxY, node) => Math.max(maxY, node.position.y), 0);

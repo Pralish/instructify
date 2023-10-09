@@ -6,7 +6,6 @@ class CreateNodes < ActiveRecord::Migration[7.0]
       t.string :type
       t.jsonb :position, default: {}
       t.string :title
-      t.string :description
       t.string :ancestry
 
       t.timestamps

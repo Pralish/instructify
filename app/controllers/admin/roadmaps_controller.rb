@@ -33,7 +33,16 @@ class Admin::RoadmapsController < Admin::ApplicationController
   end
 
   def update
-    @roadmap.update!(roadmap_params)
+    respond_to do |format|
+      if @roadmap.update(roadmap_params)
+        format.html { redirect_to edit_admin_roadmap_path(@roadmap), notice: "Roadmap was successfully updated." }
+        format.json { render :show }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @roadmap.errors, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -63,7 +72,7 @@ class Admin::RoadmapsController < Admin::ApplicationController
       nodes_attributes: [
         :id,
         :title,
-        :description,
+        :content,
         :type,
         :parent_id,
         position: [:x, :y],

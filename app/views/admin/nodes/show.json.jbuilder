@@ -4,7 +4,7 @@ json.data do
     json.type @node.type
     json.position @node.position
     json.data do
-      json.extract! @node, :id, :title, :description, :parent_id, :roadmap_id
+      json.extract! @node, :id, :title, :parent_id, :roadmap_id
       json.has_children @node.children.present?
     end
   end
