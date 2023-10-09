@@ -12,7 +12,7 @@ export const RoadmapViewer = ({ roadmapId }) => {
   useEffect(() => { renderRoadmap() }, []);
 
   const renderRoadmap = () => {
-    fetch(`/admin/roadmaps/${roadmapId}.json`, {
+    fetch(`/roadmaps/${roadmapId}.json`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
