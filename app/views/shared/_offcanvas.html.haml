@@ -5,7 +5,8 @@
     "data-controller" => "offcanvas"
   }
     .offcanvas-header
-      %h5#remote-offcanvasLabel.offcanvas-title Offcanvas right
+      %h5#remote-offcanvasLabel.offcanvas-title
+        = title
       %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "offcanvas", type: "button"}
     .offcanvas-body
       = yield
