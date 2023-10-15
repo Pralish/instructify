@@ -9,6 +9,9 @@
           = f.label :Email_Address, class: 'fw-bold'
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'w-100 rounded border-0 p-2 mt-1'
+          - if resource.errors.any?
+            - resource.errors.full_messages_for(:email).each do |message|
+              .text-danger= message
         .field.mb-3
           = f.label :password, class: 'fw-bold'
           - if @minimum_password_length
@@ -16,6 +19,9 @@
               (#{@minimum_password_length} characters minimum)
           %br/
           = f.password_field :password, autocomplete: "new-password", class: 'w-100 rounded border-0 p-2 mt-1'
+          - if resource.errors.any?
+            - resource.errors.full_messages_for(:password).each do |message|
+              .text-danger= message
         .field.mb-3
           = f.label :password_confirmation, class: 'fw-bold'
           %br/
