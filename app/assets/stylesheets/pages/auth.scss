@@ -1,0 +1,35 @@
+.login-section,
+.registration-section,
+.forget-password-section{
+  background-color: var(--bs-light-background);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .row{
+    width: 350px;
+    margin: 0 auto;
+    
+    .field
+    {
+      input{
+        outline-width: 1px;
+      }
+    }
+    .sign-up{
+      color: var(--bs-dark-text);
+    }
+
+    .forget-password{
+      color: var(--bs-dark-text)
+    }
+
+    .actions{
+
+      input{
+        background-color: var(--bs-dark-text);
+      }
+    }
+  }
+
+}
