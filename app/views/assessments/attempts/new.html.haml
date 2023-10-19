@@ -1,0 +1,10 @@
+.d-flex.justify-content-center.align-items-center.w-100
+  .text-center
+    - if user_signed_in?
+      %h3 Start Assessment
+      %p You can't stop once you start
+      = form_for @attempt, as: :attempt do |f|
+        = f.hidden_field :assessment_id
+        = f.submit
+    - else
+      %h3 Please sign in to start the assessment

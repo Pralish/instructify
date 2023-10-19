@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.data do
   json.node do
     json.id @node.id.to_s

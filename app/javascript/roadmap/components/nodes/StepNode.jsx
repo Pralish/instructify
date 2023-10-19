@@ -3,12 +3,12 @@ import { Handle, Position } from 'reactflow';
 
 // TODO: Refactor
 // TODO: Merge Stepnode and Tasknode into simple component. Most of the things are similar, so we do not need two separate components
-export default function StepNode({ data, isConnectable }) {
+export default function StepNode({ type, data, isConnectable }) {
   const baseUrl = isConnectable ? `/admin/roadmaps/${data.roadmap_id}/nodes` : `/roadmaps/${data.roadmap_id}/nodes`
 
   return (
     <div className='roadmap__node'>
-      <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}${isConnectable ? '/edit' : ''}`} className='roadmap__node__content-step text-decoration-none link-secondary'>
+      <a data-turbo-frame="offcanvas" href={`${baseUrl}/${data.id}${isConnectable ? '/edit' : ''}`} className={`roadmap__node__content-${type.toLowerCase()} text-decoration-none link-secondary`}>
         <div className="roadmap__title--md text-center text-white fs-6">{data.title}</div>
       </a>
       {isConnectable &&
@@ -21,7 +21,7 @@ export default function StepNode({ data, isConnectable }) {
           </a>
         </div>
         }
-        {!data.has_children && isConnectable &&
+        {!data.has_children && isConnectable && type == 'Step' &&
           <a data-turbo-frame="offcanvas" className='add-new position-absolute d-flex justify-content-center' href={`${baseUrl}/new?parent_id=${data.id}`}>
             <i className="bi bi-plus-square" cursorshover="true"></i>
           </a>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TenantResolvable
   extend ActiveSupport::Concern
 
@@ -10,7 +12,7 @@ module TenantResolvable
 
   def find_tenant_by_subdomain_or_domain
     subdomain = request.subdomains.last
-    query = subdomain.present? ? { subdomain: subdomain.downcase} : { domain: request.domain.downcase}
+    query = subdomain.present? ? { subdomain: subdomain.downcase } : { domain: request.domain.downcase }
     set_current_tenant(Organization.where(query).first)
   end
 end

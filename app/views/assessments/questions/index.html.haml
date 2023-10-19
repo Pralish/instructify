@@ -1,0 +1,12 @@
+.container
+  %h1 Assessment
+
+  - @questions.each do |question|
+    .mb-3
+      = render 'assessments/answers/form', attempt: @attempt, question: question
+
+  .d-flex.justify-content-between.align-items-center
+    %div
+      != pagy_bootstrap_nav(@pagy) if @pagy.pages > 1
+    = button_to 'Submit', submit_assessments_attempt_path(@attempt), method: :patch, class: 'btn btn-primary' if @pagy.next.nil?
+

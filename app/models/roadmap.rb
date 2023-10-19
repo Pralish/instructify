@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Roadmap < ApplicationRecord
   extend FriendlyId
   multi_tenant :organization
@@ -19,7 +21,7 @@ class Roadmap < ApplicationRecord
   end
 
   def edges
-    Edge.joins([:source, :target]).where(nodes: {roadmap_id: id})
+    Edge.joins(%i[source target]).where(nodes: { roadmap_id: id })
   end
 
   def build_nodes_from_json(draw_flow_json)
@@ -27,7 +29,7 @@ class Roadmap < ApplicationRecord
   end
 
   def height
-    self.nodes.reduce(0) { |max_y, node| [max_y, node.position['y'].to_i].max }
+    nodes.reduce(0) { |max_y, node| [max_y, node.position['y'].to_i].max }
   end
 
   def create_first_node

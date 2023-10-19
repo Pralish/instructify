@@ -1,0 +1,4 @@
+- answer = question.answers.find_or_initialize_by(attempt: attempt)
+= form_for answer, as: :answer, url: assessments_attempt_question_answers_path(attempt_id: attempt, question_id: question), method: :post, data: { controller: 'autosave', autosave_delay_value: '1000' } do |f|
+  = f.label :content, question.content
+  = f.text_area :content, class: 'form-control', data: { action: 'keyup->autosave#save' }

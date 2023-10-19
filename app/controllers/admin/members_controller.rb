@@ -1,37 +1,34 @@
-class Admin::MembersController < Admin::ApplicationController
-  before_action :set_member, only: %i[show update destroy]
+# frozen_string_literal: true
 
-  # GET /admin/users
-  def index
-  end
+module Admin
+  class MembersController < Admin::ApplicationController
+    before_action :find_member!, only: %i[show update destroy]
 
-  # GET /admin/users/new
-  def new
-  end
+    # GET /admin/users
+    def index; end
 
-  # POST /admin/users
-  def create
-  end
+    # GET /admin/users/new
+    def new; end
 
-  # GET /admin/users/1
-  def show
-  end
+    # POST /admin/users
+    def create; end
 
-  # GET /admin/users/1/edit
-  def edit
-  end
+    # GET /admin/users/1
+    def show; end
 
-  # PATCH /admin/users/1
-  def update
-  end
+    # GET /admin/users/1/edit
+    def edit; end
 
-  # DELETE /admin/users/1
-  def destroy
-  end
+    # PATCH /admin/users/1
+    def update; end
 
-  private
+    # DELETE /admin/users/1
+    def destroy; end
 
-  def set_user
-    @member = Member.find(params[:id])
+    private
+
+    def find_member!
+      @member = Member.find(params[:id])
+    end
   end
 end

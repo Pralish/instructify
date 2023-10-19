@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -10,11 +12,31 @@ Rails.application.routes.draw do
     resources :members
     resources :roadmaps do
       resources :nodes
-    end 
+    end
   end
 
   namespace :student do
     get '/', to: 'dashboard#index'
     resources :roadmaps, only: %i[index show]
+  end
+
+  namespace :assessments do
+    scope path: ':assessment_id' do
+      resources :attempts, only: %i[new create]
+    end
+
+    resources :attempts, only: :show do
+      member do
+        patch :submit
+      end
+
+      resources :questions, only: %i[index] do
+        collection do
+          get ':index', to: 'questions#index'
+        end
+
+        resources :answers, only: :create
+      end
+    end
   end
 end

@@ -3,7 +3,7 @@ import ReactFlow, { Controls } from 'reactflow';
 import StepNode from './nodes/StepNode.jsx';
 import TaskNode from './nodes/TaskNode.jsx';
 
-const nodeTypes = { Step: StepNode, Task: TaskNode };
+const nodeTypes = { Step: StepNode, Task: StepNode, Checkpoint: StepNode };
 
 export const RoadmapViewer = ({ roadmapId }) => {
   const [nodes, setNodes] = useState([]);

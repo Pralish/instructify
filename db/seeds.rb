@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-organization = Organization.find_or_create_by!(name: 'Instructify', subdomain: 'instructify')
+Organization.find_or_create_by!(name: 'Instructify', subdomain: 'instructify')
 
-user = User.first_or_create!(email: 'john@instructify.com', first_name: 'John', last_name: 'Doe', password: 'changeme')
+User.first_or_create!(email: 'john@instructify.com', first_name: 'John', last_name: 'Doe', password: 'changeme')
 
 MultiTenant.with(Organization.first) do
   roadmap = Roadmap.find_or_create_by!(title: 'Frontend Developer')
@@ -12,27 +14,16 @@ MultiTenant.with(Organization.first) do
   step_2 = roadmap.nodes.create(type: 'Step', title: 'Css', parent: step_1)
   step_3 = roadmap.nodes.create(type: 'Step', title: 'javascript', parent: step_2)
 
-  Task.create!(
-    title: 'Learn the Basics',
-    roadmap: roadmap,
-    parent_id: step_1.id,
-    incoming_edges_attributes: [{
-      source_handle: 'right',
-      target_handle: 'left',
-      source: step_1,
-      type: ''
-    }])
-
-  Task.create!(
-    title: 'Writing Semantic HTML',
-    roadmap: roadmap,
-    parent_id: step_1.id,
-    incoming_edges_attributes: [{
-      source_handle: 'right',
-      target_handle: 'left',
-      source: step_1
-    }])
+  roadmap.nodes.create(
+    type: 'Checkpoint',
+    title: 'Test',
+    parent: step_3,
+    assessment_attributes: {
+      questions_attributes: [
+        { content: 'What is HTML?' },
+        { content: 'What is CSS?' },
+        { content: 'What is Javascript?' }
+      ]
+    }
+  )
 end
-
-
-

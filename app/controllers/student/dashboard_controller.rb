@@ -1,6 +1,8 @@
+# frozen_string_literal: true
 
-class Student::DashboardController < Student::ApplicationController
-  # GET /student
-  def index
+module Student
+  class DashboardController < Student::ApplicationController
+    # GET /student
+    def index; end
   end
 end

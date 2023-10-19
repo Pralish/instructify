@@ -1,2 +1,7 @@
 = render "shared/offcanvas", title: @node.title do
   = @node.content
+  - if @node.is_a? Checkpoint
+    %h3 Assessment
+    - @node.assessment.questions.each do |question|
+      %p= question.content 
+

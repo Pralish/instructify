@@ -1,11 +1,11 @@
 - method = node.new_record? ? 'POST' : 'PATCH'
 - url = node.persisted? ? admin_roadmap_node_path(roadmap_id: node.roadmap.id) : admin_roadmap_nodes_path(roadmap_id: node.roadmap.id)
-= form_with model: node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_offcanvas_outlet: '#remote-offcanvas', action: "submit->roadmap-form#createNode" } } do |form|
+= form_with model: node, scope: :node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_offcanvas_outlet: '#remote-offcanvas', action: "submit->roadmap-form#createNode" } } do |form|
   = form.hidden_field :parent_id
   = form.hidden_field :child_id
   = form.hidden_field :type
   .mb-3
-    = form.label :title, style: "display: block", class: "form-label"
+    = form.label :title, class: "form-label"
     = form.text_field :title, class: "form-control"
     %div{:style => "color: red"}
       - if node.errors.include?(:title)
@@ -13,12 +13,30 @@
           = error_message
           \.
   .mb-3
-    = form.label :content, style: "display: block", class: "form-label"
+    = form.label :content, class: "form-label"
     = form.rich_text_area :content, class: "form-control"
     %div{:style => "color: red"}
       - if node.errors.include?(:content)
         - node.errors.full_messages_for(:content).each do |error_message|
           = error_message
           \.
+
+  - if node.is_a? Checkpoint
+    %h3
+      Assessment
+    .mb-3
+      = form.fields_for :assessment, node.assessment || node.build_assessment  do |ff|
+        = ff.hidden_field :id
+        %div{data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }}
+          %template{"data-nested-form-target" => "template"}
+            = ff.fields_for :questions, Assessments::Question.new, child_index: 'NEW_RECORD' do |todo_fields|
+              = render "question_form", f: todo_fields
+
+          = ff.fields_for :questions do |todo_fields|
+            = render "question_form", f: todo_fields
+
+          %div{"data-nested-form-target" => "target"}
+          %button{"data-action" => "nested-form#add", type: "button"} Add Question
+  
   .mb-3
     = form.submit "Save", class: "btn btn-success btn-block"
