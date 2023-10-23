@@ -24,6 +24,7 @@ class Node < ApplicationRecord
   after_update      :update_edges,     if: -> { ancestry_changed? }
 
   accepts_nested_attributes_for :incoming_edges
+  accepts_nested_attributes_for :assessment
 
   def edges
     incoming_edges.or(outgoing_edges)

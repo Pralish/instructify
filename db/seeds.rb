@@ -10,21 +10,20 @@ User.first_or_create!(email: 'john@instructify.com', first_name: 'John', last_na
 MultiTenant.with(Organization.first) do
   roadmap = Roadmap.find_or_create_by!(title: 'Frontend Developer')
 
-  step_1 = roadmap.nodes.find_or_create_by!(type: 'Step', title: 'Html')
+  step_1 = roadmap.nodes.first_or_initialize.tap do |step|
+    step.type = 'Step'
+    step.title = 'Html'
+    step.position = {x: 196, y: 30}
+    step.save!
+  end
   step_2 = roadmap.nodes.find_or_initialize_by(type: 'Step', title: 'Css').tap do |step|
     step.parent = step_1
+    step.position = { x: 353, y: 186 }
     step.save!
   end
-  step_3 = roadmap.nodes.find_or_initialize_by(type: 'Step', title: 'javascript').tap do |step|
-    step.parent = step_2
-    step.save!
-  end
-
-  roadmap.nodes.find_or_initialize_by(
-    type: 'Checkpoint',
-    title: 'Test'
-  ).update(
-    parent: step_3,
+  step_3 = roadmap.nodes.find_or_initialize_by(type: 'Step', title: 'javascript').update(
+    parent: step_2,
+    position: { x: 180, y: 348 },
     assessment_attributes: {
       questions_attributes: [
         { content: 'What is HTML?' },
