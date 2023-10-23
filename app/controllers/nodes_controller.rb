@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class NodesController < ApplicationController
   before_action :set_roadmap
   before_action :set_node
 
-  def show
-  end
+  def show; end
 
   private
 

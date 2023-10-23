@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class RoadmapNodeBuilder
   attr_accessor :roadmap, :nodes, edges
@@ -16,28 +17,27 @@ class RoadmapNodeBuilder
   private
 
   def build_nodes
-    # ids of nodes and 
+    # ids of nodes and
     edges = edges.map do |edge|
-              edge[:source_id] = nodes.select { |node| node[:id] == edge[:source] }[:data][:id]
-              edge[:target_id] = nodes.select { |node| node[:id] == edge[:target] }[:data][:id]
-              edge 
-            end
+      edge[:source_id] = nodes.select { |node| node[:id] == edge[:source] }[:data][:id]
+      edge[:target_id] = nodes.select { |node| node[:id] == edge[:target] }[:data][:id]
+      edge
+    end
 
     nodes = nodes.map do |node|
-              node[:id] = node[:data][:id]
-            end
+      node[:id] = node[:data][:id]
+    end
 
     nodes.each do |node_data|
       node = Node.find_by_id(node_data[:data][:id]).update(node_data[:data])
-      
-      incoming_edge = edges.select { |edge| edge[:source] == node_data[:id] }
-      node.incoming_edges.update
-      outgoing_edge = edges.select { |edge| edge[:target] == node_data[:id] }
 
+      edges.select { |edge| edge[:source] == node_data[:id] }
+      node.incoming_edges.update
+      edges.select { |edge| edge[:target] == node_data[:id] }
     end
 
     edges.each do |edge|
-      nodes.select {|node| node.id == edge.source }
+      nodes.select { |node| node.id == edge.source }
     end
 
     draw_flow_export.transform_values! do |node_data|
@@ -59,18 +59,20 @@ class RoadmapNodeBuilder
   end
 
   def build_connections
-    draw_flow_export.values.each do |node_data|
+    draw_flow_export.each_value do |node_data|
       node_data[:inputs].each do |key, value|
         value[:connections].each do |c|
           # TODO: handle multiple parents
-          node_data[:node].content.update!(parent: draw_flow_export[c[:node].to_s][:node].content) unless node_data[:data][:parent_id]
-    
+          unless node_data[:data][:parent_id]
+            node_data[:node].content.update!(parent: draw_flow_export[c[:node].to_s][:node].content)
+          end
+
           Connection.where(from_node: draw_flow_export[c[:node].to_s][:node], to_node: node_data[:node])
-            .first_or_initialize
-            .update!(
-              from_output: c[:input],
-              to_input: key
-            )
+                    .first_or_initialize
+                    .update!(
+                      from_output: c[:input],
+                      to_input: key
+                    )
         end
       end
     end

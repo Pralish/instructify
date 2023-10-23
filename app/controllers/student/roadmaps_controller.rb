@@ -1,17 +1,19 @@
-class Student::RoadmapsController < Student::ApplicationController
-  before_action :set_roadmap
+# frozen_string_literal: true
 
-  # GET /student/roadmaps
-  def index
-  end
+module Student
+  class RoadmapsController < Student::ApplicationController
+    before_action :set_roadmap
 
-  # GET /student/roadmaps/1 or # GET /student/roadmaps/1.json
-  def show
-  end
+    # GET /student/roadmaps
+    def index; end
 
-  private
+    # GET /student/roadmaps/1 or # GET /student/roadmaps/1.json
+    def show; end
 
-  def set_roadmap
-    @roadmap = Roadmap.find(params[:id])
+    private
+
+    def set_roadmap
+      @roadmap = Roadmap.find(params[:id])
+    end
   end
 end

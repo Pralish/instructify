@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
     resources :members
     resources :roadmaps do
       resources :nodes
-    end 
+    end
   end
 
   namespace :student do

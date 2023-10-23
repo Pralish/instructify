@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.data do
   json.nodes @nodes do |node|
     json.extract! node, :id, :position

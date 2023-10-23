@@ -1,6 +1,9 @@
+# frozen_string_literal: true
 
-class Student::ApplicationController < ApplicationController
-  before_action :authenticate_user!
+module Student
+  class ApplicationController < ApplicationController
+    before_action :authenticate_user!
 
-  layout 'student/application'
-end  
+    layout 'student/application'
+  end
+end

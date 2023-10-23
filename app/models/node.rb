@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Node < ApplicationRecord
   multi_tenant :organization
 
@@ -34,7 +36,7 @@ class Node < ApplicationRecord
   def update_edges
     Edge.where(target_id: id).update!(source_id: parent.id)
   end
-  
+
   def set_roadmap_id
     self.roadmap_id = parent&.roadmap_id
   end
@@ -45,8 +47,8 @@ class Node < ApplicationRecord
 
   def set_position
     self.position = {
-      x: parent.present? ? parent.position["x"].to_f : 0,
-      y: parent.present? ? parent.position["y"].to_f + 150 : 0
-    } 
+      x: parent.present? ? parent.position['x'].to_f : 0,
+      y: parent.present? ? parent.position['y'].to_f + 150 : 0
+    }
   end
 end
