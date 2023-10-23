@@ -1,0 +1,5 @@
+= turbo_frame_tag 'questions-container' do
+  #questions
+    - questions.each do |question|
+      = render 'admin/assessments/questions/question', question: question
+  = link_to 'Add new Question', new_admin_assessment_question_path(assessment_id: assessment.id), data: { turbo_frame: "modal" }, class: 'btn btn-outline-primary w-100'

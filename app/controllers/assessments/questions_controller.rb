@@ -4,6 +4,8 @@ module Assessments
   class QuestionsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_attempt!
+    before_action :ensure_attempt_not_submitted
+
     helper_method :pagy_url_for
 
     def index
@@ -25,6 +27,10 @@ module Assessments
 
     def find_attempt!
       @attempt = current_user.assessment_attempts.find(params[:attempt_id])
+    end
+
+    def ensure_attempt_not_submitted
+      redirect_to assessments_attempt_path(@attempt), notice: 'Assessment Submitted' and return if @attempt.submitted?
     end
   end
 end

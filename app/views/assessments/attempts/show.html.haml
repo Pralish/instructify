@@ -1,0 +1,8 @@
+.container
+  %h1 Assessment Completed
+  %p Your Result
+  - @attempt.questions.each do |question|
+    - answer = @answers.find { |answer| answer.question_id == question.id }
+    .mb-3
+      = label_tag question.content
+      = text_area_tag :content, answer&.content, readonly: true, class: 'form-control', disabled: true

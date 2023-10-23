@@ -2,7 +2,7 @@
 
 module Assessments
   module Questions
-    class Select < Assessments::Question
+    class Text < Assessments::Question
     end
   end
 end

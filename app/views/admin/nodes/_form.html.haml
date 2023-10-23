@@ -20,23 +20,19 @@
         - node.errors.full_messages_for(:content).each do |error_message|
           = error_message
           \.
-
-  - if node.is_a? Checkpoint
-    %h3
-      Assessment
-    .mb-3
-      = form.fields_for :assessment, node.assessment || node.build_assessment  do |ff|
-        = ff.hidden_field :id
-        %div{data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }}
-          %template{"data-nested-form-target" => "template"}
-            = ff.fields_for :questions, Assessments::Question.new, child_index: 'NEW_RECORD' do |todo_fields|
-              = render "question_form", f: todo_fields
-
-          = ff.fields_for :questions do |todo_fields|
-            = render "question_form", f: todo_fields
-
-          %div{"data-nested-form-target" => "target"}
-          %button{"data-action" => "nested-form#add", type: "button"} Add Question
   
   .mb-3
     = form.submit "Save", class: "btn btn-success btn-block"
+
+- if node.persisted?
+  .mb-3
+    - if node.assessment.present?
+      - assessment = node.assessment
+      .d-flex.justify-content-between 
+        %h3 Assessment
+        = link_to admin_assessment_questions_path(assessment_id: assessment.id), target: '_blank', class: 'btn btn-link' do
+          %i.bi.bi-box-arrow-up-right
+      = render "admin/assessments/questions/index", assessment: assessment, questions: assessment.questions
+    - else
+      = turbo_frame_tag 'questions-container' do
+        = button_to 'Add Assessment', admin_assessments_path, params: { assessment: { node_id: node.id } }, class: 'btn btn-secondary'

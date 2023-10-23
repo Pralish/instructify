@@ -4,6 +4,6 @@ module Student
   class ApplicationController < ApplicationController
     before_action :authenticate_user!
 
-    layout 'student/application'
+    layout -> { turbo_frame_request? ? false : 'admin/application' }
   end
 end

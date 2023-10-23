@@ -15,6 +15,8 @@ class Node < ApplicationRecord
   has_many    :incoming_edges,  class_name: 'Edge', foreign_key: 'target_id', dependent: :destroy, inverse_of: :target
   has_many    :outgoing_edges,  class_name: 'Edge', foreign_key: 'source_id', dependent: :destroy
 
+  has_one     :assessment,      class_name: 'Assessments::Assessment',        dependent: :destroy
+
   after_initialize  :set_roadmap_id,   if: -> { new_record? && roadmap_id.nil? }
   after_initialize  :set_position,     if: -> { new_record? && position.blank? }
   after_create      :create_edge,      if: -> { incoming_edges.empty? && parent.present? }

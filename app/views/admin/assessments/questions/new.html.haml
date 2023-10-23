@@ -1,0 +1,7 @@
+= render "shared/modal", title: "New Question" do
+  = turbo_frame_tag 'new-question-form' do
+    - if params[:type]
+      = render "form", question: @question
+    - else
+      - Assessments::Question.descendants.each do |klass|
+        = link_to klass.pretty_name, new_admin_assessment_question_path(assessment_id: @assessment.id, type: klass.name), data: { turbo_frame: 'new-question-form' }, method: :get, class: 'btn btn-outline-primary w-100 d-block mb-3'

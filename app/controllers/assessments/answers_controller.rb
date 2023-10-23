@@ -8,7 +8,7 @@ module Assessments
     before_action :find_or_initialize_answer
 
     def create
-      @answer.update(answer_params)
+      @answer.update(content: answer_params[:content])
     end
 
     private
@@ -26,7 +26,7 @@ module Assessments
     end
 
     def answer_params
-      params.require(:answer).permit(:content)
+      params.require(:answer)
     end
   end
 end

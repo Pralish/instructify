@@ -13,25 +13,31 @@ module Assessments
     end
 
     def create
-      @attempt = @assessment.attempts.new(attempt_params.merge(user_id: current_user.id))
+      @attempt = @assessment.attempts.new(user: current_user)
+
       if @attempt.save
-        redirect_to assessments_attempt_path(@attempt), notice: 'Assessment Started'
+        redirect_to assessments_attempt_questions_path(attempt_id: @attempt), notice: 'Assessment Started'
       else
         render :new
       end
     end
 
-    def show; end
+    def show
+      unless @attempt.submitted?
+        return redirect_to assessments_attempt_questions_path(attempt_id: @attempt),
+                           notice: 'Assessment not completed'
+      end
+
+      @answers = @attempt.answers
+    end
 
     def submit
-      @attempt.submit
+      return unless @attempt.submit
+
+      redirect_to assessments_attempt_path(@attempt), notice: 'Assessment Submitted'
     end
 
     private
-
-    def attempt_params
-      params.require(:attempt).permit(:assessment_id)
-    end
 
     def find_assessment!
       @assessment = Assessments::Assessment.find(params[:assessment_id])

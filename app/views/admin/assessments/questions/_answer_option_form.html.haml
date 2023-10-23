@@ -1,0 +1,6 @@
+.nested-form-wrapper
+  .d-flex
+    = f.text_field :value, class: 'form-control mb-2'
+    %a.btn.btn-link.text-danger{ data: { action: "nested-form#remove" }}
+      %i.bi.bi-trash
+  = f.hidden_field :_destroy

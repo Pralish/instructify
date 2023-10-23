@@ -59,7 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 20_231_018_054_027) do
     t.bigint 'organization_id', null: false
     t.bigint 'attempt_id', null: false
     t.bigint 'question_id', null: false
-    t.text 'content'
+    t.jsonb 'content'
+    t.boolean 'correct'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['attempt_id'], name: 'index_assessments_answers_on_attempt_id'
@@ -69,11 +70,11 @@ ActiveRecord::Schema[7.0].define(version: 20_231_018_054_027) do
 
   create_table 'assessments_assessments', force: :cascade do |t|
     t.bigint 'organization_id', null: false
-    t.bigint 'checkpoint_id', null: false
+    t.bigint 'node_id', null: false
     t.string 'name'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.index ['checkpoint_id'], name: 'index_assessments_assessments_on_checkpoint_id'
+    t.index ['node_id'], name: 'index_assessments_assessments_on_node_id'
     t.index ['organization_id'], name: 'index_assessments_assessments_on_organization_id'
   end
 
@@ -92,10 +93,12 @@ ActiveRecord::Schema[7.0].define(version: 20_231_018_054_027) do
   create_table 'assessments_questions', force: :cascade do |t|
     t.bigint 'organization_id', null: false
     t.bigint 'assessment_id', null: false
-    t.string 'type'
+    t.string 'type', default: 'Assessments::Questions::Text'
     t.string 'content'
     t.integer 'position'
-    t.text 'answer_options'
+    t.jsonb 'answer_options', default: []
+    t.jsonb 'correct_answer'
+    t.integer 'weight', default: 1
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['assessment_id'], name: 'index_assessments_questions_on_assessment_id'
@@ -190,7 +193,7 @@ ActiveRecord::Schema[7.0].define(version: 20_231_018_054_027) do
   add_foreign_key 'assessments_answers', 'assessments_attempts', column: 'attempt_id'
   add_foreign_key 'assessments_answers', 'assessments_questions', column: 'question_id'
   add_foreign_key 'assessments_answers', 'organizations'
-  add_foreign_key 'assessments_assessments', 'nodes', column: 'checkpoint_id'
+  add_foreign_key 'assessments_assessments', 'nodes'
   add_foreign_key 'assessments_assessments', 'organizations'
   add_foreign_key 'assessments_attempts', 'assessments_assessments', column: 'assessment_id'
   add_foreign_key 'assessments_attempts', 'organizations'

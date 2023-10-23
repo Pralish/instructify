@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :roadmaps do
       resources :nodes
     end
+
+    resources :assessments, only: :create, module: 'assessments' do
+      resources :questions
+    end
   end
 
   namespace :student do
