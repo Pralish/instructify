@@ -1,21 +1,26 @@
 @import 'reactflow/dist/style';
+@import '@simonwep/pickr/dist/themes/classic.min';
 
+.react-flow {
+  &__node {
+    background-color: var(--bs-node);
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-width: 0px;
+    border-style: solid;
+    border-color: var(--bs-border);
+    border-radius: 8px;
+  }
+}
 .roadmap__node {
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--bs-border);
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   font-family: 'JetBrains Mono', monospace;
   align-items: center;
   justify-content: center;
-  background-color: var(--bs-node);
-  font-size: 18px;
-  font-weight: 600;
 
   &__content {
     &-step {
@@ -56,9 +61,11 @@
 
 
 [data-theme=dark] {
-  .roadmap__node {
-    background-color: var( --bs-surface-bg);
-    border: none;
+  .react-flow {
+    &__node {
+      background-color: var( --bs-surface-bg);
+      border: none;
+    }
   }
 
   .roadmap__node__content{

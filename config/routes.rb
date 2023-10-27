@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
     resources :members
     resources :roadmaps do
+      member do 
+        get :ui_settings
+      end
       resources :nodes
     end
 

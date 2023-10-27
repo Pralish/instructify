@@ -2,5 +2,8 @@
   = stylesheet_link_tag 'roadmap'
 
 %main
-  %h1.h2.roadmap__title--lg= @roadmap.title
+  .d-flex.justify-content-between.mb-3
+    %h1.h2.roadmap__title--lg= @roadmap.title
+    = link_to ui_settings_admin_roadmap_path(@roadmap), data: { turbo_frame: "offcanvas" }, class: "d-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm mx-1 mx-lg-2 w-40px h-40px link-secondary" do
+      %i.bi.bi-gear.fs-5
   %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style: "height: #{@roadmap.height}px; min-height: 800px;"}

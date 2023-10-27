@@ -1,6 +1,6 @@
 %nav#mainNavbar.navbar.navbar-vertical.navbar-expand-lg.scrollbar.bg-dark.navbar-dark
   :javascript
-    let navigationColor = localStorage.getItem('navigationColor'),
+    var navigationColor = localStorage.getItem('navigationColor'),
         navbar = document.getElementById('mainNavbar');
                 
     if(navigationColor != null && navbar != null) {

@@ -1,0 +1,79 @@
+= render "shared/offcanvas", title: "UI settings" do
+  = form_for [:admin, @roadmap] do |f|
+    .card
+      .card-body
+        = f.fields_for :step_nodes_settings, OpenStruct.new(f.object.step_nodes_settings || {}) do |ff|
+          .card-title
+            %strong Step nodes
+          .form-group.mb-3{ data: { controller: "color-picker" } }
+            = ff.label :backgroundColor, 'Background color'
+            = ff.hidden_field :backgroundColor, data: { color_picker_target: "input" }
+            %div{ data: { color_picker_target: "button" } }
+
+          .form-group
+            = ff.label 'Border', class: 'form-label'
+            .row
+              .col.col-5.form-group
+                = ff.label :borderWidth, 'Width'
+                = ff.text_field :borderWidth, class: "form-control", placeholder: '1px'
+              .col.col-5.form-group
+                = ff.label :borderRadius, 'Radius'
+                = ff.text_field :borderRadius, class: "form-control", placeholder: '1px'
+              .col.col-2.form-group{ data: { controller: "color-picker" } }
+                = ff.label :borderColor, 'Color'
+                = ff.hidden_field :borderColor, data: { color_picker_target: "input" }
+                %div{ data: { color_picker_target: "button" } }
+    .card
+      .card-body
+        .card-title
+          %strong Step Edges
+        = f.fields_for :step_edges_settings, OpenStruct.new(f.object.step_edges_settings || {}) do |ff|
+          .form-group.mb-3{ data: { controller: "color-picker" } }
+            = ff.label :stroke
+            = ff.hidden_field :stroke, data: { color_picker_target: "input" }
+            %div{ data: { color_picker_target: "button" } }
+          .form-group.mb-3
+            = ff.label :strokeWidth
+            = ff.text_field :strokeWidth, class: "form-control", placeholder: '1px'
+          .form-group
+            = ff.label :animated
+            = ff.check_box :animated
+    .card
+      .card-body
+        .card-title
+          %strong Task nodes
+        = f.fields_for :task_nodes_settings, OpenStruct.new(f.object.task_nodes_settings || {}) do |ff|
+          .form-group.mb-3{ data: { controller: "color-picker" } }
+            = ff.label :backgroundColor
+            = ff.hidden_field :backgroundColor, data: { color_picker_target: "input" }
+            %div{ data: { color_picker_target: "button" } }
+          .form-group
+            = ff.label 'Border', class: 'form-label'
+            .row
+              .col.col-5.form-group
+                = ff.label :borderWidth, 'Width'
+                = ff.text_field :borderWidth, class: "form-control", placeholder: '1px'
+              .col.col-5.form-group
+                = ff.label :borderRadius, 'Radius'
+                = ff.text_field :borderRadius, class: "form-control", placeholder: '1px'
+              .col.col-2.form-group{ data: { controller: "color-picker" } }
+                = ff.label :borderColor, 'Color'
+                = ff.hidden_field :borderColor, data: { color_picker_target: "input" }
+                %div{ data: { color_picker_target: "button" } }
+    .card
+      .card-body
+        .card-title
+          %strong Task Edges
+        = f.fields_for :task_edges_settings, OpenStruct.new(f.object.task_edges_settings || {}) do |ff|
+          .form-group.mb-3{ data: { controller: "color-picker" } }
+            = ff.label :stroke
+            = ff.hidden_field :stroke, data: { color_picker_target: "input" }
+            %div{ data: { color_picker_target: "button" } }
+          .form-group.mb-3
+            = ff.label :strokeWidth
+            = ff.text_field :strokeWidth, class: "form-control", placeholder: '1px'
+          .form-group
+            = ff.label :animated
+            = ff.check_box :animated
+
+    = f.submit "Save", class: "btn btn-primary w-100 text-white"
