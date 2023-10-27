@@ -24,10 +24,6 @@ class Roadmap < ApplicationRecord
     Edge.joins(%i[source target]).where(nodes: { roadmap_id: id })
   end
 
-  def build_nodes_from_json(draw_flow_json)
-    RoadmapNodeBuilder.new(self, draw_flow_json).call
-  end
-
   def height
     nodes.reduce(0) { |max_y, node| [max_y, node.position['y'].to_i].max }
   end

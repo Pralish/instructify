@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_830_155_936) do
+ActiveRecord::Schema[7.0].define(version: 20_231_018_054_027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -53,6 +53,56 @@ ActiveRecord::Schema[7.0].define(version: 20_230_830_155_936) do
     t.bigint 'blob_id', null: false
     t.string 'variation_digest', null: false
     t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
+  end
+
+  create_table 'assessments_answers', force: :cascade do |t|
+    t.bigint 'organization_id', null: false
+    t.bigint 'attempt_id', null: false
+    t.bigint 'question_id', null: false
+    t.jsonb 'content'
+    t.boolean 'correct'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['attempt_id'], name: 'index_assessments_answers_on_attempt_id'
+    t.index ['organization_id'], name: 'index_assessments_answers_on_organization_id'
+    t.index ['question_id'], name: 'index_assessments_answers_on_question_id'
+  end
+
+  create_table 'assessments_assessments', force: :cascade do |t|
+    t.bigint 'organization_id', null: false
+    t.bigint 'node_id', null: false
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['node_id'], name: 'index_assessments_assessments_on_node_id'
+    t.index ['organization_id'], name: 'index_assessments_assessments_on_organization_id'
+  end
+
+  create_table 'assessments_attempts', force: :cascade do |t|
+    t.bigint 'organization_id', null: false
+    t.bigint 'assessment_id', null: false
+    t.bigint 'user_id'
+    t.datetime 'submitted_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['assessment_id'], name: 'index_assessments_attempts_on_assessment_id'
+    t.index ['organization_id'], name: 'index_assessments_attempts_on_organization_id'
+    t.index ['user_id'], name: 'index_assessments_attempts_on_user_id'
+  end
+
+  create_table 'assessments_questions', force: :cascade do |t|
+    t.bigint 'organization_id', null: false
+    t.bigint 'assessment_id', null: false
+    t.string 'type', default: 'Assessments::Questions::Text'
+    t.string 'content'
+    t.integer 'position'
+    t.jsonb 'answer_options', default: []
+    t.jsonb 'correct_answer'
+    t.integer 'weight', default: 1
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['assessment_id'], name: 'index_assessments_questions_on_assessment_id'
+    t.index ['organization_id'], name: 'index_assessments_questions_on_organization_id'
   end
 
   create_table 'edges', force: :cascade do |t|
@@ -140,6 +190,15 @@ ActiveRecord::Schema[7.0].define(version: 20_230_830_155_936) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'assessments_answers', 'assessments_attempts', column: 'attempt_id'
+  add_foreign_key 'assessments_answers', 'assessments_questions', column: 'question_id'
+  add_foreign_key 'assessments_answers', 'organizations'
+  add_foreign_key 'assessments_assessments', 'nodes'
+  add_foreign_key 'assessments_assessments', 'organizations'
+  add_foreign_key 'assessments_attempts', 'assessments_assessments', column: 'assessment_id'
+  add_foreign_key 'assessments_attempts', 'organizations'
+  add_foreign_key 'assessments_questions', 'assessments_assessments', column: 'assessment_id'
+  add_foreign_key 'assessments_questions', 'organizations'
   add_foreign_key 'edges', 'nodes', column: 'source_id'
   add_foreign_key 'edges', 'nodes', column: 'target_id'
   add_foreign_key 'edges', 'organizations'

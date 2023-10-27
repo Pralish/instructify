@@ -1,2 +1,7 @@
 = render "shared/offcanvas", title: @node.title do
-  = @node.content
+  .content
+    != @node.content
+  - if @node.assessment.present?
+    = link_to 'Start Assessment', new_assessments_attempt_path(assessment_id: @node.assessment), target: '_blank', class: 'btn btn-primary'
+
+

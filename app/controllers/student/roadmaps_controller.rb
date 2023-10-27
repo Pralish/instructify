@@ -2,7 +2,7 @@
 
 module Student
   class RoadmapsController < Student::ApplicationController
-    before_action :set_roadmap
+    before_action :find_roadmap
 
     # GET /student/roadmaps
     def index; end
@@ -12,7 +12,7 @@ module Student
 
     private
 
-    def set_roadmap
+    def find_roadmap
       @roadmap = Roadmap.find(params[:id])
     end
   end

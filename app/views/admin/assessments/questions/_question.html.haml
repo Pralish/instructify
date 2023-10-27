@@ -1,0 +1,19 @@
+= turbo_frame_tag dom_id(question) do
+  .card
+    .card-body.mb-3
+      %small.badge.text-bg-primary.mb-2
+        = question.class.pretty_name
+      .card-title.d-flex.justify-content-between
+        = question.content
+        .actions
+          = link_to edit_admin_assessment_question_path(id: question, assessment_id: question.assessment_id), data: { turbo_frame: "modal" }, class: 'btn btn-link' do
+            %i.bi.bi-pen
+          = link_to admin_assessment_question_path(id: question, assessment_id: question.assessment_id), method: :delete, data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-link text-danger' do
+            %i.bi.bi-trash
+      .card-text
+        - if question.is_a?(Assessments::Questions::MultipleChoice) || question.is_a?(Assessments::Questions::SingleChoice)
+          %ul
+            - question.answer_options.each do |option|
+              %li
+                = option['value']
+            

@@ -1,11 +1,11 @@
 - method = node.new_record? ? 'POST' : 'PATCH'
 - url = node.persisted? ? admin_roadmap_node_path(roadmap_id: node.roadmap.id) : admin_roadmap_nodes_path(roadmap_id: node.roadmap.id)
-= form_with model: node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_offcanvas_outlet: '#remote-offcanvas', action: "submit->roadmap-form#createNode" } } do |form|
+= form_with model: node, scope: :node, url: url, method: method, html: { data: { controller: 'roadmap-form', roadmap_form_offcanvas_outlet: '#remote-offcanvas', action: "submit->roadmap-form#createNode" } } do |form|
   = form.hidden_field :parent_id
   = form.hidden_field :child_id
   = form.hidden_field :type
   .mb-3
-    = form.label :title, style: "display: block", class: "form-label"
+    = form.label :title, class: "form-label"
     = form.text_field :title, class: "form-control"
     %div{:style => "color: red"}
       - if node.errors.include?(:title)
@@ -13,12 +13,26 @@
           = error_message
           \.
   .mb-3
-    = form.label :content, style: "display: block", class: "form-label"
+    = form.label :content, class: "form-label"
     = form.rich_text_area :content, class: "form-control"
     %div{:style => "color: red"}
       - if node.errors.include?(:content)
         - node.errors.full_messages_for(:content).each do |error_message|
           = error_message
           \.
+  
   .mb-3
     = form.submit "Save", class: "btn btn-success btn-block"
+
+- if node.persisted?
+  .mb-3
+    - if node.assessment.present?
+      - assessment = node.assessment
+      .d-flex.justify-content-between 
+        %h3 Assessment
+        = link_to admin_assessment_questions_path(assessment_id: assessment.id), target: '_blank', class: 'btn btn-link' do
+          %i.bi.bi-box-arrow-up-right
+      = render "admin/assessments/questions/index", assessment: assessment, questions: assessment.questions
+    - else
+      = turbo_frame_tag 'questions-container' do
+        = button_to 'Add Assessment', admin_assessments_path, params: { assessment: { node_id: node.id } }, class: 'btn btn-secondary'

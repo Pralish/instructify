@@ -15,7 +15,7 @@ import TaskNode from './nodes/TaskNode.jsx';
 import FloatingEdge from './edges/FloatingEdge.jsx';
 import ButtonEdge from './edges/ButtonEdge.jsx';
 
-const nodeTypes = { Step: StepNode, Task: TaskNode };
+const nodeTypes = { Step: StepNode, Task: StepNode, Checkpoint: StepNode };
 const edgeTypes = { floating: FloatingEdge, button: ButtonEdge };
 
 const RoadmapEditor = ({ roadmapId }) => {
@@ -46,7 +46,7 @@ const RoadmapEditor = ({ roadmapId }) => {
         const position = project({ x: event.clientX - left - 75, y: event.clientY - top });
         
         const payload = {
-          task: {
+          node: {
             type: 'Task',
             title: 'New Task',
             parent_id: connectingNodeId.current.nodeId,

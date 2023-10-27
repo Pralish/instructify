@@ -1,0 +1,20 @@
+- url = question.persisted? ? admin_assessment_question_path : admin_assessment_questions_path
+= form_for question, as: :question, url: url do |f|
+  = f.hidden_field :type
+  .form-group
+    = f.label :content, class: "form-label"
+    = f.text_area :content, class: 'form-control mb-3'
+  
+  - if question.is_a?(Assessments::Questions::MultipleChoice) || question.is_a?(Assessments::Questions::SingleChoice)
+    .form-group.mb-2
+      = f.label 'Options'
+    %div{data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }}  
+      %template{"data-nested-form-target" => "template"}
+        = f.fields_for :answer_options, Assessments::AnswerOption.new, child_index: 'NEW_RECORD' do |ff|
+          = render 'answer_option_form', f: ff
+      = f.fields_for :answer_options, question.answer_options do |ff|
+        = render 'answer_option_form', f: ff
+      %div{"data-nested-form-target" => "target"}
+      %button.btn.btn-outline-primary.w-100{"data-action" => "nested-form#add", type: "button"} Add Option
+      
+  = f.submit "Save", class: "btn btn-success btn-block"

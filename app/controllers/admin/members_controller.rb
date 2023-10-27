@@ -2,7 +2,7 @@
 
 module Admin
   class MembersController < Admin::ApplicationController
-    before_action :set_member, only: %i[show update destroy]
+    before_action :find_member!, only: %i[show update destroy]
 
     # GET /admin/users
     def index; end
@@ -27,7 +27,7 @@ module Admin
 
     private
 
-    def set_user
+    def find_member!
       @member = Member.find(params[:id])
     end
   end

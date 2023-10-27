@@ -23,9 +23,9 @@ export default class extends Controller {
     return this.element.classList.contains("show")
   }
 
-  // close(event) {
-  //   if (event.detail.success) {
-  //     this.modal.hide()
-  //   }
-  // }
+  submitEnd(e) {
+    if (e.detail.success) {
+      this.hideModal()
+    }
+  }
 }

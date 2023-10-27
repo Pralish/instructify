@@ -2,7 +2,7 @@
 
 module Admin
   class ApplicationController < ApplicationController
-    layout 'admin/application'
+    layout -> { turbo_frame_request? ? false : 'admin/application' }
 
     before_action :authenticate_user!
   end

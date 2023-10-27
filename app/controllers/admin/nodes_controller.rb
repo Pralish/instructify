@@ -2,8 +2,8 @@
 
 module Admin
   class NodesController < Admin::ApplicationController
-    before_action :set_roadmap
-    before_action :set_node, only: %i[edit update destroy show]
+    before_action :find_roadmap
+    before_action :find_node, only: %i[edit update destroy show]
 
     # GET /admin/roadmaps/:roadmap_id/nodes
     def index
@@ -71,18 +71,16 @@ module Admin
 
     private
 
-    def set_roadmap
+    def find_roadmap
       @roadmap = Roadmap.friendly.find(params[:roadmap_id])
     end
 
-    def set_node
+    def find_node
       @node = Node.find(params[:id])
     end
 
     def node_params
-      required_param = %i[step task].find { |param| params.key?(param) } || :node
-
-      params.require(required_param).permit(
+      params.require(:node).permit(
         :id,
         :title,
         :content,
@@ -97,6 +95,14 @@ module Admin
           source_handle
           target_handle
           label
+        ],
+        assessment_attributes: [
+          :id,
+          { questions_attributes: %i[
+            id
+            content
+            _destroy
+          ] }
         ]
       )
     end

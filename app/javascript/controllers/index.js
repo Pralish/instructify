@@ -18,3 +18,9 @@ application.register("roadmap-form", RoadmapFormController)
 
 import ThemesController from "./themes_controller"
 application.register("themes", ThemesController)
+
+import NestedForm from 'stimulus-rails-nested-form'
+application.register('nested-form', NestedForm)
+
+import Autosave from 'stimulus-rails-autosave'
+application.register('autosave', Autosave)

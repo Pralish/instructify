@@ -2,11 +2,11 @@
 
 module Admin
   class RoadmapsController < Admin::ApplicationController
-    before_action :set_roadmap, only: %i[show update edit destroy]
+    before_action :find_roadmap, only: %i[show update edit destroy]
 
     # GET /admin/roadmaps
     def index
-      @pagy, @roadmaps = pagy(Roadmap.all, items: 10)
+      @pagy, @roadmaps = pagy(Roadmap.all, items: 1)
     end
 
     def new
@@ -60,7 +60,7 @@ module Admin
 
     private
 
-    def set_roadmap
+    def find_roadmap
       @roadmap = Roadmap.friendly.find(params[:id])
     end
 

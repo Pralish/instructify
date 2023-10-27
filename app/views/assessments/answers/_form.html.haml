@@ -1,0 +1,15 @@
+- answer = question.answers.find_or_initialize_by(attempt: attempt)
+= form_for answer, as: :answer, url: assessments_attempt_question_answers_path(attempt_id: attempt, question_id: question), method: :post, data: { controller: 'autosave', autosave_delay_value: '1000', action: 'change->autosave#save' } do |f|
+  = f.label :content, question.content
+  - if question.is_a? Assessments::Questions::SingleChoice
+    - question.answer_options.each do |option|
+      .mb-2
+        = f.radio_button :content, option['index']
+        = option['value']
+  - elsif question.is_a? Assessments::Questions::MultipleChoice
+    - question.answer_options.each do |option|
+      .mb-2
+        = f.check_box :content, { multiple: true }, option['index'].to_s, false
+        = option['value']
+  - else
+    = f.text_area :content, class: 'form-control'
