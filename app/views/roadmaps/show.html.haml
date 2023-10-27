@@ -12,11 +12,11 @@
         %h6.text-bold.mb-0
           = @roadmap.created_at.strftime('%B %d, %Y')
     %hr
-    .social-links.position-fixed.rounded-3
-      .fs-5.text-white.mb-2.border-bottom.p-2.bi.bi-facebook
-      .fs-5.text-white.mb-2.bi.border-bottom.p-2.bi-instagram
-      .fs-5.text-white.mb-2.bi.border-bottom.p-2.bi-linkedin
-      .fs-5.text-white.p-2.bi.bi-twitter
+    -# .social-links.position-fixed.rounded-3
+    -#   .fs-5.text-white.mb-2.border-bottom.p-2.bi.bi-facebook
+    -#   .fs-5.text-white.mb-2.bi.border-bottom.p-2.bi-instagram
+    -#   .fs-5.text-white.mb-2.bi.border-bottom.p-2.bi-linkedin
+    -#   .fs-5.text-white.p-2.bi.bi-twitter
     %p.fs-6.mb-10.d-block.px-4.roadmap__description= @roadmap.description
     %section{data: { controller: "roadmap", roadmap_id: @roadmap.id, action: params[:action] }, style:"height: #{@roadmap.height}px;"}
    
