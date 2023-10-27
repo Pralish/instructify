@@ -1350,6 +1350,14 @@
     classcat "^5.0.3"
     zustand "^4.4.1"
 
+"@simonwep/pickr@1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@simonwep/pickr/-/pickr-1.8.2.tgz#96dc86675940d7cad63d69c22083dd1cbb9797cb"
+  integrity sha512-/l5w8BIkrpP6n1xsetx9MWPWlU6OblN5YgZZphxan0Tq4BByTCETL6lyIeY8lagalS2Nbt4F2W034KHLIiunKA==
+  dependencies:
+    core-js "^3.15.1"
+    nanopop "^2.1.0"
+
 "@types/d3-array@*":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-3.0.5.tgz#857c1afffd3f51319bbc5b301956aca68acaa7b8"
@@ -2329,6 +2337,11 @@ core-js-compat@^3.31.0:
   integrity sha512-GSvKDv4wE0bPnQtjklV101juQ85g6H3rm5PDP20mqlS5j0kXF3pP97YvAu5hl+uFHqMictp3b2VxOHljWMAtuA==
   dependencies:
     browserslist "^4.21.10"
+
+core-js@^3.15.1:
+  version "3.33.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.33.1.tgz#ef3766cfa382482d0a2c2bc5cb52c6d88805da52"
+  integrity sha512-qVSq3s+d4+GsqN0teRCJtM6tdEEXyWxjzbhVrCHmBS5ZTM0FS2MOS0D13dUXAWDUN6a+lHI/N1hF9Ytz6iLl9Q==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -3602,6 +3615,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+nanopop@^2.1.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/nanopop/-/nanopop-2.3.0.tgz#a5f672fba27d45d6ecbd0b59789c040072915123"
+  integrity sha512-fzN+T2K7/Ah25XU02MJkPZ5q4Tj5FpjmIYq4rvoHX4yb16HzFdCO6JxFFn5Y/oBhQ8no8fUZavnyIv9/+xkBBw==
+
 neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
@@ -4455,6 +4473,13 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
+
+stimulus-color-picker@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stimulus-color-picker/-/stimulus-color-picker-1.1.0.tgz#6b7fbfeda08928629c1a8bb6868045831ca3f49d"
+  integrity sha512-VrsrSn5jipyWYPDANANae0XfVKPcnq1A6gQfcZ0jCQaJJxlqFKaLedSCxWYAcJnQ0DyueB588l+th5lI3c/qHg==
+  dependencies:
+    "@simonwep/pickr" "1.8.2"
 
 stimulus-rails-autosave@^4.1.1:
   version "4.1.1"

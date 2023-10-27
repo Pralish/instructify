@@ -24,3 +24,6 @@ application.register('nested-form', NestedForm)
 
 import Autosave from 'stimulus-rails-autosave'
 application.register('autosave', Autosave)
+
+import ColorPicker from 'stimulus-color-picker'
+application.register('color-picker', ColorPicker)

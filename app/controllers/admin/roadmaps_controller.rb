@@ -2,7 +2,7 @@
 
 module Admin
   class RoadmapsController < Admin::ApplicationController
-    before_action :find_roadmap, only: %i[show update edit destroy]
+    before_action :find_roadmap, only: %i[show update edit destroy ui_settings]
 
     # GET /admin/roadmaps
     def index
@@ -14,6 +14,8 @@ module Admin
     end
 
     def edit; end
+
+    def ui_settings; end
 
     # GET /admin/roadmaps/1 or # GET /admin/roadmaps/1.json
     def show; end
@@ -70,6 +72,28 @@ module Admin
         :title,
         :description,
         :blog_image,
+        step_nodes_settings: [
+          :backgroundColor,
+          :borderColor,
+          :borderWidth,
+          :borderRadius
+        ],
+        task_nodes_settings: [
+          :backgroundColor,
+          :borderColor,
+          :borderWidth,
+          :borderRadius
+        ],
+        step_edges_settings: [
+          :stroke,
+          :strokeWidth,
+          :animated
+        ],
+        task_edges_settings: [
+          :stroke,
+          :strokeWidth,
+          :animated
+        ],
         nodes_attributes: [
           :id,
           :title,

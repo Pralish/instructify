@@ -17,6 +17,7 @@ json.data do
         json.extract! node, :id, :title, :parent_id, :roadmap_id
         json.has_children node.children.where(type: 'Step').present?
       end
+      json.style node.is_a?(Step) ? roadmap.step_nodes_settings : roadmap.task_nodes_settings
       json.position node.position
     end
 
@@ -26,6 +27,8 @@ json.data do
       json.target edge.target_id.to_s
       json.sourceHandle edge.source_handle
       json.targetHandle edge.target_handle
+      json.style edge.target.type == 'Step' ? roadmap.step_edges_settings : roadmap.task_edges_settings
+      json.animated edge.target.type == 'Step' ? roadmap.step_edges_settings&.dig('animated') == '1' : roadmap.task_edges_settings&.dig('animated') == '1'
       json.type edge.target.type == 'Task' ? 'floating' : 'button'
       json.data do
         json.roadmap_id roadmap.id
