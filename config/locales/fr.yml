@@ -1,14 +1,16 @@
 fr:
-  hello: ''
   testing_nested_translation:
-    test1: ''
+    test10: 'où  habites-tu ?'
+    test20: 'où  habites-tu ?'
+    test40: 'qu''est-ce qui se passe?'
     test_0: 'Quel est ton nom?'
     test_2:
-      test3: 0
+      test4: 'où  habites-tu ?'
     test_4:
       test_1:
-        ehy: 'pourquoi ça'
+        ehy: 'pourquoi donc?'
         sup: 'qu''est-ce que c''est?'
         test_2: 'Est-ce vrai?'
         what_that: 'qu''est-ce que c''est?'
-    test_5: 'c''est bien, bien ?'
+        zest4: 'où  habites-tu ?'
+    test_5: 'qu''est-ce qui est bien et qu''est-ce qui est mal ?'

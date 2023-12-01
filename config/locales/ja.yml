@@ -1,14 +1,16 @@
 ja:
-  hello: ''
   testing_nested_translation:
-    test1: ''
+    test10: どこに住んでいますか？
+    test20: どこに住んでいますか？
+    test40: どうした？
     test_0: あなたの名前は何ですか？
     test_2:
-      test3: 0
+      test4: どこに住んでいますか？
     test_4:
       test_1:
         ehy: どうして
         sup: これは何ですか？
         test_2: これは本当ですか？
         what_that: それは何ですか？
-    test_5: DSDSDは良いです
+        zest4: どこに住んでいますか？
+    test_5: 何が良くて何が悪いのか？
