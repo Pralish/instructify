@@ -6,7 +6,7 @@ module Admin
 
     # GET /admin/roadmaps
     def index
-      @pagy, @roadmaps = pagy(Roadmap.all, items: 1)
+      @pagy, @roadmaps = pagy(Roadmap.all, items: 20)
     end
 
     def new

@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "devise/registrations" }
+
+  root to: 'welcome#index'
+
+  get '/', to: 'welcome#index'
 
   resources :roadmaps, only: :show do
     resources :nodes, only: :show

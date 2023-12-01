@@ -52,9 +52,12 @@ gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'activerecord-multi-tenant'
+
 gem 'image_processing', '~> 1.2'
 
 gem 'devise', '~> 4.9'
+
+gem 'devise_invitable', '~> 2.0.0'
 
 gem 'ancestry'
 
@@ -64,7 +67,7 @@ gem 'pagy', '~> 6.0'
 
 gem 'friendly_id', '~> 5.4.0'
 
-gem 'acts_as_has_many', '~> 0.1.2'
+gem 'acts_as_has_many', '~> 0.1.4'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

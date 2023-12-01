@@ -5,7 +5,9 @@ module Admin
     before_action :find_member!, only: %i[show update destroy]
 
     # GET /admin/users
-    def index; end
+    def index
+      @pagy, @members = pagy(Member.all, items: 20)
+    end
 
     # GET /admin/users/new
     def new; end
