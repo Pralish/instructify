@@ -35,3 +35,6 @@ en:
     test1: 'test'
     test_2:
       test3: 2000
+    test_4:
+      test_1:
+        test_2: "1234"
