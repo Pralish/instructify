@@ -2,6 +2,7 @@ en:
   hello: 'Hello world'
   testing_nested_translation:
     test1: 'is this real?'
+    test_0: 'What is your name?'
     test_2:
       test3: 2000
     test_4:
@@ -11,4 +12,3 @@ en:
         test_2: 'is this true?'
         what_that: 'what is bad?'
     test_5: 'this good good'
-    test_0: 'What is your name?'
