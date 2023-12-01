@@ -1,5 +1,5 @@
 en:
-  hello: 'Hello world'
+  hello: Hello world?
   testing_nested_translation:
     test1: 'is this real?'
     test_0: 'What is your name?'
