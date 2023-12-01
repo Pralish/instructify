@@ -1,0 +1,9 @@
+ja:
+  testing_nested_translation:
+    test_4:
+      test_1:
+        ehy: どうして
+        sup: これは何ですか？
+        test_2: これは本当ですか？
+        what_that: それは何ですか？
+    test_5: DSDSDは良いです
