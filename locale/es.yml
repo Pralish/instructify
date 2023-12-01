@@ -1,0 +1,18 @@
+es:
+    hello: 'Hello world'
+    testing_nested_translation:
+        test1: 'is this real?'
+        test_0: 'What is your name?'
+        test_2:
+            test3: '2000'
+            test4: 'where do you live?'
+        test_4:
+            test_1:
+                sup: 'what is this?'
+                test_2: 'is this true?'
+                what_that: 'what is bad?'
+                zest4: 'where do you live?'
+        test_5: 'what is good and what is bad right?'
+        test10: 'where do you live?'
+        test20: 'where do you live?'
+        test40: '¿Qué pasa?'
