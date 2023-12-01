@@ -1,13 +1,13 @@
 en:
   hello: 'Hello world'
   testing_nested_translation:
-    test1: 'is this real?'
     test_2:
       test3: 2000
+    test1: 'is this real?'
     test_4:
       test_1:
         ehy: 'why is that'
         sup: 'what is this?'
         test_2: 'is this true?'
         what_that: 'what is bad?'
-    test_5: 'dsdsd good'
+    test_5: 'this good good'
