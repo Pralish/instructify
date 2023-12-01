@@ -1,5 +1,10 @@
 ja:
+  hello: ''
   testing_nested_translation:
+    test1: ''
+    test_0: あなたの名前は何ですか？
+    test_2:
+      test3: 0
     test_4:
       test_1:
         ehy: どうして
