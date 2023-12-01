@@ -1,0 +1,8 @@
+testing_nested_translation:
+  test_4:
+    test_1:
+      ehy: 'pourquoi ça'
+      sup: 'qu''est-ce que c''est?'
+      test_2: 'Est-ce vrai?'
+      what_that: 'qu''est-ce que c''est?'
+  test_5: 'dsdsd bon'
