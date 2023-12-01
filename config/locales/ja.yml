@@ -1,14 +1,11 @@
 ja:
-  hello: ''
+  hello: ハロー・ワールド
   testing_nested_translation:
-    test1: ''
-    test_0: あなたの名前は何ですか？
+    test40: どうした？
     test_2:
-      test3: 0
-    test_4:
-      test_1:
-        ehy: どうして
-        sup: これは何ですか？
-        test_2: これは本当ですか？
-        what_that: それは何ですか？
-    test_5: DSDSDは良いです
+      test3: 私の名前はPKです。
+    test_er: これはすごいです
+    test_r: これはすごいです
+    test_u: これはそれです
+    test_v: それは何ですか？
+    test_wx: それは何ですか？
