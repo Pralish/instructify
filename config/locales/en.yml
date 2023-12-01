@@ -1,21 +1,21 @@
 en:
-  hello: Hello world?
+  hello: 'Hello world?'
   testing_nested_translation:
     test1: 'is this real?'
+    test10: 'where do you live?'
+    test20: 'where do you live?'
+    test40: 'what is up?'
     test_0: 'What is your name?'
     test_2:
-      test3: My name is PK.
-      test4: where do you live?
+      test3: 'My name is PK.'
+      test4: 'where do you live?'
     test_4:
       test_1:
         sup: 'what is this?'
         test_2: 'is this true?'
         what_that: 'what is bad?'
-        zest4: where do you live?
+        zest4: 'where do you live?'
     test_5: 'what is good and what is bad right?'
-    test10: where do you live?
-    test20: where do you live?
-    test40: what is up?
-    test_er: this is awesome?
-    test_r: this is awesome no?
-    test_u: this is that?
+    test_er: 'this is awesome?'
+    test_r: 'this is awesome no?'
+    test_u: 'this is that?'
