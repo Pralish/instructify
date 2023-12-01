@@ -3,12 +3,12 @@ en:
   testing_nested_translation:
     test1: 'is this real?'
     test_0: 'What is your name?'
+    test_sdad: 'What are you going to do about it?'
     test_2:
       test3: My name is PK.
       test4: where do you live?
     test_4:
       test_1:
-        sup: 'what is this?'
         test_2: 'What has happened?'
         what_that: 'what is bad?'
         zest4: where do you live?
@@ -20,5 +20,5 @@ en:
     test_r: this is awesome no?
     test_u: this is that?
     test_v: what is that h
-    test_wx: what is that?
+    test_wx: This is my concern
 
