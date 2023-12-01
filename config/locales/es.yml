@@ -1,0 +1,11 @@
+es:
+  testing_nested_translation:
+    test40: '¿Qué pasa?'
+    test_2:
+      test3: 'Mi nombre es PK.'
+    test_er: 'esto es asombroso'
+    test_r: 'esto es asombroso'
+    test_sdad: '¿Qué vas a hacer al respecto?'
+    test_u: 'esto es es'
+    test_v: '¿qué es eso?'
+    test_wx: '¿qué es eso?'
