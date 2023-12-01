@@ -9,7 +9,7 @@ en:
     test_4:
       test_1:
         sup: 'what is this?'
-        test_2: 'is this true?'
+        test_2: 'What has happened?'
         what_that: 'what is bad?'
         zest4: where do you live?
     test_5: 'what is good and what is bad right?'
@@ -20,3 +20,5 @@ en:
     test_r: this is awesome no?
     test_u: this is that?
     test_v: what is that h
+    test_wx: what is that?
+
