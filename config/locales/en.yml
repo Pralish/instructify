@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  testing_nested_translation:
+    test1: 'test'
+    test_2:
+      test3: 2000
