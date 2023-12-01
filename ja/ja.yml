@@ -1,0 +1,6 @@
+testing_nested_translation:
+    test_4:
+        test_1:
+            sup: これは何ですか？
+            test_2: これは本当ですか？
+            what_that: それは何ですか？

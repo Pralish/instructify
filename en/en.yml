@@ -1,0 +1,10 @@
+hello: 'Hello world'
+testing_nested_translation:
+    test1: 'is this real?'
+    test_2:
+        test3: 2000
+    test_4:
+        test_1:
+            sup: 'what is this?'
+            test_2: 'is this true?'
+            what_that: 'what is that?'
