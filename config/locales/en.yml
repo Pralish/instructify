@@ -1,9 +1,9 @@
 en:
   hello: 'Hello world'
   testing_nested_translation:
+    test1: 'is this real?'
     test_2:
       test3: 2000
-    test1: 'is this real?'
     test_4:
       test_1:
         ehy: 'why is that'
