@@ -77,7 +77,8 @@ en:
       success: Success.
       thank_you: 'Thank You.'
   cart:
-    account_exist_enrolled: 'You are not enrolled'
+    account_exist_enrolled: 'You are enrolled'
+    account_not_enrolled: 'You are successful'
     buyer_not_present: 'user_id or visitor_id should present'
     new_enroll: 'You are enrolled now. please check your inbox for confirmation mail'
     order_create_failed: 'Sorry due to %{reason} cart cannot proceed and order create failed.'
@@ -86,7 +87,6 @@ en:
     transaction_succeded_with_refund_and_save_errors: 'Transaction succeed with cart save and refund failed'
   cart_item:
     variant_qty_greater_than_stock: 'Cart item quantity is greather than stock'
-    variant_qty_out_of_stock: 'Product variant is out of stock'
   conversations:
     type:
       channel_conversation: Channels
