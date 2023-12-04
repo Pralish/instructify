@@ -1,14 +1,14 @@
 fr:
-  hello: ''
+  hello: 'Bonjour le monde'
   testing_nested_translation:
-    test1: ''
-    test_0: 'Quel est ton nom?'
+    koho: éducation
+    test40: 'qu''est-ce qui se passe?'
     test_2:
-      test3: 0
-    test_4:
-      test_1:
-        ehy: 'pourquoi ça'
-        sup: 'qu''est-ce que c''est?'
-        test_2: 'Est-ce vrai?'
-        what_that: 'qu''est-ce que c''est?'
-    test_5: 'c''est bien, bien ?'
+      test3: 'Je m''appelle PK.'
+    test_er: 'C''est génial'
+    test_r: 'C''est génial'
+    test_sdad: 'Qu''allez-vous faire à ce sujet?'
+    test_u: 'c''est ça'
+    test_v: 'qu''est-ce que c''est?'
+    test_wx: 'qu''est-ce que c''est?'
+    thj: locomotive
