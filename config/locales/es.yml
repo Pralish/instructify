@@ -1,4 +1,6 @@
 es:
+  cart:
+    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
   testing_nested_translation:
     koho: educación
     test40: '¿Qué pasa?'

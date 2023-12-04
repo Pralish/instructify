@@ -3,7 +3,6 @@ en:
     errors:
       format: '%{attribute} %{message}'
       messages:
-        greater_than: 'must be greater than %{count}'
         accepted: 'must be accepted'
         blank: 'can''t be blank'
         confirmation: 'doesn''t match %{attribute}'
@@ -11,6 +10,7 @@ en:
         equal_to: 'must be equal to %{count}'
         even: 'must be even'
         exclusion: 'is reserved'
+        greater_than: 'must be greater than %{count}'
         greater_than_or_equal_to: 'must be greater than or equal to %{count}'
         in: 'must be in %{count}'
         inclusion: 'is not included in the list'
@@ -32,6 +32,7 @@ en:
           other: 'is too short (minimum is %{count} characters)'
         wrong_length:
           one: 'is the wrong length (should be 1 character)'
+          other: ''
       models:
         discount_rule:
           applicables_required:
@@ -94,6 +95,8 @@ en:
       external: 'Direct Customer Messages'
       group_conversation: 'Group Messages'
       internal: 'Direct Team Messages'
+  education:
+    is: important!
   enrollments:
     already_enrolled: 'You are already enrolled, please try signing in'
   hello: 'Hello world'
@@ -372,5 +375,3 @@ en:
   users:
     deactivate:
       success: 'Successfully deactivted.  '
-  education:
-    is: 'important!'

@@ -79,6 +79,7 @@ fr:
       thank_you: Merci.
   cart:
     account_exist_enrolled: 'Tu es inscrit'
+    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
     buyer_not_present: 'user_id ou visiteur_id doit présenter'
     new_enroll: 'Vous êtes inscrit maintenant. veuillez vérifier votre boîte de réception pour le courrier de confirmation'
     order_create_failed: 'Désolé, car %{reason} le panier ne peut pas continuer et la création de la commande a échoué.'
@@ -87,7 +88,6 @@ fr:
     transaction_succeded_with_refund_and_save_errors: 'Transaction réussie avec sauvegarde du panier et échec du remboursement'
   cart_item:
     variant_qty_greater_than_stock: 'La quantité d''articles du panier est supérieure au stock'
-    variant_qty_out_of_stock: 'La variante du produit est en rupture de stock'
   conversations:
     type:
       channel_conversation: Canaux
