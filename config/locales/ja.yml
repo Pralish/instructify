@@ -76,6 +76,7 @@ ja:
       thank_you: ありがとう。
   cart:
     account_exist_enrolled: あなたは登録されています
+    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
     buyer_not_present: 'user_id または Visitor_id を提示する必要があります'
     new_enroll: あなたは現在登録されています。受信箱に確認メールが届いているか確認してください
     order_create_failed: '申し訳ありませんが、 %{reason}のためカートを続行できず、注文の作成に失敗しました。'
@@ -84,7 +85,6 @@ ja:
     transaction_succeded_with_refund_and_save_errors: 取引はカート保存で成功しましたが、返金は失敗しました
   cart_item:
     variant_qty_greater_than_stock: カートの商品数量が在庫を超えています
-    variant_qty_out_of_stock: 製品バリエーションが在庫切れです
   conversations:
     type:
       channel_conversation: チャンネル
