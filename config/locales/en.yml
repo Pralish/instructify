@@ -1,390 +1,375 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
-  helpers:
-    page_entries_info:
-      entry:
-        zero: "entries"
-        one: "entry"
-        other: "entries"
-      one_page:
-        display_entries:
-          zero: "No %{entry_name} found"
-          one: "Showing <b>1</b> %{entry_name}"
-          other: "Showing <b>all %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Showing <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> %{entry_name}"
-  time:
-    formats:
-      short: "%d.%m.%Y"
   activerecord:
     errors:
-      # The default format to use in full error messages.
-      format: "%{attribute} %{message}"
-
-      # The values :model, :attribute and :value are always available for interpolation
-      # The value :count is available when applicable. Can be used for pluralization.
+      format: '%{attribute} %{message}'
       messages:
-        model_invalid: "Validation failed: %{errors}"
-        inclusion: "is not included in the list"
-        exclusion: "is reserved"
-        invalid: "is invalid"
-        confirmation: "doesn't match %{attribute}"
-        accepted: "must be accepted"
-        empty: "can't be empty"
-        blank: "can't be blank"
-        present: "must be blank"
-        taken: "is already taken"
+        accepted: 'must be accepted'
+        blank: 'can''t be blank'
+        confirmation: 'doesn''t match %{attribute}'
+        empty: 'can''t be empty'
+        equal_to: 'must be equal to %{count}'
+        even: 'must be even'
+        exclusion: 'is reserved'
+        greater_than: 'must be greater than %{count}'
+        greater_than_or_equal_to: 'must be greater than or equal to %{count}'
+        in: 'must be in %{count}'
+        inclusion: 'is not included in the list'
+        invalid: 'is invalid'
+        less_than: 'must be less than %{count}'
+        less_than_or_equal_to: 'must be less than or equal to %{count}'
+        model_invalid: 'Validation failed: %{errors}'
+        not_a_number: 'is not a number'
+        not_an_integer: 'must be an integer'
+        odd: 'must be odd'
+        other_than: 'must be other than %{count}'
+        present: 'must be blank'
+        taken: 'is already taken'
         too_long:
-          one: "is too long (maximum is 1 character)"
-          other: "is too long (maximum is %{count} characters)"
+          one: 'is too long (maximum is 1 character)'
+          other: 'is too long (maximum is %{count} characters)'
         too_short:
-          one: "is too short (minimum is 1 character)"
-          other: "is too short (minimum is %{count} characters)"
+          one: 'is too short (minimum is 1 character)'
+          other: 'is too short (minimum is %{count} characters)'
         wrong_length:
-          one: "is the wrong length (should be 1 character)"
-          other: "is the wrong length (should be %{count} characters)"
-        not_a_number: "is not a number"
-        not_an_integer: "must be an integer"
-        greater_than: "must be greater than %{count}"
-        greater_than_or_equal_to: "must be greater than or equal to %{count}"
-        equal_to: "must be equal to %{count}"
-        less_than: "must be less than %{count}"
-        less_than_or_equal_to: "must be less than or equal to %{count}"
-        other_than: "must be other than %{count}"
-        in: "must be in %{count}"
-        odd: "must be odd"
-        even: "must be even"
+          one: 'is the wrong length (should be 1 character)'
+          other: 'is the wrong length (should be %{count} characters)'
       models:
+        discount_rule:
+          applicables_required:
+            collection: 'At least one applicable collection is required.'
+            country: 'At least one applicable country is required.'
+            customer: 'At least one customer is required'
+            customer_segment: 'At least one customer segment is required.'
+            product: 'At least one applicable product is required.'
+            user_company: 'At least one applicable customer is required.'
+          inapplicables_required:
+            country: 'At least one inapplicable country is required.'
         recipient_conversation:
           attributes:
             conversation:
-              unarchivable: "cannot be archived."
-        discount_rule:
-          applicables_required:
-            country: 'At least one applicable country is required.'
-            collection: 'At least one applicable collection is required.'
-            product: 'At least one applicable product is required.'
-            user_company: 'At least one applicable customer is required.'
-            customer_segment: 'At least one customer segment is required.'
-            customer: 'At least one customer is required'
-          inapplicables_required:
-            country: 'At least one inapplicable country is required.'
-
+              unarchivable: 'cannot be archived.'
   api:
-    messages:
-      thank_you: "Thank You."
-      success: "Success."
-      failure: "Failure."
-      error: "Error."
-      deleted: "%{obj} deleted successfully."
-      liked_comment: "%{full_name} liked your comment."
-      new_lead: "New Lead."
-
     errors:
-      api_error: "API error, sorry for inconvenience, contact fluid support."
-      invalid_credentials: "Invalid credentials."
-      not_authorized: "Not authorized."
-      required: "%{attribute} required."
-      invalid_attribute: "Invalid %{attribute}."
-      invalid_attribute_value: "Invalid %{attribute} value, should be %{value}."
-      object_not_found: "%{obj} not found."
-      not_found_for: "%{first_attribute} not found for provided %{second_attribute}."
-      no_match: "%{first_attribute} and %{second_attribute} doesn't match."
-      duplicates: "%{first_attribute} and %{second_attribute} duplicates."
-      greater_than: "%{first_value} should be greater than %{second_value}."
-      failed_to_delete: "Failed to delete."
-      delete_error: "Error while deleting %{obj}."
-      no_payment_method: "No payment method"
-      watches_unavailable: "Watches only available for videos"
-      passcode_expired: "Passcode expired. New code sent to %{email}."
-      login_attempt_failed: "Login attempt failed."
       access_denied: 'You do not have sufficient privileges to perform this action.'
+      api_error: 'API error, sorry for inconvenience, contact fluid support.'
+      delete_error: 'Error while deleting %{obj}.'
+      duplicates: '%{first_attribute} and %{second_attribute} duplicates.'
+      failed_to_delete: 'Failed to delete.'
+      greater_than: '%{first_value} should be greater than %{second_value}.'
+      invalid_attribute: 'Invalid %{attribute}.'
+      invalid_attribute_value: 'Invalid %{attribute} value, should be %{value}.'
+      invalid_credentials: 'Invalid credentials.'
+      login_attempt_failed: 'Login attempt failed.'
+      no_match: '%{first_attribute} and %{second_attribute} doesn''t match.'
+      no_payment_method: 'No payment method'
+      not_authorized: 'Not authorized.'
+      not_found_for: '%{first_attribute} not found for provided %{second_attribute}.'
+      object_not_found: '%{obj} not found.'
+      passcode_expired: 'Passcode expired. New code sent to %{email}.'
       premium_messaging_disabled: 'Your company does not have a premium messaging service enabled. Please contact your Company Admin.'
-
-  shares:
-    view_all: &view_all "View all >"
-    email: &email "Email"
-    full_name: &full_name "Full Name"
-    free: &free "FREE"
-
-    giveaways:
-      view_all: *view_all
-      upcoming_giveaways: "Upcoming Giveaways"
-    post:
-      video_tag_unsuppported: "Your browser doesn't support this video tag."
-      thanks_for_watching: "Thanks for watching."
-      download_powerpoint: "Download Powerpoint."
-      download_pdf: "Download PDF."
-      type_a_comment: "Type a comment"
-      comment: "Comment"
-      comment_visibility: "Only %{name} can see your comments."
-      leave_information: "Please leave your information so <strong>%{name}</strong> will know who you are.  You only need to do this once."
-      email: *email
-      full_name: *full_name
-    catalog:
-      title: "Shop"
-      description: "Shop all of our best products"
-      shop: "Shop"
-      ship_to_country: "Ship To Country"
-    products:
-      free: *free
-      no_products: "No products available for <b>%{country_name}</b>"
-      sample_products_in_future: "We are working on making sample products available for <b>%{country_name}</b> in the near future."
-    checkout:
-      free: *free
-      buy_now: "Add To Cart"
-      no_reviews: "No reviews yet, but check back soon!"
-    success:
-      thank_you: "Thank you!"
-      be_in_touch: "I'll be in touch very soon.  Please look around in the meantime."
-      view_all: "View All Products"
-    simulator:
-      disclaimer: "This simulator is intended to be used and must be used for informational purposes only. Readers should take independent financial advice from a professional and independently research and verify all calculations.  Outputs are educational forum for analysing, learning and discussing general and generic commission information.  Sales and commission outcomes vary greatly by individual."
-      assumptions: "Assumptions"
-      followers: "Followers"
-      engagement: "Engagement"
-      posts: "Posts"
-      monthly_commissions: "Monthly Commissions"
-      friends_name: "Friend's Name"
-      friends_followers: "Friend's Followers"
-      add_friend: "Add Friend"
-      after_duplication: "After Duplication"
-      want_to_continue: "Want to continue?"
-      leave_your_info: "Please leave your information to save your results and receive a copy of your breakdown."
-      cancel: "Cancel"
-      continue: "Continue"
-      full_name: *full_name
-      email: *email
-      total: "Total"
-      enter_amount: "Enter amount"
-    promotion:
-      ends: "Ends %{end_date}"
-      more_promotions: "More Promotions"
-      view_all: *view_all
-      send_promotion: "Let us send you the %{promotion}"
-      email_prompt: "What email should we send it to?"
-      send: "Send"
-    review_form:
-      how_did_we_do: "How did we do?"
-      order: "Order #%{order_number}"
-      rate_experience: "How would you rate your experience with %{company_name}?"
-      recommend_company: "How likely are you to recommend %{company_name} to a friend?"
-      not_likely: "Not likely"
-      very_likely: "Very likely"
-      review_prompt: "What did you like or dislike? What should other shoppers know before buying?"
+      required: '%{attribute} required.'
+      watches_unavailable: 'Watches only available for videos'
+    messages:
+      deleted: '%{obj} deleted successfully.'
+      error: Error.
+      failure: Failure.
+      liked_comment: '%{full_name} liked your comment.'
+      new_lead: 'New Lead.'
+      success: Success.
+      thank_you: 'Thank You.'
   cart:
-    refund_failed: "Sorry your transaction is failed and cannot procced refund due to %{reason}. Please contact support"
-    order_create_failed: "Sorry due to %{reason} cart cannot proceed and order create failed."
-    buyer_not_present: "user_id or visitor_id should present"
-    transaction_succeded_and_refunded_due_to_save_errors: "Transaction succeed and refunded due to cart checkout error"
-    transaction_succeded_with_refund_and_save_errors: 'Transaction succeed with cart save and refund failed'
     account_exist_enrolled: 'You are enrolled'
+    buyer_not_present: 'user_id or visitor_id should present'
     new_enroll: 'You are enrolled now. please check your inbox for confirmation mail'
+    order_create_failed: 'Sorry due to %{reason} cart cannot proceed and order create failed.'
+    refund_failed: 'Sorry your transaction is failed and cannot procced refund due to %{reason}. Please contact support'
+    transaction_succeded_and_refunded_due_to_save_errors: 'Transaction succeed and refunded due to cart checkout error'
+    transaction_succeded_with_refund_and_save_errors: 'Transaction succeed with cart save and refund failed'
   cart_item:
-    variant_qty_out_of_stock: "Product variant is out of stock"
-    variant_qty_greater_than_stock: "Cart item quantity is greather than stock"
-  enrollments:
-    already_enrolled: "You are already enrolled, please try signing in"
-
-  products:
-    updates_new_variants: "This update will impact new variants only"
+    variant_qty_greater_than_stock: 'Cart item quantity is greather than stock'
+    variant_qty_out_of_stock: 'Product variant is out of stock'
   conversations:
     type:
+      channel_conversation: Channels
       direct_conversation: 'Direct Messages'
-      group_conversation: 'Group Messages'
-      channel_conversation: 'Channels'
       external: 'Direct Customer Messages'
+      group_conversation: 'Group Messages'
       internal: 'Direct Team Messages'
+  enrollments:
+    already_enrolled: 'You are already enrolled, please try signing in'
+  hello: 'Hello world'
+  helpers:
+    page_entries_info:
+      entry:
+        one: entry
+        other: entries
+      more_pages:
+        display_entries: 'Showing <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> %{entry_name}'
+      one_page:
+        display_entries:
+          one: 'Showing <b>1</b> %{entry_name}'
+          other: 'Showing <b>all %{count}</b> %{entry_name}'
   mailers:
     layout:
-      powered_by: "Powered by"
-      all_rights_reserved: "All rights reserved"
+      all_rights_reserved: 'All rights reserved'
+      powered_by: 'Powered by'
+  messages:
+    deleted:
+      body: 'This message has been deleted.'
   messaging_mailer:
-    new_message: 'new message'
-    new_mentioned_message: 'new mentioned message'
-    new_message_subject: 'New message from %{sender_name}'
-    new_message_separator:
-      direct_conversation: 'New Unread Message'
-      group_conversation: 'New Unread Message'
-      channel_conversation: 'New Unread Message'
-      direct_conversation_mentioned: 'New Mentioned Message'
-      group_conversation_mentioned: 'New Mentioned Message'
-      channel_conversation_mentioned: 'New Mentioned Message'
-    reply_thread_link: 'Reply to this thread'
-    single_conversation:
-      direct_conversation:
-        subject: "New Message From %{sender_name}"
-        header:
-          one: "You have %{count} unread message from %{sender_name}"
-          other: "You have %{count} unread messages from %{sender_name}"
-        reply_button: "Reply on %{company_name}"
-      group_conversation:
-        subject: "New Messages in '%{conversation_name}'"
-        header:
-          one: "You have %{count} new message in the '%{conversation_name}' group since you last logged in."
-          other: "You have %{count} new messages in the '%{conversation_name}' group since you last logged in."
-        reply_button: 'Read more'
-      channel_conversation:
-        subject: "New Messages in '%{conversation_name}' channel"
-        header:
-          one: "You have %{count} new message in the '%{conversation_name}' channel since you last logged in."
-          other: "You have %{count} new messages in the '%{conversation_name}' channel since you last logged in."
-        reply_button: 'Read more'
-      direct_conversation_mentioned:
-        subject: "New mention from %{sender_name}"
-        header: "%{sender_name} mentioned you"
-        reply_button: "Reply on %{company_name}"
-      group_conversation_mentioned:
-        subject: "New mention in '%{conversation_name}' group"
-        header: "%{sender_name} mentioned you in '%{conversation_name}' group"
-        reply_button: "Reply on %{company_name}"
-      channel_conversation_mentioned:
-        subject: "New mention in '%{conversation_name}' channel"
-        header: "%{sender_name} mentioned you in '%{conversation_name}' channel"
-        reply_button: "Reply on %{company_name}"
     multiple_conversation:
-      header: "What's happening in %{company_name}"
-      reply_button: "Open %{company_name}"
-      direct_conversation:
-        header:
-          one: "A direct message from %{sender_name}"
-          other: "Direct messages from %{sender_name}"
-      group_conversation:
-        header:
-          one: "%{count} unread message in '%{conversation_name}' group"
-          other: "%{count} unread messages in '%{conversation_name}' group"
       channel_conversation:
         header:
-          one: "%{count} unread message in '%{conversation_name}' channel"
-          other: "%{count} unread messages in '%{conversation_name}' channel"
-      direct_conversation_mentioned:
-        header: "A new mention by %{sender_name}"
-      group_conversation_mentioned:
-        header: "A new mention in '%{conversation_name}' group"
+          one: '%{count} unread message in ''%{conversation_name}'' channel'
+          other: '%{count} unread messages in ''%{conversation_name}'' channel'
       channel_conversation_mentioned:
-        header: "A new mention in '%{conversation_name}' channel"
+        header: 'A new mention in ''%{conversation_name}'' channel'
+      direct_conversation:
+        header:
+          one: 'A direct message from %{sender_name}'
+          other: 'Direct messages from %{sender_name}'
+      direct_conversation_mentioned:
+        header: 'A new mention by %{sender_name}'
+      group_conversation:
+        header:
+          one: '%{count} unread message in ''%{conversation_name}'' group'
+          other: '%{count} unread messages in ''%{conversation_name}'' group'
+      group_conversation_mentioned:
+        header: 'A new mention in ''%{conversation_name}'' group'
+      header: 'What''s happening in %{company_name}'
+      reply_button: 'Open %{company_name}'
       unread_messages:
         subject:
-          one: "You've got %{count} unread message"
-          other: "You've got %{count} unread messages"
+          one: 'You''ve got %{count} unread message'
+          other: 'You''ve got %{count} unread messages'
+    new_mentioned_message: 'new mentioned message'
+    new_message: 'new message'
+    new_message_separator:
+      channel_conversation: 'New Unread Message'
+      channel_conversation_mentioned: 'New Mentioned Message'
+      direct_conversation: 'New Unread Message'
+      direct_conversation_mentioned: 'New Mentioned Message'
+      group_conversation: 'New Unread Message'
+      group_conversation_mentioned: 'New Mentioned Message'
+    new_message_subject: 'New message from %{sender_name}'
+    reply_thread_link: 'Reply to this thread'
+    single_conversation:
+      channel_conversation:
+        header:
+          one: 'You have %{count} new message in the ''%{conversation_name}'' channel since you last logged in.'
+          other: 'You have %{count} new messages in the ''%{conversation_name}'' channel since you last logged in.'
+        reply_button: 'Read more'
+        subject: 'New Messages in ''%{conversation_name}'' channel'
+      channel_conversation_mentioned:
+        header: '%{sender_name} mentioned you in ''%{conversation_name}'' channel'
+        reply_button: 'Reply on %{company_name}'
+        subject: 'New mention in ''%{conversation_name}'' channel'
+      direct_conversation:
+        header:
+          one: 'You have %{count} unread message from %{sender_name}'
+          other: 'You have %{count} unread messages from %{sender_name}'
+        reply_button: 'Reply on %{company_name}'
+        subject: 'New Message From %{sender_name}'
+      direct_conversation_mentioned:
+        header: '%{sender_name} mentioned you'
+        reply_button: 'Reply on %{company_name}'
+        subject: 'New mention from %{sender_name}'
+      group_conversation:
+        header:
+          one: 'You have %{count} new message in the ''%{conversation_name}'' group since you last logged in.'
+          other: 'You have %{count} new messages in the ''%{conversation_name}'' group since you last logged in.'
+        reply_button: 'Read more'
+        subject: 'New Messages in ''%{conversation_name}'''
+      group_conversation_mentioned:
+        header: '%{sender_name} mentioned you in ''%{conversation_name}'' group'
+        reply_button: 'Reply on %{company_name}'
+        subject: 'New mention in ''%{conversation_name}'' group'
   messaging_subscription_mailer:
     premium_subscription_successful:
-      subject: "Welcome To Premium Messaging"
-    trusthub_profile_submitted:
-      subject: "Great! your profile was submitted"
+      subject: 'Welcome To Premium Messaging'
     trusthub_profile_approved:
-      subject: "Your Phone Number is Ready!"
+      subject: 'Your Phone Number is Ready!'
     trusthub_profile_rejected:
-      subject: "Sorry, Your profile was rejected"
-  subscription_mailer:
-    greetings: "Dear %{user},"
-    details: "Details"
-    start_date: "Start date"
-    renewed_at: "Renewed at"
-    valid_until: "Valid until"
-    price: "Price"
-    plan: "Plan"
-    subscribed:
-      subject: "Subscribed to %{plan} plan"
-      intro: "Receipt for Your %{plan} Subscription"
-    renewed:
-      subject: "%{plan} plan renewed"
-      intro: "Your %{plan} subscription has been successfully renewed."
-    renewal_failed:
-      subject: "Renewal failed %{plan} plan"
-      intro: "We regret to inform you that the renewal of your %{plan} subscription was unsuccessful, and your subscription has expired."
-      instructions: "To continue using %{plan}, please review your payment information and renew your subscription on our website."
-      contact_support: "If you believe this is an error or need assistance, please contact our support team at %{email}."
-      thank_you: "We appreciate your understanding and prompt attention to this matter."
-    expired:
-      subject: "Your %{plan} Subscription Has Expired"
-      intro: "We want to inform you that your %{plan} subscription has expired."
-      instructions: "To continue enjoying %{plan}, please visit our website and renew your subscription."
-      contact_support: "If you have any questions or need assistance, please don't hesitate to contact our support team at %{email}."
+      subject: 'Sorry, Your profile was rejected'
+    trusthub_profile_submitted:
+      subject: 'Great! your profile was submitted'
   notification_mailer:
+    announcements:
+      button_text:
+        share: 'View Media'
+        training: 'View Training'
+        update: 'View Announcement'
+        upload: 'View Media'
+      title:
+        share: 'New Media Released'
+        training: 'New Training Released'
+        update: 'New Announcement Released'
+        upload: 'New Media Released'
     cart_activities:
+      date_time: Date
+      discount: Discount
+      email: 'Customer email'
+      shipping: Shipping
+      tax: Tax
       title:
         abandoned_cart: 'Abandoned cart'
         cart_items_added: 'Items added to cart'
         order_placed: 'Order Placed!'
-      email: "Customer email"
-      date_time: "Date"
-      tax: "Tax"
-      shipping: "Shipping"
-      discount: "Discount"
-      total: "Total"
-    announcements:
-      title:
-        training: 'New Training Released'
-        update: 'New Announcement Released'
-        upload: 'New Media Released'
-        share: 'New Media Released'
-      button_text:
-        update: 'View Announcement'
-        upload: 'View Media'
-        share: 'View Media'
-        training: 'View Training'
+      total: Total
     page_views:
-      title: 'Page Viewed'
       button_text: 'View Activity'
+      email: Email
+      location: Location
+      name: Name
       page_title: 'Page Title'
       page_url: 'Page URL'
-      location: 'Location'
-      name: 'Name'
-      email: 'Email'
+      title: 'Page Viewed'
     task_overdue:
-      title: 'Task Due'
-      due_date: 'Due Date'
       button_text: 'View Activity'
+      due_date: 'Due Date'
+      title: 'Task Due'
     upcoming_event:
-      title: 'Event Starting Soon'
-      details: 'Event Details'
       alert: 'New Event Alert'
-  subscriptions:
-    unsubscribed:
-      heading: "Unsubscribed!"
-      success: "You've successfully unsubscribed from %{plan}. Your subscription will expire on %{date} and will not be renewed."
-      closing: "We're sorry to see you go."
-      already_unsubscribed: "It appears that you've already been unsubscribed from %{plan}. No further action will be required."
-  messages:
-    deleted:
-      body: "This message has been deleted."
+      button_text: 'Open Event Page'
+      details: 'Event Details'
+      end_date_time: 'End Date/time'
+      start_date_time: 'Start Date/time'
+      title: 'Event Starting Soon'
+      url: URL
+  products:
+    updates_new_variants: 'This update will impact new variants only'
   requests:
     errors:
       recipient:
-        discarded: "You will need an active company to access this page."
+        discarded: 'You will need an active company to access this page.'
+  shares:
+    catalog:
+      description: 'Shop all of our best products'
+      ship_to_country: 'Ship To Country'
+      shop: Shop
+      title: Shop
+    checkout:
+      buy_now: 'Add To Cart'
+      free: FREE
+      no_reviews: 'No reviews yet, but check back soon!'
+    email: Email
+    free: FREE
+    full_name: 'Full Name'
+    giveaways:
+      upcoming_giveaways: 'Upcoming Giveaways'
+      view_all: 'View all >'
+    post:
+      comment: Comment
+      comment_visibility: 'Only %{name} can see your comments.'
+      download_pdf: 'Download PDF.'
+      download_powerpoint: 'Download Powerpoint.'
+      email: Email
+      full_name: 'Full Name'
+      leave_information: 'Please leave your information so <strong>%{name}</strong> will know who you are.  You only need to do this once.'
+      thanks_for_watching: 'Thanks for watching.'
+      type_a_comment: 'Type a comment'
+      video_tag_unsuppported: 'Your browser doesn''t support this video tag.'
+    products:
+      free: FREE
+      no_products: 'No products available for <b>%{country_name}</b>'
+      sample_products_in_future: 'We are working on making sample products available for <b>%{country_name}</b> in the near future.'
+    promotion:
+      email_prompt: 'What email should we send it to?'
+      ends: 'Ends %{end_date}'
+      more_promotions: 'More Promotions'
+      send: Send
+      send_promotion: 'Let us send you the %{promotion}'
+      view_all: 'View all >'
+    review_form:
+      how_did_we_do: 'How did we do?'
+      not_likely: 'Not likely'
+      order: 'Order #%{order_number}'
+      rate_experience: 'How would you rate your experience with %{company_name}?'
+      recommend_company: 'How likely are you to recommend %{company_name} to a friend?'
+      review_prompt: 'What did you like or dislike? What should other shoppers know before buying?'
+      very_likely: 'Very likely'
+    simulator:
+      add_friend: 'Add Friend'
+      after_duplication: 'After Duplication'
+      assumptions: Assumptions
+      cancel: Cancel
+      continue: Continue
+      disclaimer: 'This simulator is intended to be used and must be used for informational purposes only. Readers should take independent financial advice from a professional and independently research and verify all calculations.  Outputs are educational forum for analysing, learning and discussing general and generic commission information.  Sales and commission outcomes vary greatly by individual.'
+      email: Email
+      engagement: Engagement
+      enter_amount: 'Enter amount'
+      followers: Followers
+      friends_followers: 'Friend''s Followers'
+      friends_name: 'Friend''s Name'
+      full_name: 'Full Name'
+      leave_your_info: 'Please leave your information to save your results and receive a copy of your breakdown.'
+      monthly_commissions: 'Monthly Commissions'
+      posts: Posts
+      total: Total
+      want_to_continue: 'Want to continue?'
+    success:
+      be_in_touch: 'I''ll be in touch very soon.  Please look around in the meantime.'
+      thank_you: 'Thank you!'
+      view_all: 'View All Products'
+    view_all: 'View all >'
+  subscription_mailer:
+    details: Details
+    expired:
+      contact_support: 'If you have any questions or need assistance, please don''t hesitate to contact our support team at %{email}.'
+      instructions: 'To continue enjoying %{plan}, please visit our website and renew your subscription.'
+      intro: 'We want to inform you that your %{plan} subscription has expired.'
+      subject: 'Your %{plan} Subscription Has Expired'
+    greetings: 'Dear %{user},'
+    plan: Plan
+    price: Price
+    renewal_failed:
+      contact_support: 'If you believe this is an error or need assistance, please contact our support team at %{email}.'
+      instructions: 'To continue using %{plan}, please review your payment information and renew your subscription on our website.'
+      intro: 'We regret to inform you that the renewal of your %{plan} subscription was unsuccessful, and your subscription has expired.'
+      subject: 'Renewal failed %{plan} plan'
+      thank_you: 'We appreciate your understanding and prompt attention to this matter.'
+    renewed:
+      intro: 'Your %{plan} subscription has been successfully renewed.'
+      subject: '%{plan} plan renewed'
+    renewed_at: 'Renewed at'
+    start_date: 'Start date'
+    subscribed:
+      intro: 'Receipt for Your %{plan} Subscription'
+      subject: 'Subscribed to %{plan} plan'
+    valid_until: 'Valid until'
+  subscriptions:
+    unsubscribed:
+      already_unsubscribed: 'It appears that you''ve already been unsubscribed from %{plan}. No further action will be required.'
+      closing: 'We''re sorry to see you go.'
+      heading: Unsubscribed!
+      success: 'You''ve successfully unsubscribed from %{plan}. Your subscription will expire on %{date} and will not be renewed.'
+  testing_nested_translation:
+    koho: education
+    test1: 'is this real?'
+    test10: 'where do you live?'
+    test20: 'where do you live?'
+    test40: 'what is up?'
+    test_0: 'What is your name?'
+    test_2:
+      test3: 'My name is PK.'
+      test4: 'where do you live?'
+    test_4:
+      test_1:
+        sup: 'what is this?'
+        test_2: 'What has happened?'
+        what_that: 'what is bad?'
+        zest4: 'where do you live?'
+    test_5: 'what is good and what is bad right?'
+    test_er: 'this is awesome?'
+    test_r: 'this is awesome no?'
+    test_sdad: 'What are you going to do about'
+    test_u: 'this is that?'
+    test_v: 'what is that h'
+    test_wx: 'This is my concern'
+    thj: locomotive
+  time:
+    formats:
+      short: '%d.%m.%Y'
   users:
     deactivate:
-      success: "Successfully deactivted.  "
-
+      success: 'Successfully deactivted.  '
