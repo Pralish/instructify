@@ -77,7 +77,7 @@ en:
       success: Success.
       thank_you: 'Thank You.'
   cart:
-    account_exist_enrolled: 'You are enrolled'
+    account_exist_enrolled: 'You are not enrolled'
     buyer_not_present: 'user_id or visitor_id should present'
     new_enroll: 'You are enrolled now. please check your inbox for confirmation mail'
     order_create_failed: 'Sorry due to %{reason} cart cannot proceed and order create failed.'
