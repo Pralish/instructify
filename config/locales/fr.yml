@@ -345,9 +345,15 @@ fr:
       success: 'Vous vous êtes désabonné avec succès de %{plan} . Votre abonnement expirera le %{date} et ne sera pas renouvelé.'
   testing_nested_translation:
     koho: éducation
+    test10: 'où  habites-tu ????'
+    test20: 'où  habites-tu ????'
     test40: 'qu''est-ce qui se passe?'
     test_2:
       test3: 'Je m''appelle PK.'
+      test4: 'où  habites-tu ????'
+    test_4:
+      test_1:
+        zest4: 'où  habites-tu ????'
     test_er: 'C''est génial'
     test_r: 'C''est génial'
     test_sdad: 'Qu''allez-vous faire à ce sujet?'
