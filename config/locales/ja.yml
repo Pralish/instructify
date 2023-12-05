@@ -76,7 +76,6 @@ ja:
       thank_you: ありがとう。
   cart:
     account_exist_enrolled: あなたは登録されています
-    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
     buyer_not_present: 'user_id または Visitor_id を提示する必要があります'
     new_enroll: あなたは現在登録されています。受信箱に確認メールが届いているか確認してください
     order_create_failed: '申し訳ありませんが、 %{reason}のためカートを続行できず、注文の作成に失敗しました。'
@@ -331,18 +330,6 @@ ja:
       closing: 残念です。
       heading: 購読を解除しました！
       success: '%{plan}の購読を解除しました。サブスクリプションは%{date}に期限切れになり、更新されません。'
-  testing_nested_translation:
-    koho: 教育
-    test40: どうした？
-    test_2:
-      test3: 私の名前はPKです。
-    test_er: これはすごいです
-    test_r: これはすごいです
-    test_sdad: それについてどうするつもりですか？
-    test_u: これはそれです
-    test_v: それは何ですか？
-    test_wx: それは何ですか？
-    thj: 機関車
   time:
     formats:
       short: '%d.% m.%Y'
