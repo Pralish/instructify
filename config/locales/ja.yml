@@ -1,351 +1,369 @@
+---
 ja:
-  activerecord:
-    errors:
-      format: '%{attribute} %{message}'
-      messages:
-        accepted: 受け入れなければならない
-        blank: 空白にすることはできません
-        confirmation: '%{attribute}と一致しません'
-        empty: 空にはなれない
-        equal_to: '%{count}と等しくなければなりません'
-        even: 均等でなければなりません
-        exclusion: 予約されています
-        greater_than: '%{count}より大きくなければなりません'
-        greater_than_or_equal_to: '%{count}以上である必要があります'
-        in: '%{count}内にある必要があります'
-        inclusion: リストには含まれていません
-        invalid: 無効です
-        less_than: '%{count}未満である必要があります'
-        less_than_or_equal_to: '%{count}以下である必要があります'
-        model_invalid: '検証に失敗しました: %{errors}'
-        not_a_number: 数字ではありません
-        not_an_integer: 整数でなければなりません
-        odd: 奇妙に違いない
-        other_than: '%{count}以外である必要があります'
-        present: 空白でなければなりません
-        taken: すでに使用されている
-        too_long:
-          other: '長すぎます (最大は%{count}文字です)'
-        too_short:
-          other: '短すぎます (最小は%{count}文字です)'
-        wrong_length:
-          other: '長さが間違っています ( %{count}文字である必要があります)'
-      models:
-        discount_rule:
-          applicables_required:
-            collection: '少なくとも 1 つの該当するコレクションが必要です。'
-            country: '該当する国が少なくとも 1 つ必要です。'
-            customer: '少なくとも 1 人の顧客が必要です'
-            customer_segment: '少なくとも 1 つの顧客セグメントが必要です。'
-            product: '該当する製品が少なくとも 1 つ必要です。'
-            user_company: '該当する顧客が少なくとも 1 名必要です。'
-          inapplicables_required:
-            country: '適用されない国が少なくとも 1 つ必要です。'
-        recipient_conversation:
-          attributes:
-            conversation:
-              unarchivable: アーカイブすることはできません。
-  api:
-    errors:
-      access_denied: このアクションを実行するための十分な権限がありません。
-      api_error: 'API エラー。ご迷惑をおかけして申し訳ありません。Fluid サポートにお問い合わせください。'
-      delete_error: '%{obj}の削除中にエラーが発生しました。'
-      duplicates: '%{first_attribute}と%{second_attribute}が重複しています。'
-      failed_to_delete: 削除に失敗しました。
-      greater_than: '%{first_value} %{second_value}より大きくなければなりません。'
-      invalid_attribute: '無効な%{attribute}です。'
-      invalid_attribute_value: '%{attribute}値が無効です。 %{value}にする必要があります。'
-      invalid_credentials: 無効な資格情報。
-      login_attempt_failed: ログイン試行に失敗しました。
-      no_match: '%{first_attribute}と%{second_attribute}が一致しません。'
-      no_payment_method: 支払い方法がありません
-      not_authorized: 許可されていません。
-      not_found_for: '指定された%{first_attribute}に対して%{second_attribute}が見つかりません。'
-      object_not_found: '%{obj}が見つかりません。'
-      passcode_expired: 'パスコードの有効期限が切れました。新しいコードが%{email}に送信されました。'
-      premium_messaging_disabled: 'あなたの会社ではプレミアム メッセージング サービスが有効になっていません。会社の管理者に連絡してください。'
-      required: '%{attribute}必須です。'
-      watches_unavailable: 動画のみで視聴可能
-    messages:
-      deleted: '%{obj}が正常に削除されました。'
-      error: エラー。
-      failure: 失敗。
-      liked_comment: '%{full_name}があなたのコメントに「いいね」をしました。'
-      new_lead: 新しいリード。
-      success: 成功。
-      thank_you: ありがとう。
-  cart:
-    account_exist_enrolled: あなたは登録されています
-    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
-    buyer_not_present: 'user_id または Visitor_id を提示する必要があります'
-    new_enroll: あなたは現在登録されています。受信箱に確認メールが届いているか確認してください
-    order_create_failed: '申し訳ありませんが、 %{reason}のためカートを続行できず、注文の作成に失敗しました。'
-    refund_failed: '申し訳ありませんが、取引は失敗し、 %{reason}のため払い戻しを処理できません。サポートにお問い合わせください'
-    transaction_succeded_and_refunded_due_to_save_errors: 取引は成功しましたが、カートチェックアウトエラーにより返金されました
-    transaction_succeded_with_refund_and_save_errors: 取引はカート保存で成功しましたが、返金は失敗しました
-  cart_item:
-    variant_qty_greater_than_stock: カートの商品数量が在庫を超えています
-  conversations:
-    type:
-      channel_conversation: チャンネル
-      direct_conversation: ダイレクトメッセージ
-      external: 顧客への直接メッセージ
-      group_conversation: グループメッセージ
-      internal: チームへの直接メッセージ
-  enrollments:
-    already_enrolled: すでに登録されています。サインインしてください。
   hello: ハロー・ワールド
+  testing_nested_translation:
+    test1: is this real?
+    test_0: What is your name?
+    test_2:
+      test3: 私の名前はPKです。
+      test4: where do you live?
+    test_4:
+      test_1:
+        sup: what is this?
+        test_2: What has happened?
+        what_that: what is bad?
+        zest4: where do you live?
+    test_5: what is good and what is bad right?
+    test10: where do you live?
+    test20: where do you live?
+    test40: どうした？
+    test_er: これはすごいです
+    test_r: これはすごいです
+    test_u: これはそれです
+    test_v: それは何ですか？
+    test_wx: それは何ですか？
+    test_sdad: それについてどうするつもりですか？
+    thj: 機関車
+    koho: 教育
   helpers:
     page_entries_info:
       entry:
         other: エントリ
-      more_pages:
-        display_entries: '<b> %{first}を表示中&nbsp; - &nbsp; %{last} </b> / <b> %{total} </b> %{entry_name}'
       one_page:
         display_entries:
-          other: '<b>すべての%{count} </b> %{entry_name}を表示しています'
+          other: <b>すべての%{count} </b> %{entry_name}を表示しています
+      more_pages:
+        display_entries: <b> %{first}を表示中&nbsp; - &nbsp; %{last} </b> / <b> %{total}
+          </b> %{entry_name}
+  time:
+    formats:
+      short: '%d.% m.%Y'
+  activerecord:
+    errors:
+      format: '%{attribute} %{message}'
+      messages:
+        model_invalid: '検証に失敗しました: %{errors}'
+        inclusion: リストには含まれていません
+        exclusion: 予約されています
+        invalid: 無効です
+        confirmation: '%{attribute}と一致しません'
+        accepted: 受け入れなければならない
+        empty: 空にはなれない
+        blank: 空白にすることはできません
+        present: 空白でなければなりません
+        taken: すでに使用されている
+        too_long:
+          other: 長すぎます (最大は%{count}文字です)
+        too_short:
+          other: 短すぎます (最小は%{count}文字です)
+        wrong_length:
+          other: 長さが間違っています ( %{count}文字である必要があります)
+        not_a_number: 数字ではありません
+        not_an_integer: 整数でなければなりません
+        greater_than: '%{count}より大きくなければなりません'
+        greater_than_or_equal_to: '%{count}以上である必要があります'
+        equal_to: '%{count}と等しくなければなりません'
+        less_than: '%{count}未満である必要があります'
+        less_than_or_equal_to: '%{count}以下である必要があります'
+        other_than: '%{count}以外である必要があります'
+        in: '%{count}内にある必要があります'
+        odd: 奇妙に違いない
+        even: 均等でなければなりません
+      models:
+        recipient_conversation:
+          attributes:
+            conversation:
+              unarchivable: アーカイブすることはできません。
+        discount_rule:
+          applicables_required:
+            country: 該当する国が少なくとも 1 つ必要です。
+            collection: 少なくとも 1 つの該当するコレクションが必要です。
+            product: 該当する製品が少なくとも 1 つ必要です。
+            user_company: 該当する顧客が少なくとも 1 名必要です。
+            customer_segment: 少なくとも 1 つの顧客セグメントが必要です。
+            customer: 少なくとも 1 人の顧客が必要です
+          inapplicables_required:
+            country: 適用されない国が少なくとも 1 つ必要です。
+  api:
+    messages:
+      thank_you: ありがとう。
+      success: 成功。
+      failure: 失敗。
+      error: エラー。
+      deleted: '%{obj}が正常に削除されました。'
+      liked_comment: '%{full_name}があなたのコメントに「いいね」をしました。'
+      new_lead: 新しいリード。
+    errors:
+      api_error: API エラー。ご迷惑をおかけして申し訳ありません。Fluid サポートにお問い合わせください。
+      invalid_credentials: 無効な資格情報。
+      not_authorized: 許可されていません。
+      required: '%{attribute}必須です。'
+      invalid_attribute: 無効な%{attribute}です。
+      invalid_attribute_value: '%{attribute}値が無効です。 %{value}にする必要があります。'
+      object_not_found: '%{obj}が見つかりません。'
+      not_found_for: 指定された%{first_attribute}に対して%{second_attribute}が見つかりません。
+      no_match: '%{first_attribute}と%{second_attribute}が一致しません。'
+      duplicates: '%{first_attribute}と%{second_attribute}が重複しています。'
+      greater_than: '%{first_value} %{second_value}より大きくなければなりません。'
+      failed_to_delete: 削除に失敗しました。
+      delete_error: '%{obj}の削除中にエラーが発生しました。'
+      no_payment_method: 支払い方法がありません
+      watches_unavailable: 動画のみで視聴可能
+      passcode_expired: パスコードの有効期限が切れました。新しいコードが%{email}に送信されました。
+      login_attempt_failed: ログイン試行に失敗しました。
+      access_denied: このアクションを実行するための十分な権限がありません。
+      premium_messaging_disabled: あなたの会社ではプレミアム メッセージング サービスが有効になっていません。会社の管理者に連絡してください。
+  shares:
+    view_all: すべて見る>
+    email: Eメール
+    full_name: フルネーム
+    free: 無料
+    giveaways:
+      view_all: すべて見る>
+      upcoming_giveaways: 今後のプレゼント
+    post:
+      video_tag_unsuppported: お使いのブラウザはこのビデオタグをサポートしていません。
+      thanks_for_watching: 見てくれてありがとう。
+      download_powerpoint: パワーポイントをダウンロードします。
+      download_pdf: PDFをダウンロードします。
+      type_a_comment: コメントを入力してください
+      comment: コメント
+      comment_visibility: '%{name}だけがあなたのコメントを閲覧できます。'
+      leave_information: <strong> %{name} </strong>にあなたの身元がわかるよう、情報を残してください。これを行う必要があるのは
+        1 回だけです。
+      email: Eメール
+      full_name: フルネーム
+    catalog:
+      title: 店
+      description: 当社の最高の製品をすべて購入する
+      shop: 店
+      ship_to_country: 発送先国
+    products:
+      free: 無料
+      no_products: <b> %{country_name} </b>で利用できる商品はありません
+      sample_products_in_future: 近い将来、サンプル商品を<b> %{country_name} </b>向けに提供できるよう取り組んでいます。
+    checkout:
+      free: 無料
+      buy_now: カートに追加
+      no_reviews: まだレビューはありませんが、すぐにチェックしてください。
+    success:
+      thank_you: ありがとう！
+      be_in_touch: すぐにご連絡させていただきます。その間、周りを見てください。
+      view_all: すべての製品を見る
+    simulator:
+      disclaimer: このシミュレーターは使用を目的としており、情報提供のみを目的として使用する必要があります。読者は専門家から独立した財務上のアドバイスを受け、すべての計算を独自に調査して検証する必要があります。アウトプットは、一般的かつ一般的なコミッション情報を分析、学習、議論するための教育フォーラムです。売上や手数料の結果は個人によって大きく異なります。
+      assumptions: 仮定
+      followers: フォロワー
+      engagement: 婚約
+      posts: 投稿
+      monthly_commissions: 月額手数料
+      friends_name: 友達の名前
+      friends_followers: 友達のフォロワー
+      add_friend: 友人を追加する
+      after_duplication: 複製後
+      want_to_continue: 続けたいですか?
+      leave_your_info: 結果を保存し、内訳のコピーを受け取るために情報を残してください。
+      cancel: キャンセル
+      continue: 続く
+      full_name: フルネーム
+      email: Eメール
+      total: 合計
+      enter_amount: 金額を入力します
+    promotion:
+      ends: '%{end_date}に終了します'
+      more_promotions: さらなるプロモーション
+      view_all: すべて見る>
+      send_promotion: '%{promotion}をお送りします'
+      email_prompt: どのメールに送信すればよいでしょうか?
+      send: 送信
+    review_form:
+      how_did_we_do: どうだったでしょうか？
+      order: 注文番号%{order_number}
+      rate_experience: '%{company_name}での経験をどのように評価しますか?'
+      recommend_company: '%{company_name}を友人に勧める可能性はどのくらいですか?'
+      not_likely: 可能性は低い
+      very_likely: 可能性が非常に高い
+      review_prompt: 何が好きでしたか、何が嫌いでしたか？他の買い物客が購入する前に知っておくべきことは何ですか?
+  cart:
+    refund_failed: 申し訳ありませんが、取引は失敗し、 %{reason}のため払い戻しを処理できません。サポートにお問い合わせください
+    order_create_failed: 申し訳ありませんが、 %{reason}のためカートを続行できず、注文の作成に失敗しました。
+    buyer_not_present: user_id または Visitor_id を提示する必要があります
+    transaction_succeded_and_refunded_due_to_save_errors: 取引は成功しましたが、カートチェックアウトエラーにより返金されました
+    transaction_succeded_with_refund_and_save_errors: 取引はカート保存で成功しましたが、返金は失敗しました
+    account_exist_enrolled: あなたは登録されています
+    new_enroll: あなたは現在登録されています。受信箱に確認メールが届いているか確認してください
+    account_not_enrolled: Ýôú ářè ƨúççèƨƨƒúℓ
+  cart_item:
+    variant_qty_greater_than_stock: カートの商品数量が在庫を超えています
+  enrollments:
+    already_enrolled: すでに登録されています。サインインしてください。
+  products:
+    updates_new_variants: このアップデートは新しいバリアントにのみ影響します
+  conversations:
+    type:
+      direct_conversation: ダイレクトメッセージ
+      group_conversation: グループメッセージ
+      channel_conversation: チャンネル
+      external: 顧客への直接メッセージ
+      internal: チームへの直接メッセージ
   mailers:
     layout:
-      all_rights_reserved: 無断転載を禁じます
       powered_by: 搭載
-  messages:
-    deleted:
-      body: このメッセージは削除されました。
+      all_rights_reserved: 無断転載を禁じます
   messaging_mailer:
-    multiple_conversation:
-      channel_conversation:
-        header:
-          other: '「 %{conversation_name} 」チャンネルの未読メッセージ%{count}件'
-      channel_conversation_mentioned:
-        header: '「 %{conversation_name} 」チャンネルでの新しいメンション'
-      direct_conversation:
-        header:
-          other: '%{sender_name}からのダイレクト メッセージ'
-      direct_conversation_mentioned:
-        header: '%{sender_name}による新しいメンション'
-      group_conversation:
-        header:
-          other: '「 %{conversation_name} 」グループの未読メッセージ%{count}件'
-      group_conversation_mentioned:
-        header: '「 %{conversation_name} 」グループでの新しいメンション'
-      header: '%{company_name}で何が起こっているのか'
-      reply_button: '%{company_name}を開きます'
-      unread_messages:
-        subject:
-          other: '未読メッセージが%{count}件あります'
-    new_mentioned_message: 新しく言及されたメッセージ
     new_message: 新しいメッセージ
-    new_message_separator:
-      channel_conversation: 新しい未読メッセージ
-      channel_conversation_mentioned: 新しく言及されたメッセージ
-      direct_conversation: 新しい未読メッセージ
-      direct_conversation_mentioned: 新しく言及されたメッセージ
-      group_conversation: 新しい未読メッセージ
-      group_conversation_mentioned: 新しく言及されたメッセージ
+    new_mentioned_message: 新しく言及されたメッセージ
     new_message_subject: '%{sender_name}からの新しいメッセージ'
+    new_message_separator:
+      direct_conversation: 新しい未読メッセージ
+      group_conversation: 新しい未読メッセージ
+      channel_conversation: 新しい未読メッセージ
+      direct_conversation_mentioned: 新しく言及されたメッセージ
+      group_conversation_mentioned: 新しく言及されたメッセージ
+      channel_conversation_mentioned: 新しく言及されたメッセージ
     reply_thread_link: このスレッドに返信する
     single_conversation:
-      channel_conversation:
-        header:
-          other: '最後にログインしてから、「 %{conversation_name} 」チャネルに%{count}件の新しいメッセージがあります。'
-        reply_button: 続きを読む
-        subject: '「 %{conversation_name} 」チャンネルの新しいメッセージ'
-      channel_conversation_mentioned:
-        header: '%{sender_name} 「 %{conversation_name} 」チャンネルであなたのことをメンションしました'
-        reply_button: '%{company_name}に返信'
-        subject: '「 %{conversation_name} 」チャンネルでの新しい言及'
       direct_conversation:
+        subject: '%{sender_name}からの新しいメッセージ'
         header:
           other: '%{sender_name}からの未読メッセージが%{count}件あります'
         reply_button: '%{company_name}に返信'
-        subject: '%{sender_name}からの新しいメッセージ'
+      group_conversation:
+        subject: 「 %{conversation_name} 」の新しいメッセージ
+        header:
+          other: 最後にログインしてから、「 %{conversation_name} 」グループに%{count}件の新しいメッセージがあります。
+        reply_button: 続きを読む
+      channel_conversation:
+        subject: 「 %{conversation_name} 」チャンネルの新しいメッセージ
+        header:
+          other: 最後にログインしてから、「 %{conversation_name} 」チャネルに%{count}件の新しいメッセージがあります。
+        reply_button: 続きを読む
       direct_conversation_mentioned:
+        subject: '%{sender_name}からの新しい言及'
         header: '%{sender_name}があなたについて言及しました'
         reply_button: '%{company_name}に返信'
-        subject: '%{sender_name}からの新しい言及'
-      group_conversation:
-        header:
-          other: '最後にログインしてから、「 %{conversation_name} 」グループに%{count}件の新しいメッセージがあります。'
-        reply_button: 続きを読む
-        subject: '「 %{conversation_name} 」の新しいメッセージ'
       group_conversation_mentioned:
+        subject: 「 %{conversation_name} 」グループでの新しいメンション
         header: '%{sender_name} 「 %{conversation_name} 」グループにあなたをメンションしました'
         reply_button: '%{company_name}に返信'
-        subject: '「 %{conversation_name} 」グループでの新しいメンション'
+      channel_conversation_mentioned:
+        subject: 「 %{conversation_name} 」チャンネルでの新しい言及
+        header: '%{sender_name} 「 %{conversation_name} 」チャンネルであなたのことをメンションしました'
+        reply_button: '%{company_name}に返信'
+    multiple_conversation:
+      header: '%{company_name}で何が起こっているのか'
+      reply_button: '%{company_name}を開きます'
+      direct_conversation:
+        header:
+          other: '%{sender_name}からのダイレクト メッセージ'
+      group_conversation:
+        header:
+          other: 「 %{conversation_name} 」グループの未読メッセージ%{count}件
+      channel_conversation:
+        header:
+          other: 「 %{conversation_name} 」チャンネルの未読メッセージ%{count}件
+      direct_conversation_mentioned:
+        header: '%{sender_name}による新しいメンション'
+      group_conversation_mentioned:
+        header: 「 %{conversation_name} 」グループでの新しいメンション
+      channel_conversation_mentioned:
+        header: 「 %{conversation_name} 」チャンネルでの新しいメンション
+      unread_messages:
+        subject:
+          other: 未読メッセージが%{count}件あります
   messaging_subscription_mailer:
     premium_subscription_successful:
       subject: プレミアムメッセージングへようこそ
+    trusthub_profile_submitted:
+      subject: 素晴らしい！あなたのプロフィールが送信されました
     trusthub_profile_approved:
       subject: 電話番号の準備ができました!
     trusthub_profile_rejected:
       subject: 申し訳ありませんが、あなたのプロフィールは拒否されました
-    trusthub_profile_submitted:
-      subject: 素晴らしい！あなたのプロフィールが送信されました
+  subscription_mailer:
+    greetings: '%{user} 、'
+    details: 詳細
+    start_date: 開始日
+    renewed_at: 更新日
+    valid_until: まで有効
+    price: 価格
+    plan: プラン
+    subscribed:
+      subject: '%{plan}プランに登録しました'
+      intro: '%{plan}サブスクリプションの領収書'
+    renewed:
+      subject: '%{plan}プランが更新されました'
+      intro: '%{plan}サブスクリプションは正常に更新されました。'
+    renewal_failed:
+      subject: '%{plan}プランの更新に失敗しました'
+      intro: '%{plan}サブスクリプションの更新が失敗し、サブスクリプションの有効期限が切れたことをお知らせいたします。'
+      instructions: '%{plan}を引き続き使用するには、お支払い情報を確認し、当社 Web サイトでサブスクリプションを更新してください。'
+      contact_support: これがエラーであると思われる場合、またはサポートが必要な場合は、サポート チーム%{email}までご連絡ください。
+      thank_you: ご理解の上、速やかにご対応いただきますようお願い申し上げます。
+    expired:
+      subject: '%{plan}サブスクリプションの有効期限が切れました'
+      intro: '%{plan}サブスクリプションの有効期限が切れたことをお知らせいたします。'
+      instructions: '%{plan}を引き続きお楽しみいただくには、当社の Web サイトにアクセスしてサブスクリプションを更新してください。'
+      contact_support: ご質問がある場合やサポートが必要な場合は、お気軽にサポート チーム ( %{email}までお問い合わせください。
   notification_mailer:
-    announcements:
-      button_text:
-        share: メディアを見る
-        training: トレーニングを見る
-        update: お知らせを見る
-        upload: メディアを見る
-      title:
-        share: 新しいメディアがリリースされました
-        training: 新しいトレーニングがリリースされました
-        update: 新しいお知らせがリリースされました
-        upload: 新しいメディアがリリースされました
     cart_activities:
-      date_time: 日付
-      discount: 割引
-      email: 顧客の電子メール
-      shipping: 配送
-      tax: 税
       title:
         abandoned_cart: 放棄されたカート
         cart_items_added: カートに商品が追加されました
         order_placed: 注文済み！
+      email: 顧客の電子メール
+      date_time: 日付
+      tax: 税
+      shipping: 配送
+      discount: 割引
       total: 合計
+    announcements:
+      title:
+        training: 新しいトレーニングがリリースされました
+        update: 新しいお知らせがリリースされました
+        upload: 新しいメディアがリリースされました
+        share: 新しいメディアがリリースされました
+      button_text:
+        update: お知らせを見る
+        upload: メディアを見る
+        share: メディアを見る
+        training: トレーニングを見る
     page_views:
+      title: 閲覧したページ
       button_text: アクティビティの表示
-      email: Eメール
-      location: 位置
-      name: 名前
       page_title: ページタイトル
       page_url: ページURL
-      title: 閲覧したページ
+      location: 位置
+      name: 名前
+      email: Eメール
     task_overdue:
-      button_text: アクティビティの表示
-      due_date: 期日
       title: タスクの期限
+      due_date: 期日
+      button_text: アクティビティの表示
     upcoming_event:
-      alert: 新しいイベントのアラート
-      button_text: イベントページを開く
-      details: イベントの詳細
-      end_date_time: 終了日時
-      start_date_time: 開始日時
       title: もうすぐ始まるイベント
+      details: イベントの詳細
+      alert: 新しいイベントのアラート
       url: URL
-  products:
-    updates_new_variants: このアップデートは新しいバリアントにのみ影響します
+      start_date_time: 開始日時
+      end_date_time: 終了日時
+      button_text: イベントページを開く
+  subscriptions:
+    unsubscribed:
+      heading: 購読を解除しました！
+      success: '%{plan}の購読を解除しました。サブスクリプションは%{date}に期限切れになり、更新されません。'
+      closing: 残念です。
+      already_unsubscribed: すでに%{plan}の購読を解除されているようです。それ以上のアクションは必要ありません。
+  messages:
+    deleted:
+      body: このメッセージは削除されました。
   requests:
     errors:
       recipient:
         discarded: このページにアクセスするには、アクティブな会社が必要です。
-  shares:
-    catalog:
-      description: 当社の最高の製品をすべて購入する
-      ship_to_country: 発送先国
-      shop: 店
-      title: 店
-    checkout:
-      buy_now: カートに追加
-      free: 無料
-      no_reviews: まだレビューはありませんが、すぐにチェックしてください。
-    email: Eメール
-    free: 無料
-    full_name: フルネーム
-    giveaways:
-      upcoming_giveaways: 今後のプレゼント
-      view_all: すべて見る>
-    post:
-      comment: コメント
-      comment_visibility: '%{name}だけがあなたのコメントを閲覧できます。'
-      download_pdf: PDFをダウンロードします。
-      download_powerpoint: パワーポイントをダウンロードします。
-      email: Eメール
-      full_name: フルネーム
-      leave_information: '<strong> %{name} </strong>にあなたの身元がわかるよう、情報を残してください。これを行う必要があるのは 1 回だけです。'
-      thanks_for_watching: 見てくれてありがとう。
-      type_a_comment: コメントを入力してください
-      video_tag_unsuppported: お使いのブラウザはこのビデオタグをサポートしていません。
-    products:
-      free: 無料
-      no_products: '<b> %{country_name} </b>で利用できる商品はありません'
-      sample_products_in_future: '近い将来、サンプル商品を<b> %{country_name} </b>向けに提供できるよう取り組んでいます。'
-    promotion:
-      email_prompt: 'どのメールに送信すればよいでしょうか?'
-      ends: '%{end_date}に終了します'
-      more_promotions: さらなるプロモーション
-      send: 送信
-      send_promotion: '%{promotion}をお送りします'
-      view_all: すべて見る>
-    review_form:
-      how_did_we_do: どうだったでしょうか？
-      not_likely: 可能性は低い
-      order: '注文番号%{order_number}'
-      rate_experience: '%{company_name}での経験をどのように評価しますか?'
-      recommend_company: '%{company_name}を友人に勧める可能性はどのくらいですか?'
-      review_prompt: '何が好きでしたか、何が嫌いでしたか？他の買い物客が購入する前に知っておくべきことは何ですか?'
-      very_likely: 可能性が非常に高い
-    simulator:
-      add_friend: 友人を追加する
-      after_duplication: 複製後
-      assumptions: 仮定
-      cancel: キャンセル
-      continue: 続く
-      disclaimer: このシミュレーターは使用を目的としており、情報提供のみを目的として使用する必要があります。読者は専門家から独立した財務上のアドバイスを受け、すべての計算を独自に調査して検証する必要があります。アウトプットは、一般的かつ一般的なコミッション情報を分析、学習、議論するための教育フォーラムです。売上や手数料の結果は個人によって大きく異なります。
-      email: Eメール
-      engagement: 婚約
-      enter_amount: 金額を入力します
-      followers: フォロワー
-      friends_followers: 友達のフォロワー
-      friends_name: 友達の名前
-      full_name: フルネーム
-      leave_your_info: 結果を保存し、内訳のコピーを受け取るために情報を残してください。
-      monthly_commissions: 月額手数料
-      posts: 投稿
-      total: 合計
-      want_to_continue: '続けたいですか?'
-    success:
-      be_in_touch: すぐにご連絡させていただきます。その間、周りを見てください。
-      thank_you: ありがとう！
-      view_all: すべての製品を見る
-    view_all: すべて見る>
-  subscription_mailer:
-    details: 詳細
-    expired:
-      contact_support: 'ご質問がある場合やサポートが必要な場合は、お気軽にサポート チーム ( %{email}までお問い合わせください。'
-      instructions: '%{plan}を引き続きお楽しみいただくには、当社の Web サイトにアクセスしてサブスクリプションを更新してください。'
-      intro: '%{plan}サブスクリプションの有効期限が切れたことをお知らせいたします。'
-      subject: '%{plan}サブスクリプションの有効期限が切れました'
-    greetings: '%{user} 、'
-    plan: プラン
-    price: 価格
-    renewal_failed:
-      contact_support: 'これがエラーであると思われる場合、またはサポートが必要な場合は、サポート チーム%{email}までご連絡ください。'
-      instructions: '%{plan}を引き続き使用するには、お支払い情報を確認し、当社 Web サイトでサブスクリプションを更新してください。'
-      intro: '%{plan}サブスクリプションの更新が失敗し、サブスクリプションの有効期限が切れたことをお知らせいたします。'
-      subject: '%{plan}プランの更新に失敗しました'
-      thank_you: ご理解の上、速やかにご対応いただきますようお願い申し上げます。
-    renewed:
-      intro: '%{plan}サブスクリプションは正常に更新されました。'
-      subject: '%{plan}プランが更新されました'
-    renewed_at: 更新日
-    start_date: 開始日
-    subscribed:
-      intro: '%{plan}サブスクリプションの領収書'
-      subject: '%{plan}プランに登録しました'
-    valid_until: まで有効
-  subscriptions:
-    unsubscribed:
-      already_unsubscribed: 'すでに%{plan}の購読を解除されているようです。それ以上のアクションは必要ありません。'
-      closing: 残念です。
-      heading: 購読を解除しました！
-      success: '%{plan}の購読を解除しました。サブスクリプションは%{date}に期限切れになり、更新されません。'
-  testing_nested_translation:
-    koho: 教育
-    test40: どうした？
-    test_2:
-      test3: 私の名前はPKです。
-    test_er: これはすごいです
-    test_r: これはすごいです
-    test_sdad: それについてどうするつもりですか？
-    test_u: これはそれです
-    test_v: それは何ですか？
-    test_wx: それは何ですか？
-    thj: 機関車
-  time:
-    formats:
-      short: '%d.% m.%Y'
   users:
     deactivate:
       success: '正常に無効化されました。  '
+  education:
+    is: important!
+...

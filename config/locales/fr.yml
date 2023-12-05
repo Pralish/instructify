@@ -1,363 +1,419 @@
+---
 fr:
-  activerecord:
-    errors:
-      format: '%{attribute} %{message}'
-      messages:
-        accepted: 'doit être accepté'
-        blank: 'ne peut pas être vide'
-        confirmation: 'ne correspond pas à %{attribute}'
-        empty: 'ne peut pas être vide'
-        equal_to: 'doit être égal à %{count}'
-        even: 'doit être pair'
-        exclusion: 'est réservé'
-        greater_than: 'doit être supérieur à %{count}'
-        greater_than_or_equal_to: 'doit être supérieur ou égal à %{count}'
-        in: 'doit être dans %{count}'
-        inclusion: 'n''est pas inclus dans la liste'
-        invalid: 'est invalide'
-        less_than: 'doit être inférieur à %{count}'
-        less_than_or_equal_to: 'doit être inférieur ou égal à %{count}'
-        model_invalid: "Échec de la validation\_: %{errors}"
-        not_a_number: 'n''est pas un numéro'
-        not_an_integer: 'Doit être un entier'
-        odd: 'ça doit être bizarre'
-        other_than: 'doit être différent de %{count}'
-        present: 'doit être vide'
-        taken: 'est déjà pris'
-        too_long:
-          one: "est trop long (1\_caractère maximum)"
-          other: "est trop long (le maximum est de %{count}\_caractères)"
-        too_short:
-          one: "est trop court (1\_caractère minimum)"
-          other: "est trop court (le minimum est de %{count}\_caractères)"
-        wrong_length:
-          one: 'est la mauvaise longueur (doit être 1 caractère)'
-          other: "est la mauvaise longueur (doit contenir %{count}\_caractères)"
-      models:
-        discount_rule:
-          applicables_required:
-            collection: 'Au moins une collection applicable est requise.'
-            country: 'Au moins un pays applicable est requis.'
-            customer: 'Au moins un client est requis'
-            customer_segment: 'Au moins un segment de clientèle est requis.'
-            product: 'Au moins un produit applicable est requis.'
-            user_company: 'Au moins un client concerné est requis.'
-          inapplicables_required:
-            country: 'Au moins un pays non applicable est requis.'
-        recipient_conversation:
-          attributes:
-            conversation:
-              unarchivable: 'ne peut pas être archivé.'
-  api:
-    errors:
-      access_denied: 'Vous ne disposez pas de privilèges suffisants pour effectuer cette action.'
-      api_error: 'Erreur API, désolé pour le désagrément, contactez le support Fluid.'
-      delete_error: 'Erreur lors de la suppression %{obj} .'
-      duplicates: '%{first_attribute} et %{second_attribute} doublons.'
-      failed_to_delete: 'Échec de la suppression.'
-      greater_than: '%{first_value} doit être supérieur à %{second_value} .'
-      invalid_attribute: '%{attribute} non valide.'
-      invalid_attribute_value: 'Valeur %{attribute} non valide, devrait être %{value} .'
-      invalid_credentials: 'Les informations d''identification invalides.'
-      login_attempt_failed: 'La tentative de connexion a échoué.'
-      no_match: '%{first_attribute} et %{second_attribute} ne correspondent pas.'
-      no_payment_method: 'Aucun mode de paiement'
-      not_authorized: 'Pas autorisé.'
-      not_found_for: '%{first_attribute} introuvable pour le %{second_attribute} fourni.'
-      object_not_found: '%{obj} introuvable.'
-      passcode_expired: 'Le mot de passe a expiré. Nouveau code envoyé à %{email} .'
-      premium_messaging_disabled: 'Votre entreprise ne dispose pas d''un service de messagerie premium activé. Veuillez contacter l''administrateur de votre entreprise.'
-      required: '%{attribute} requis.'
-      watches_unavailable: 'Montres disponibles uniquement pour les vidéos'
-    messages:
-      deleted: '%{obj} supprimé avec succès.'
-      error: Erreur.
-      failure: Échec.
-      liked_comment: '%{full_name} a aimé votre commentaire.'
-      new_lead: 'Nouveau responsable.'
-      success: Succès.
-      thank_you: Merci.
-  cart:
-    account_exist_enrolled: 'Tu es inscrit'
-    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
-    buyer_not_present: 'user_id ou visiteur_id doit présenter'
-    new_enroll: 'Vous êtes inscrit maintenant. veuillez vérifier votre boîte de réception pour le courrier de confirmation'
-    order_create_failed: 'Désolé, car %{reason} le panier ne peut pas continuer et la création de la commande a échoué.'
-    refund_failed: 'Désolé, votre transaction a échoué et ne peut pas procéder au remboursement en raison de %{reason} . Veuillez contacter l''assistance'
-    transaction_succeded_and_refunded_due_to_save_errors: 'Transaction réussie et remboursée en raison d''une erreur de paiement du panier'
-    transaction_succeded_with_refund_and_save_errors: 'Transaction réussie avec sauvegarde du panier et échec du remboursement'
-  cart_item:
-    variant_qty_greater_than_stock: 'La quantité d''articles du panier est supérieure au stock'
-  conversations:
-    type:
-      channel_conversation: Canaux
-      direct_conversation: 'Messages directs'
-      external: 'Messages clients directs'
-      group_conversation: 'Messages de groupe'
-      internal: 'Messages directs de l''équipe'
-  enrollments:
-    already_enrolled: 'Vous êtes déjà inscrit, veuillez essayer de vous connecter'
-  hello: 'Bonjour le monde'
+  hello: Bonjour le monde
+  testing_nested_translation:
+    test1: is this real?
+    test_0: What is your name?
+    test_2:
+      test3: Je m'appelle PK.
+      test4: où  habites-tu ????
+    test_4:
+      test_1:
+        sup: what is this?
+        test_2: What has happened?
+        what_that: what is bad?
+        zest4: où  habites-tu ????
+    test_5: what is good and what is bad right?
+    test10: où  habites-tu ????
+    test20: où  habites-tu ????
+    test40: qu'est-ce qui se passe?
+    test_er: C'est génial
+    test_r: C'est génial
+    test_u: c'est ça
+    test_v: qu'est-ce que c'est?
+    test_wx: qu'est-ce que c'est?
+    test_sdad: Qu'allez-vous faire à ce sujet?
+    thj: locomotive
+    koho: éducation
   helpers:
     page_entries_info:
       entry:
         one: entrée
         other: entrées
-      more_pages:
-        display_entries: 'Affichage de <b> %{first} &nbsp; - &nbsp; %{last} </b> sur <b> %{total} </b> %{entry_name}'
       one_page:
         display_entries:
-          one: 'Affichage de <b> 1 </b> %{entry_name}'
-          other: 'Afficher <b> tous %{count} </b> %{entry_name}'
-  mailers:
-    layout:
-      all_rights_reserved: 'Tous droits réservés'
-      powered_by: 'Alimenté par'
-  messages:
-    deleted:
-      body: 'Ce message a été supprimé.'
-  messaging_mailer:
-    multiple_conversation:
-      channel_conversation:
-        header:
-          one: '%{count} message non lu dans le canal '' %{conversation_name} '''
-          other: '%{count} messages non lus dans le canal '' %{conversation_name} '''
-      channel_conversation_mentioned:
-        header: 'Une nouvelle mention dans le canal '' %{conversation_name} '''
-      direct_conversation:
-        header:
-          one: 'Un message direct de %{sender_name}'
-          other: 'Messages directs de %{sender_name}'
-      direct_conversation_mentioned:
-        header: 'Une nouvelle mention de %{sender_name}'
-      group_conversation:
-        header:
-          one: '%{count} message non lu dans le groupe '' %{conversation_name} '''
-          other: '%{count} messages non lus dans le groupe '' %{conversation_name} '''
-      group_conversation_mentioned:
-        header: 'Une nouvelle mention dans le groupe '' %{conversation_name} '''
-      header: 'Que se passe-t-il à %{company_name}'
-      reply_button: 'Ouvrir %{company_name}'
-      unread_messages:
-        subject:
-          one: 'Vous avez %{count} message non lu'
-          other: 'Vous avez %{count} messages non lus'
-    new_mentioned_message: 'nouveau message mentionné'
-    new_message: 'nouveau message'
-    new_message_separator:
-      channel_conversation: 'Nouveau message non lu'
-      channel_conversation_mentioned: 'Nouveau message mentionné'
-      direct_conversation: 'Nouveau message non lu'
-      direct_conversation_mentioned: 'Nouveau message mentionné'
-      group_conversation: 'Nouveau message non lu'
-      group_conversation_mentioned: 'Nouveau message mentionné'
-    new_message_subject: 'Nouveau message de %{sender_name}'
-    reply_thread_link: 'Répondre à ce fil'
-    single_conversation:
-      channel_conversation:
-        header:
-          one: 'Vous avez %{count} nouveaux messages dans le canal '' %{conversation_name} '' depuis votre dernière connexion.'
-          other: 'Vous avez %{count} nouveaux messages dans le canal '' %{conversation_name} '' depuis votre dernière connexion.'
-        reply_button: 'En savoir plus'
-        subject: 'Nouveaux messages dans le canal '' %{conversation_name} '''
-      channel_conversation_mentioned:
-        header: '%{sender_name} vous a mentionné dans le canal '' %{conversation_name} '''
-        reply_button: 'Répondre le %{company_name}'
-        subject: 'Nouvelle mention dans le canal '' %{conversation_name} '''
-      direct_conversation:
-        header:
-          one: 'Vous avez %{count} messages non lus de %{sender_name}'
-          other: 'Vous avez %{count} messages non lus de %{sender_name}'
-        reply_button: 'Répondre le %{company_name}'
-        subject: 'Nouveau message de %{sender_name}'
-      direct_conversation_mentioned:
-        header: '%{sender_name} vous a mentionné'
-        reply_button: 'Répondre le %{company_name}'
-        subject: 'Nouvelle mention de %{sender_name}'
-      group_conversation:
-        header:
-          one: 'Vous avez %{count} nouveaux messages dans le groupe '' %{conversation_name} '' depuis votre dernière connexion.'
-          other: 'Vous avez %{count} nouveaux messages dans le groupe '' %{conversation_name} '' depuis votre dernière connexion.'
-        reply_button: 'En savoir plus'
-        subject: 'Nouveaux messages dans '' %{conversation_name} '''
-      group_conversation_mentioned:
-        header: '%{sender_name} vous a mentionné dans le groupe '' %{conversation_name} '''
-        reply_button: 'Répondre le %{company_name}'
-        subject: 'Nouvelle mention dans le groupe '' %{conversation_name} '''
-  messaging_subscription_mailer:
-    premium_subscription_successful:
-      subject: 'Bienvenue dans la messagerie Premium'
-    trusthub_profile_approved:
-      subject: "Votre numéro de téléphone est prêt\_!"
-    trusthub_profile_rejected:
-      subject: 'Désolé, votre profil a été rejeté'
-    trusthub_profile_submitted:
-      subject: 'Super! votre profil a été soumis'
-  notification_mailer:
-    announcements:
-      button_text:
-        share: 'Afficher les médias'
-        training: 'Voir la formation'
-        update: 'Voir l''annonce'
-        upload: 'Afficher les médias'
-      title:
-        share: 'Nouveaux médias publiés'
-        training: 'Nouvelle formation publiée'
-        update: 'Nouvelle annonce publiée'
-        upload: 'Nouveaux médias publiés'
-    cart_activities:
-      date_time: Date
-      discount: Rabais
-      email: 'Email client'
-      shipping: Expédition
-      tax: Impôt
-      title:
-        abandoned_cart: 'Chariot abandonné'
-        cart_items_added: 'Articles ajoutés au panier'
-        order_placed: 'Commande passée!'
-      total: Total
-    page_views:
-      button_text: 'Afficher l''activité'
-      email: E-mail
-      location: Emplacement
-      name: Nom
-      page_title: 'Titre de la page'
-      page_url: 'L''URL de la page'
-      title: 'Page consultée'
-    task_overdue:
-      button_text: 'Afficher l''activité'
-      due_date: 'Date d''échéance'
-      title: 'Tâche due'
-    upcoming_event:
-      alert: 'Alerte de nouvel événement'
-      button_text: 'Ouvrir la page de l''événement'
-      details: 'Détails de l''évènement'
-      end_date_time: 'Date/heure de fin'
-      start_date_time: 'Date/heure de début'
-      title: 'Événement commençant bientôt'
-      url: URL
-  products:
-    updates_new_variants: 'Cette mise à jour affectera uniquement les nouvelles variantes'
-  requests:
-    errors:
-      recipient:
-        discarded: 'Vous aurez besoin d''une entreprise active pour accéder à cette page.'
-  shares:
-    catalog:
-      description: 'Achetez tous nos meilleurs produits'
-      ship_to_country: 'Expédier au pays'
-      shop: Boutique
-      title: Boutique
-    checkout:
-      buy_now: 'Ajouter au panier'
-      free: GRATUIT
-      no_reviews: 'Pas encore d''avis, mais revenez bientôt !'
-    email: E-mail
-    free: GRATUIT
-    full_name: 'Nom et prénom'
-    giveaways:
-      upcoming_giveaways: 'Cadeaux à venir'
-      view_all: 'Voir tout >'
-    post:
-      comment: Commentaire
-      comment_visibility: 'Seul %{name} peut voir vos commentaires.'
-      download_pdf: 'Télécharger le PDF.'
-      download_powerpoint: 'Téléchargez PowerPoint.'
-      email: E-mail
-      full_name: 'Nom et prénom'
-      leave_information: 'Veuillez laisser vos informations afin que <strong> %{name} </strong> sache qui vous êtes. Vous ne devez le faire qu''une seule fois.'
-      thanks_for_watching: 'Merci d''avoir regardé.'
-      type_a_comment: 'Tapez un commentaire'
-      video_tag_unsuppported: 'Votre navigateur ne prend pas en charge cette balise vidéo.'
-    products:
-      free: GRATUIT
-      no_products: 'Aucun produit disponible pour <b> %{country_name} </b>'
-      sample_products_in_future: 'Nous travaillons à rendre des exemples de produits disponibles pour <b> %{country_name} </b> dans un avenir proche.'
-    promotion:
-      email_prompt: 'À quel email devons-nous l''envoyer ?'
-      ends: 'Se termine le %{end_date}'
-      more_promotions: 'Plus de promotions'
-      send: Envoyer
-      send_promotion: 'Laissez-nous vous envoyer la %{promotion}'
-      view_all: 'Voir tout >'
-    review_form:
-      how_did_we_do: 'Comment avons-nous fait ?'
-      not_likely: 'Pas probable'
-      order: 'Commande n° %{order_number}'
-      rate_experience: "Comment évalueriez-vous votre expérience avec %{company_name}\_?"
-      recommend_company: "Quelle est la probabilité que vous recommandiez %{company_name} à un ami\_?"
-      review_prompt: "Qu’est-ce que vous avez aimé ou n’avez pas aimé ? Que doivent savoir les autres acheteurs avant d’acheter\_?"
-      very_likely: 'Très probable'
-    simulator:
-      add_friend: 'Ajouter un ami'
-      after_duplication: 'Après la duplication'
-      assumptions: Hypothèses
-      cancel: Annuler
-      continue: Continuer
-      disclaimer: 'Ce simulateur est destiné à être utilisé et doit être utilisé à des fins d''information uniquement. Les lecteurs doivent prendre conseil financier indépendant auprès d’un professionnel et effectuer des recherches indépendantes et vérifier tous les calculs. Les résultats sont un forum éducatif pour analyser, apprendre et discuter des informations générales et génériques sur les commissions. Les résultats des ventes et des commissions varient considérablement selon les individus.'
-      email: E-mail
-      engagement: Fiançailles
-      enter_amount: 'Entrer le montant'
-      followers: Suiveurs
-      friends_followers: 'Abonnés d''un ami'
-      friends_name: 'Nom de l''ami'
-      full_name: 'Nom et prénom'
-      leave_your_info: 'Veuillez laisser vos informations pour enregistrer vos résultats et recevoir une copie de votre répartition.'
-      monthly_commissions: 'Commissions mensuelles'
-      posts: 'Des postes'
-      total: Total
-      want_to_continue: 'Vous voulez continuer ?'
-    success:
-      be_in_touch: 'Je vous contacterai très bientôt. S''il vous plaît, regardez autour de vous en attendant.'
-      thank_you: Merci!
-      view_all: 'Voir tous les produits'
-    view_all: 'Voir tout >'
-  subscription_mailer:
-    details: Détails
-    expired:
-      contact_support: 'Si vous avez des questions ou avez besoin d''aide, n''hésitez pas à contacter notre équipe d''assistance à %{email} .'
-      instructions: 'Pour continuer à profiter %{plan} , veuillez visiter notre site Web et renouveler votre abonnement.'
-      intro: 'Nous souhaitons vous informer que votre abonnement %{plan} a expiré.'
-      subject: 'Votre abonnement %{plan} a expiré'
-    greetings: 'Cher %{user} ,'
-    plan: Plan
-    price: Prix
-    renewal_failed:
-      contact_support: 'Si vous pensez qu''il s''agit d''une erreur ou si vous avez besoin d''aide, veuillez contacter notre équipe d''assistance à %{email} .'
-      instructions: 'Pour continuer à utiliser %{plan} , veuillez vérifier vos informations de paiement et renouveler votre abonnement sur notre site Web.'
-      intro: 'Nous avons le regret de vous informer que le renouvellement de votre abonnement %{plan} a échoué et que votre abonnement a expiré.'
-      subject: 'Échec du renouvellement du %{plan}'
-      thank_you: 'Nous apprécions votre compréhension et votre attention rapide à cette question.'
-    renewed:
-      intro: 'Votre abonnement %{plan} a été renouvelé avec succès.'
-      subject: '%{plan} plan renouvelé'
-    renewed_at: 'Renouvelé à'
-    start_date: 'Date de début'
-    subscribed:
-      intro: 'Reçu pour votre abonnement %{plan}'
-      subject: 'Abonné au forfait %{plan}'
-    valid_until: 'Valable jusque'
-  subscriptions:
-    unsubscribed:
-      already_unsubscribed: 'Il semble que vous ayez déjà été désabonné de %{plan} . Aucune autre mesure ne sera requise.'
-      closing: 'Nous sommes désolés de te voir partir.'
-      heading: 'Désabonné !'
-      success: 'Vous vous êtes désabonné avec succès de %{plan} . Votre abonnement expirera le %{date} et ne sera pas renouvelé.'
-  testing_nested_translation:
-    koho: éducation
-    test40: 'qu''est-ce qui se passe?'
-    test_2:
-      test3: 'Je m''appelle PK.'
-    test_er: 'C''est génial'
-    test_r: 'C''est génial'
-    test_sdad: 'Qu''allez-vous faire à ce sujet?'
-    test_u: 'c''est ça'
-    test_v: 'qu''est-ce que c''est?'
-    test_wx: 'qu''est-ce que c''est?'
-    thj: locomotive
+          one: Affichage de <b> 1 </b> %{entry_name}
+          other: Afficher <b> tous %{count} </b> %{entry_name}
+      more_pages:
+        display_entries: Affichage de <b> %{first} &nbsp; - &nbsp; %{last} </b> sur
+          <b> %{total} </b> %{entry_name}
   time:
     formats:
       short: '%d.% m.%Y'
+  activerecord:
+    errors:
+      format: '%{attribute} %{message}'
+      messages:
+        model_invalid: 'Échec de la validation : %{errors}'
+        inclusion: n'est pas inclus dans la liste
+        exclusion: est réservé
+        invalid: est invalide
+        confirmation: ne correspond pas à %{attribute}
+        accepted: doit être accepté
+        empty: ne peut pas être vide
+        blank: ne peut pas être vide
+        present: doit être vide
+        taken: est déjà pris
+        too_long:
+          one: est trop long (1 caractère maximum)
+          other: est trop long (le maximum est de %{count} caractères)
+        too_short:
+          one: est trop court (1 caractère minimum)
+          other: est trop court (le minimum est de %{count} caractères)
+        wrong_length:
+          one: est la mauvaise longueur (doit être 1 caractère)
+          other: est la mauvaise longueur (doit contenir %{count} caractères)
+        not_a_number: n'est pas un numéro
+        not_an_integer: Doit être un entier
+        greater_than: doit être supérieur à %{count}
+        greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+        equal_to: doit être égal à %{count}
+        less_than: doit être inférieur à %{count}
+        less_than_or_equal_to: doit être inférieur ou égal à %{count}
+        other_than: doit être différent de %{count}
+        in: doit être dans %{count}
+        odd: ça doit être bizarre
+        even: doit être pair
+      models:
+        recipient_conversation:
+          attributes:
+            conversation:
+              unarchivable: ne peut pas être archivé.
+        discount_rule:
+          applicables_required:
+            country: Au moins un pays applicable est requis.
+            collection: Au moins une collection applicable est requise.
+            product: Au moins un produit applicable est requis.
+            user_company: Au moins un client concerné est requis.
+            customer_segment: Au moins un segment de clientèle est requis.
+            customer: Au moins un client est requis
+          inapplicables_required:
+            country: Au moins un pays non applicable est requis.
+  api:
+    messages:
+      thank_you: Merci.
+      success: Succès.
+      failure: Échec.
+      error: Erreur.
+      deleted: '%{obj} supprimé avec succès.'
+      liked_comment: '%{full_name} a aimé votre commentaire.'
+      new_lead: Nouveau responsable.
+    errors:
+      api_error: Erreur API, désolé pour le désagrément, contactez le support Fluid.
+      invalid_credentials: Les informations d'identification invalides.
+      not_authorized: Pas autorisé.
+      required: '%{attribute} requis.'
+      invalid_attribute: '%{attribute} non valide.'
+      invalid_attribute_value: Valeur %{attribute} non valide, devrait être %{value}
+        .
+      object_not_found: '%{obj} introuvable.'
+      not_found_for: '%{first_attribute} introuvable pour le %{second_attribute} fourni.'
+      no_match: '%{first_attribute} et %{second_attribute} ne correspondent pas.'
+      duplicates: '%{first_attribute} et %{second_attribute} doublons.'
+      greater_than: '%{first_value} doit être supérieur à %{second_value} .'
+      failed_to_delete: Échec de la suppression.
+      delete_error: Erreur lors de la suppression %{obj} .
+      no_payment_method: Aucun mode de paiement
+      watches_unavailable: Montres disponibles uniquement pour les vidéos
+      passcode_expired: Le mot de passe a expiré. Nouveau code envoyé à %{email} .
+      login_attempt_failed: La tentative de connexion a échoué.
+      access_denied: Vous ne disposez pas de privilèges suffisants pour effectuer
+        cette action.
+      premium_messaging_disabled: Votre entreprise ne dispose pas d'un service de
+        messagerie premium activé. Veuillez contacter l'administrateur de votre entreprise.
+  shares:
+    view_all: Voir tout >
+    email: E-mail
+    full_name: Nom et prénom
+    free: GRATUIT
+    giveaways:
+      view_all: Voir tout >
+      upcoming_giveaways: Cadeaux à venir
+    post:
+      video_tag_unsuppported: Votre navigateur ne prend pas en charge cette balise
+        vidéo.
+      thanks_for_watching: Merci d'avoir regardé.
+      download_powerpoint: Téléchargez PowerPoint.
+      download_pdf: Télécharger le PDF.
+      type_a_comment: Tapez un commentaire
+      comment: Commentaire
+      comment_visibility: Seul %{name} peut voir vos commentaires.
+      leave_information: Veuillez laisser vos informations afin que <strong> %{name}
+        </strong> sache qui vous êtes. Vous ne devez le faire qu'une seule fois.
+      email: E-mail
+      full_name: Nom et prénom
+    catalog:
+      title: Boutique
+      description: Achetez tous nos meilleurs produits
+      shop: Boutique
+      ship_to_country: Expédier au pays
+    products:
+      free: GRATUIT
+      no_products: Aucun produit disponible pour <b> %{country_name} </b>
+      sample_products_in_future: Nous travaillons à rendre des exemples de produits
+        disponibles pour <b> %{country_name} </b> dans un avenir proche.
+    checkout:
+      free: GRATUIT
+      buy_now: Ajouter au panier
+      no_reviews: Pas encore d'avis, mais revenez bientôt !
+    success:
+      thank_you: Merci!
+      be_in_touch: Je vous contacterai très bientôt. S'il vous plaît, regardez autour
+        de vous en attendant.
+      view_all: Voir tous les produits
+    simulator:
+      disclaimer: Ce simulateur est destiné à être utilisé et doit être utilisé à
+        des fins d'information uniquement. Les lecteurs doivent prendre conseil financier
+        indépendant auprès d’un professionnel et effectuer des recherches indépendantes
+        et vérifier tous les calculs. Les résultats sont un forum éducatif pour analyser,
+        apprendre et discuter des informations générales et génériques sur les commissions.
+        Les résultats des ventes et des commissions varient considérablement selon
+        les individus.
+      assumptions: Hypothèses
+      followers: Suiveurs
+      engagement: Fiançailles
+      posts: Des postes
+      monthly_commissions: Commissions mensuelles
+      friends_name: Nom de l'ami
+      friends_followers: Abonnés d'un ami
+      add_friend: Ajouter un ami
+      after_duplication: Après la duplication
+      want_to_continue: Vous voulez continuer ?
+      leave_your_info: Veuillez laisser vos informations pour enregistrer vos résultats
+        et recevoir une copie de votre répartition.
+      cancel: Annuler
+      continue: Continuer
+      full_name: Nom et prénom
+      email: E-mail
+      total: Total
+      enter_amount: Entrer le montant
+    promotion:
+      ends: Se termine le %{end_date}
+      more_promotions: Plus de promotions
+      view_all: Voir tout >
+      send_promotion: Laissez-nous vous envoyer la %{promotion}
+      email_prompt: À quel email devons-nous l'envoyer ?
+      send: Envoyer
+    review_form:
+      how_did_we_do: Comment avons-nous fait ?
+      order: Commande n° %{order_number}
+      rate_experience: Comment évalueriez-vous votre expérience avec %{company_name} ?
+      recommend_company: Quelle est la probabilité que vous recommandiez %{company_name}
+        à un ami ?
+      not_likely: Pas probable
+      very_likely: Très probable
+      review_prompt: Qu’est-ce que vous avez aimé ou n’avez pas aimé ? Que doivent
+        savoir les autres acheteurs avant d’acheter ?
+  cart:
+    refund_failed: Désolé, votre transaction a échoué et ne peut pas procéder au remboursement
+      en raison de %{reason} . Veuillez contacter l'assistance
+    order_create_failed: Désolé, car %{reason} le panier ne peut pas continuer et
+      la création de la commande a échoué.
+    buyer_not_present: user_id ou visiteur_id doit présenter
+    transaction_succeded_and_refunded_due_to_save_errors: Transaction réussie et remboursée
+      en raison d'une erreur de paiement du panier
+    transaction_succeded_with_refund_and_save_errors: Transaction réussie avec sauvegarde
+      du panier et échec du remboursement
+    account_exist_enrolled: Tu es inscrit
+    new_enroll: Vous êtes inscrit maintenant. veuillez vérifier votre boîte de réception
+      pour le courrier de confirmation
+    account_not_enrolled: Ýôú ářè ƨúççèƨƨƒúℓ
+  cart_item:
+    variant_qty_greater_than_stock: La quantité d'articles du panier est supérieure
+      au stock
+  enrollments:
+    already_enrolled: Vous êtes déjà inscrit, veuillez essayer de vous connecter
+  products:
+    updates_new_variants: Cette mise à jour affectera uniquement les nouvelles variantes
+  conversations:
+    type:
+      direct_conversation: Messages directs
+      group_conversation: Messages de groupe
+      channel_conversation: Canaux
+      external: Messages clients directs
+      internal: Messages directs de l'équipe
+  mailers:
+    layout:
+      powered_by: Alimenté par
+      all_rights_reserved: Tous droits réservés
+  messaging_mailer:
+    new_message: nouveau message
+    new_mentioned_message: nouveau message mentionné
+    new_message_subject: Nouveau message de %{sender_name}
+    new_message_separator:
+      direct_conversation: Nouveau message non lu
+      group_conversation: Nouveau message non lu
+      channel_conversation: Nouveau message non lu
+      direct_conversation_mentioned: Nouveau message mentionné
+      group_conversation_mentioned: Nouveau message mentionné
+      channel_conversation_mentioned: Nouveau message mentionné
+    reply_thread_link: Répondre à ce fil
+    single_conversation:
+      direct_conversation:
+        subject: Nouveau message de %{sender_name}
+        header:
+          one: Vous avez %{count} messages non lus de %{sender_name}
+          other: Vous avez %{count} messages non lus de %{sender_name}
+        reply_button: Répondre le %{company_name}
+      group_conversation:
+        subject: Nouveaux messages dans ' %{conversation_name} '
+        header:
+          one: Vous avez %{count} nouveaux messages dans le groupe ' %{conversation_name}
+            ' depuis votre dernière connexion.
+          other: Vous avez %{count} nouveaux messages dans le groupe ' %{conversation_name}
+            ' depuis votre dernière connexion.
+        reply_button: En savoir plus
+      channel_conversation:
+        subject: Nouveaux messages dans le canal ' %{conversation_name} '
+        header:
+          one: Vous avez %{count} nouveaux messages dans le canal ' %{conversation_name}
+            ' depuis votre dernière connexion.
+          other: Vous avez %{count} nouveaux messages dans le canal ' %{conversation_name}
+            ' depuis votre dernière connexion.
+        reply_button: En savoir plus
+      direct_conversation_mentioned:
+        subject: Nouvelle mention de %{sender_name}
+        header: '%{sender_name} vous a mentionné'
+        reply_button: Répondre le %{company_name}
+      group_conversation_mentioned:
+        subject: Nouvelle mention dans le groupe ' %{conversation_name} '
+        header: '%{sender_name} vous a mentionné dans le groupe '' %{conversation_name}
+          '''
+        reply_button: Répondre le %{company_name}
+      channel_conversation_mentioned:
+        subject: Nouvelle mention dans le canal ' %{conversation_name} '
+        header: '%{sender_name} vous a mentionné dans le canal '' %{conversation_name}
+          '''
+        reply_button: Répondre le %{company_name}
+    multiple_conversation:
+      header: Que se passe-t-il à %{company_name}
+      reply_button: Ouvrir %{company_name}
+      direct_conversation:
+        header:
+          one: Un message direct de %{sender_name}
+          other: Messages directs de %{sender_name}
+      group_conversation:
+        header:
+          one: '%{count} message non lu dans le groupe '' %{conversation_name} '''
+          other: '%{count} messages non lus dans le groupe '' %{conversation_name}
+            '''
+      channel_conversation:
+        header:
+          one: '%{count} message non lu dans le canal '' %{conversation_name} '''
+          other: '%{count} messages non lus dans le canal '' %{conversation_name}
+            '''
+      direct_conversation_mentioned:
+        header: Une nouvelle mention de %{sender_name}
+      group_conversation_mentioned:
+        header: Une nouvelle mention dans le groupe ' %{conversation_name} '
+      channel_conversation_mentioned:
+        header: Une nouvelle mention dans le canal ' %{conversation_name} '
+      unread_messages:
+        subject:
+          one: Vous avez %{count} message non lu
+          other: Vous avez %{count} messages non lus
+  messaging_subscription_mailer:
+    premium_subscription_successful:
+      subject: Bienvenue dans la messagerie Premium
+    trusthub_profile_submitted:
+      subject: Super! votre profil a été soumis
+    trusthub_profile_approved:
+      subject: Votre numéro de téléphone est prêt !
+    trusthub_profile_rejected:
+      subject: Désolé, votre profil a été rejeté
+  subscription_mailer:
+    greetings: Cher %{user} ,
+    details: Détails
+    start_date: Date de début
+    renewed_at: Renouvelé à
+    valid_until: Valable jusque
+    price: Prix
+    plan: Plan
+    subscribed:
+      subject: Abonné au forfait %{plan}
+      intro: Reçu pour votre abonnement %{plan}
+    renewed:
+      subject: '%{plan} plan renouvelé'
+      intro: Votre abonnement %{plan} a été renouvelé avec succès.
+    renewal_failed:
+      subject: Échec du renouvellement du %{plan}
+      intro: Nous avons le regret de vous informer que le renouvellement de votre
+        abonnement %{plan} a échoué et que votre abonnement a expiré.
+      instructions: Pour continuer à utiliser %{plan} , veuillez vérifier vos informations
+        de paiement et renouveler votre abonnement sur notre site Web.
+      contact_support: Si vous pensez qu'il s'agit d'une erreur ou si vous avez besoin
+        d'aide, veuillez contacter notre équipe d'assistance à %{email} .
+      thank_you: Nous apprécions votre compréhension et votre attention rapide à cette
+        question.
+    expired:
+      subject: Votre abonnement %{plan} a expiré
+      intro: Nous souhaitons vous informer que votre abonnement %{plan} a expiré.
+      instructions: Pour continuer à profiter %{plan} , veuillez visiter notre site
+        Web et renouveler votre abonnement.
+      contact_support: Si vous avez des questions ou avez besoin d'aide, n'hésitez
+        pas à contacter notre équipe d'assistance à %{email} .
+  notification_mailer:
+    cart_activities:
+      title:
+        abandoned_cart: Chariot abandonné
+        cart_items_added: Articles ajoutés au panier
+        order_placed: Commande passée!
+      email: Email client
+      date_time: Date
+      tax: Impôt
+      shipping: Expédition
+      discount: Rabais
+      total: Total
+    announcements:
+      title:
+        training: Nouvelle formation publiée
+        update: Nouvelle annonce publiée
+        upload: Nouveaux médias publiés
+        share: Nouveaux médias publiés
+      button_text:
+        update: Voir l'annonce
+        upload: Afficher les médias
+        share: Afficher les médias
+        training: Voir la formation
+    page_views:
+      title: Page consultée
+      button_text: Afficher l'activité
+      page_title: Titre de la page
+      page_url: L'URL de la page
+      location: Emplacement
+      name: Nom
+      email: E-mail
+    task_overdue:
+      title: Tâche due
+      due_date: Date d'échéance
+      button_text: Afficher l'activité
+    upcoming_event:
+      title: Événement commençant bientôt
+      details: Détails de l'évènement
+      alert: Alerte de nouvel événement
+      url: URL
+      start_date_time: Date/heure de début
+      end_date_time: Date/heure de fin
+      button_text: Ouvrir la page de l'événement
+  subscriptions:
+    unsubscribed:
+      heading: Désabonné !
+      success: Vous vous êtes désabonné avec succès de %{plan} . Votre abonnement
+        expirera le %{date} et ne sera pas renouvelé.
+      closing: Nous sommes désolés de te voir partir.
+      already_unsubscribed: Il semble que vous ayez déjà été désabonné de %{plan}
+        . Aucune autre mesure ne sera requise.
+  messages:
+    deleted:
+      body: Ce message a été supprimé.
+  requests:
+    errors:
+      recipient:
+        discarded: Vous aurez besoin d'une entreprise active pour accéder à cette
+          page.
   users:
     deactivate:
       success: 'Désactivé avec succès.  '
+  education:
+    is: important!
+...
