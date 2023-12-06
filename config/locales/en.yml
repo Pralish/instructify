@@ -129,6 +129,7 @@ en:
       passcode_expired: "Passcode expired. New code sent to %{email}."
       login_attempt_failed: "Login attempt failed."
       access_denied: 'You do not have sufficient privileges to perform this action.'
+      less_than_or_equal_to: "must be less than or equal to %{count}"
 
   shares:
     view_all: &view_all "View all >"
