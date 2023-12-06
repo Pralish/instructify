@@ -8,20 +8,14 @@ ja:
         confirmation: '%{attribute}と一致しません'
         empty: 空にはなれない
         equal_to: '%{count}と等しくなければなりません'
-        even: 均等でなければなりません
         exclusion: 予約されています
         greater_than: '%{count}より大きくなければなりません'
         greater_than_or_equal_to: '%{count}以上である必要があります'
-        in: '%{count}内にある必要があります'
         inclusion: リストには含まれていません
         invalid: 無効です
-        less_than: '%{count}未満である必要があります'
-        less_than_or_equal_to: '%{count}以下である必要があります'
         model_invalid: '検証に失敗しました: %{errors}'
         not_a_number: 数字ではありません
         not_an_integer: 整数でなければなりません
-        odd: 奇妙に違いない
-        other_than: '%{count}以外である必要があります'
         present: 空白でなければなりません
         taken: すでに使用されている
         too_long:
@@ -31,16 +25,6 @@ ja:
         wrong_length:
           other: '長さが間違っています ( %{count}文字である必要があります)'
       models:
-        discount_rule:
-          applicables_required:
-            collection: '少なくとも 1 つの該当するコレクションが必要です。'
-            country: '該当する国が少なくとも 1 つ必要です。'
-            customer: '少なくとも 1 人の顧客が必要です'
-            customer_segment: '少なくとも 1 つの顧客セグメントが必要です。'
-            product: '該当する製品が少なくとも 1 つ必要です。'
-            user_company: '該当する顧客が少なくとも 1 名必要です。'
-          inapplicables_required:
-            country: '適用されない国が少なくとも 1 つ必要です。'
         recipient_conversation:
           attributes:
             conversation:
@@ -63,20 +47,12 @@ ja:
       not_found_for: '指定された%{first_attribute}に対して%{second_attribute}が見つかりません。'
       object_not_found: '%{obj}が見つかりません。'
       passcode_expired: 'パスコードの有効期限が切れました。新しいコードが%{email}に送信されました。'
-      premium_messaging_disabled: 'あなたの会社ではプレミアム メッセージング サービスが有効になっていません。会社の管理者に連絡してください。'
       required: '%{attribute}必須です。'
       watches_unavailable: 動画のみで視聴可能
     messages:
-      deleted: '%{obj}が正常に削除されました。'
-      error: エラー。
-      failure: 失敗。
-      liked_comment: '%{full_name}があなたのコメントに「いいね」をしました。'
-      new_lead: 新しいリード。
-      success: 成功。
       thank_you: ありがとう。
   cart:
     account_exist_enrolled: あなたは登録されています
-    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
     buyer_not_present: 'user_id または Visitor_id を提示する必要があります'
     new_enroll: あなたは現在登録されています。受信箱に確認メールが届いているか確認してください
     order_create_failed: '申し訳ありませんが、 %{reason}のためカートを続行できず、注文の作成に失敗しました。'
@@ -277,8 +253,6 @@ ja:
       review_prompt: '何が好きでしたか、何が嫌いでしたか？他の買い物客が購入する前に知っておくべきことは何ですか?'
       very_likely: 可能性が非常に高い
     simulator:
-      add_friend: 友人を追加する
-      after_duplication: 複製後
       assumptions: 仮定
       cancel: キャンセル
       continue: 続く
@@ -287,14 +261,12 @@ ja:
       engagement: 婚約
       enter_amount: 金額を入力します
       followers: フォロワー
-      friends_followers: 友達のフォロワー
       friends_name: 友達の名前
       full_name: フルネーム
       leave_your_info: 結果を保存し、内訳のコピーを受け取るために情報を残してください。
       monthly_commissions: 月額手数料
       posts: 投稿
       total: 合計
-      want_to_continue: '続けたいですか?'
     success:
       be_in_touch: すぐにご連絡させていただきます。その間、周りを見てください。
       thank_you: ありがとう！
@@ -331,18 +303,6 @@ ja:
       closing: 残念です。
       heading: 購読を解除しました！
       success: '%{plan}の購読を解除しました。サブスクリプションは%{date}に期限切れになり、更新されません。'
-  testing_nested_translation:
-    koho: 教育
-    test40: どうした？
-    test_2:
-      test3: 私の名前はPKです。
-    test_er: これはすごいです
-    test_r: これはすごいです
-    test_sdad: それについてどうするつもりですか？
-    test_u: これはそれです
-    test_v: それは何ですか？
-    test_wx: それは何ですか？
-    thj: 機関車
   time:
     formats:
       short: '%d.% m.%Y'
