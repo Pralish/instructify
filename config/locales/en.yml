@@ -155,10 +155,6 @@ en:
       posts: "Posts"
       monthly_commissions: "Monthly Commissions"
       friends_name: "Friend's Name"
-      friends_followers: "Friend's Followers"
-      add_friend: "Add Friend"
-      after_duplication: "After Duplication"
-      want_to_continue: "Want to continue?"
       leave_your_info: "Please leave your information to save your results and receive a copy of your breakdown."
       cancel: "Cancel"
       continue: "Continue"
@@ -212,6 +208,8 @@ en:
     new_message: 'new message'
     new_mentioned_message: 'new mentioned message'
     new_message_subject: 'New message from %{sender_name}'
+    ow_did_we_do: "How did we do?"
+    order: "Order #%{order_number}"
     new_message_separator:
       direct_conversation: 'New Unread Message'
       group_conversation: 'New Unread Message'
