@@ -41,7 +41,6 @@ en:
         display_entries:
           zero: "No %{entry_name} found"
           one: "Showing <b>1</b> %{entry_name}"
-          other: "Showing <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Showing <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> %{entry_name}"
   time:
@@ -61,7 +60,7 @@ en:
         invalid: "is invalid"
         confirmation: "doesn't match %{attribute}"
         accepted: "must be accepted"
-        empty: "can't be empty"
+        empty: "How do you do?"
         blank: "can't be blank"
         present: "must be blank"
         taken: "is already taken"
