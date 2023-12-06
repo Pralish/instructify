@@ -66,7 +66,6 @@ fr:
       not_found_for: '%{first_attribute} introuvable pour le %{second_attribute} fourni.'
       object_not_found: '%{obj} introuvable.'
       passcode_expired: 'Le mot de passe a expiré. Nouveau code envoyé à %{email} .'
-      premium_messaging_disabled: 'Votre entreprise ne dispose pas d''un service de messagerie premium activé. Veuillez contacter l''administrateur de votre entreprise.'
       required: '%{attribute} requis.'
       watches_unavailable: 'Montres disponibles uniquement pour les vidéos'
     messages:
@@ -79,7 +78,6 @@ fr:
       thank_you: Merci.
   cart:
     account_exist_enrolled: 'Tu es inscrit'
-    account_not_enrolled: 'Ýôú ářè ƨúççèƨƨƒúℓ'
     buyer_not_present: 'user_id ou visiteur_id doit présenter'
     new_enroll: 'Vous êtes inscrit maintenant. veuillez vérifier votre boîte de réception pour le courrier de confirmation'
     order_create_failed: 'Désolé, car %{reason} le panier ne peut pas continuer et la création de la commande a échoué.'
@@ -343,18 +341,6 @@ fr:
       closing: 'Nous sommes désolés de te voir partir.'
       heading: 'Désabonné !'
       success: 'Vous vous êtes désabonné avec succès de %{plan} . Votre abonnement expirera le %{date} et ne sera pas renouvelé.'
-  testing_nested_translation:
-    koho: éducation
-    test40: 'qu''est-ce qui se passe?'
-    test_2:
-      test3: 'Je m''appelle PK.'
-    test_er: 'C''est génial'
-    test_r: 'C''est génial'
-    test_sdad: 'Qu''allez-vous faire à ce sujet?'
-    test_u: 'c''est ça'
-    test_v: 'qu''est-ce que c''est?'
-    test_wx: 'qu''est-ce que c''est?'
-    thj: locomotive
   time:
     formats:
       short: '%d.% m.%Y'
