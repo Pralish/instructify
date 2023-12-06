@@ -87,12 +87,6 @@ en:
   api:
     messages:
       thank_you: "Thank You."
-      success: "Success."
-      failure: "Failure."
-      error: "Error."
-      deleted: "%{obj} deleted successfully."
-      liked_comment: "%{full_name} liked your comment."
-      new_lead: "New Lead."
 
     errors:
       api_error: "API error, sorry for inconvenience, contact fluid support."
