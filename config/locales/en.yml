@@ -154,10 +154,6 @@ en:
       engagement: "Engagement"
       posts: "Posts"
       monthly_commissions: "Monthly Commissions"
-      friends_name: "Friend's Name"
-      leave_your_info: "Please leave your information to save your results and receive a copy of your breakdown."
-      cancel: "Cancel"
-      continue: "Continue"
       full_name: *full_name
       email: *email
       total: "Total"
