@@ -83,16 +83,6 @@ en:
           attributes:
             conversation:
               unarchivable: "cannot be archived."
-        discount_rule:
-          applicables_required:
-            country: 'At least one applicable country is required.'
-            collection: 'At least one applicable collection is required.'
-            product: 'At least one applicable product is required.'
-            user_company: 'At least one applicable customer is required.'
-            customer_segment: 'At least one customer segment is required.'
-            customer: 'At least one customer is required'
-          inapplicables_required:
-            country: 'At least one inapplicable country is required.'
 
   api:
     messages:
